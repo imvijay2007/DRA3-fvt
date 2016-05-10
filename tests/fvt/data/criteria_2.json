@@ -1,0 +1,13 @@
+{
+    "name": "scenario2",
+    "stage": "code",
+    "org_name": "vjegase@us.ibm.com",
+    "rules": [
+      {
+        "name": "testcoveragepercentage",
+        "format": "istanbul",
+        "stage": "unittest",
+        "codeCoverage": 80
+      }
+    ]
+}

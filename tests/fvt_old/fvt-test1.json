@@ -1,0 +1,22 @@
+{
+    "projectName": "oneibmcloud | SampleFVTProject1",
+    "PIPELINE_STAGE_INPUT_REV": "2",
+    "server": "http://da-test.oneibmcloud.com",
+    "criteria": "criteria.json",
+    "events": [{
+        "type": "unittest",
+        "file": "mochaTest_prev_pass.json"
+    }, {
+        "type": "istanbulCoverage",
+        "file": "istanbul_normal_cov.json"
+    }, {
+        "type": "SaucelabFvtTest",
+        "file": "sauce_all_pass.json"
+    }, {
+        "type": "deployInfo",
+        "file": "deployInfo.json"
+    }],
+    "decision": "Samplefvtcriteria1",
+    "seleniumtestfile": "selenium_file1.js",
+    "decisionfile": "decision.json"
+}

@@ -1,0 +1,51 @@
+{
+    "_id": "56524f18b30b461d004cb9da",
+    "criteriaName": "Fvt_unittest",
+    "mode": "decision",
+    "revision": 2,
+    "projectName": "oneibmcloud | FVT_unittest",
+    "rules": [{
+        "name": "Unit Test Success (Mocha)",
+        "conditions": [{
+            "eval": "_mochaTestSuccessPercentage",
+            "op": "=",
+            "value": 100
+        }],
+        "failures": [],
+        "functionResponse": [{
+            "functionname": "mochaTestSuccessPercentage",
+            "reportType": "TestResult",
+            "tests": 28,
+            "passes": 28,
+            "percentage": 100
+        }],
+        "matchedDocs": [
+            "56524f17b30b461d004cb9d9"
+        ],
+        "outcome": "Success"
+    }, {
+        "name": "Unit Test Regression (Mocha)",
+        "conditions": [{
+            "eval": "_hasMochaTestRegressed",
+            "op": "=",
+            "value": false
+        }],
+        "failures": [],
+        "functionResponse": [{
+            "functionname": "hasMochaTestRegressed",
+            "reportType": "TestRegression",
+            "returnValue": false
+        }],
+        "matchedDocs": [
+            "56524f17b30b461d004cb9d9"
+        ],
+        "outcome": "Success"
+    }],
+    "score": "100%",
+    "decision": "Proceed",
+    "eventType": "_decision",
+    "pipelineRunId": "oneibmcloud_FVT_unittest_2",
+    "projectKey": "86e85eb1-7bfa-402a-a527-1549674a3829",
+    "timestamp": "2015-11-22T23:26:16.921Z",
+    "timestampsec": 1448234776921
+}

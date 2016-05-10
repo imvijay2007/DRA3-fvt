@@ -1,0 +1,11 @@
+{
+    "projectName": "oneibmcloud | FVTProject2",
+    "server": "http://da-test.oneibmcloud.com",
+    "criteria": "criteria.json",
+    "events": [{
+        "type": "unittest",
+        "file": "mochaTest_current_fail.json"
+    }],
+    "decision": "fvtcriteria2",
+    "decisionfile": "decision.json"
+}

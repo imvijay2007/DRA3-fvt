@@ -1,0 +1,458 @@
+var webdriver = require('selenium-webdriver'),
+    assert = require('assert');
+    test = require('../../node_modules/selenium-webdriver/testing');
+    SauceLabs = require('saucelabs');
+    
+var sauce = 'http://ondemand.saucelabs.com:80/wd/hub';
+var http = require('https');
+
+test.describe('fvt-test1', function() {
+  var browser;
+  var allPassed = true;
+
+  test.before(function() {
+    browser = new webdriver.Builder().
+        usingServer(sauce).
+        withCapabilities({
+        browserName: 'Firefox',
+        platform: 'Windows XP',
+        name: 'Report page title check',
+        tags: ["demo","ibm","devops"],
+        build: '1.1.0',
+        username: process.env.SAUCE_USERNAME,
+        accessKey: process.env.SAUCE_ACCESS_KEY
+    }).
+        build();
+  });
+
+  test.it("check report title: <project_name> - <report name>", function(done) {
+	  var in_url = process.env.REPORT_URL;
+		var x = in_url.split("=");
+		var x1 = x[1].split("&");
+		var x2 = x1[0].split("_");
+      browser.get(in_url);
+            var flow = webdriver.promise.controlFlow();
+                flow.execute(function () { return webdriver.promise.delayed(3 * 1000); });
+        browser.getTitle('value').then(function(title) {
+             assert.equal(title, x2[1]+' - Deployment Risk Analytics Decision Report');
+            });
+        done();
+    });
+
+  test.afterEach(function(done) {   
+           if(this.currentTest.state === 'passed')  
+             allPassed = true;
+            else
+             allPassed = false;
+            done();
+    });
+
+  test.after(function(done) {
+    browser.getSession().then(function(session){
+            var sauceAccount = new SauceLabs({
+                username: process.env.SAUCE_USERNAME,
+                password: process.env.SAUCE_ACCESS_KEY
+            });
+            sauceAccount.updateJob(session.getId(), {passed:allPassed}, function(){});
+            browser.quit();
+            done();
+    });
+   
+  });
+});
+
+test.describe('fvt-test2', function() {
+  var browser;
+  var allPassed = true;
+
+  test.before(function() {
+    browser = new webdriver.Builder().
+        usingServer(sauce).
+        withCapabilities({
+        browserName: 'Firefox',
+        platform: 'Windows XP',
+        name: 'Report heading check',
+        tags: ["demo","ibm","devops"],
+        build: '1.1.0',
+        username: process.env.SAUCE_USERNAME,
+        accessKey: process.env.SAUCE_ACCESS_KEY
+    }).
+        build();
+  });
+
+  test.it("check report heading", function(done) {
+	  var in_url =process.env.REPORT_URL;
+        browser.get(in_url);
+		browser.findElement(webdriver.By.tagName('h2')).then(function(element) {
+			//console.log('Found an element!');
+											element.getText().then(function(text) {
+											assert.equal(text, 'Deployment Risk Analytics Decision Report');
+											});
+			}, function(error) {
+			//console.log('Element was not found');
+		});
+        done();
+    });
+
+  test.afterEach(function(done) {   
+           if(this.currentTest.state === 'passed')  
+             allPassed = true;
+            else
+             allPassed = false;
+            done();
+    });
+
+  test.after(function(done) {
+    browser.getSession().then(function(session){
+            var sauceAccount = new SauceLabs({
+                username: process.env.SAUCE_USERNAME,
+                password: process.env.SAUCE_ACCESS_KEY
+            });
+            sauceAccount.updateJob(session.getId(), {passed:allPassed}, function(){});
+            browser.quit();
+            done();
+    });
+   
+  });
+});
+
+test.describe('fvt-test3', function() {
+  var browser;
+  var allPassed = true;
+
+  test.before(function() {
+    browser = new webdriver.Builder().
+        usingServer(sauce).
+        withCapabilities({
+        browserName: 'Firefox',
+        platform: 'Windows XP',
+        name: 'Timestamp check',
+        tags: ["demo","ibm","devops"],
+        build: '1.1.0',
+        username: process.env.SAUCE_USERNAME,
+        accessKey: process.env.SAUCE_ACCESS_KEY
+    }).
+        build();
+  });
+
+  test.it("check timestamp", function(done) {
+	  var in_url =process.env.REPORT_URL;
+        browser.get(in_url);
+        var flow = webdriver.promise.controlFlow();
+                flow.execute(function () { return webdriver.promise.delayed(3 * 1000); });
+		browser.findElement(webdriver.By.tagName('span')).then(function(element) {
+			//console.log('Found an element!');
+											element.getText().then(function(text) {
+												assert.notEqual(text.indexOf("Timestamp"),-1);
+											});
+			}, function(error) {
+			console.log('Element was not found');
+		});
+        done();
+    });
+
+  test.afterEach(function(done) {   
+           if(this.currentTest.state === 'passed')  
+             allPassed = true;
+            else
+             allPassed = false;
+            done();
+    });
+
+  test.after(function(done) {
+    browser.getSession().then(function(session){
+            var sauceAccount = new SauceLabs({
+                username: process.env.SAUCE_USERNAME,
+                password: process.env.SAUCE_ACCESS_KEY
+            });
+            sauceAccount.updateJob(session.getId(), {passed:allPassed}, function(){});
+            browser.quit();
+            done();
+    });
+   
+  });
+});
+
+test.describe('fvt-test4', function() {
+  var browser;
+  var allPassed = true;
+
+  test.before(function() {
+    browser = new webdriver.Builder().
+        usingServer(sauce).
+        withCapabilities({
+        browserName: 'Firefox',
+        platform: 'Windows XP',
+        name: 'Build# check',
+        tags: ["demo","ibm","devops"],
+        build: '1.1.0',
+        username: process.env.SAUCE_USERNAME,
+        accessKey: process.env.SAUCE_ACCESS_KEY
+    }).
+        build();
+  });
+
+  test.it("check build#", function(done) {
+	  var in_url = process.env.REPORT_URL;
+        var x = in_url.split("=");
+		var x1 = x[1].split("&");
+		var x2 = x1[0].split("_");
+        browser.get(in_url);
+		browser.findElements(webdriver.By.tagName('span')).then(function(element) {
+			//console.log('Found an element!');
+											element[2].getText().then(function(text) {
+                                                var text1 = text.split(":");
+                                                assert.equal(text1[1].replace(/\s/g, ""),(x2[2]));
+											});
+			}, function(error) {
+			console.log('Element was not found');
+		});
+        done();
+    });
+
+  test.afterEach(function(done) {   
+           if(this.currentTest.state === 'passed')  
+             allPassed = true;
+            else
+             allPassed = false;
+            done();
+    });
+
+  test.after(function(done) {
+    browser.getSession().then(function(session){
+            var sauceAccount = new SauceLabs({
+                username: process.env.SAUCE_USERNAME,
+                password: process.env.SAUCE_ACCESS_KEY
+            });
+            sauceAccount.updateJob(session.getId(), {passed:allPassed}, function(){});
+            browser.quit();
+            done();
+    });
+   
+  });
+});
+
+test.describe('fvt-test5', function() {
+  var browser;
+  var allPassed = true;
+
+  test.before(function() {
+    browser = new webdriver.Builder().
+        usingServer(sauce).
+        withCapabilities({
+        browserName: 'Firefox',
+        platform: 'Windows XP',
+        name: 'Rule list check',
+        tags: ["demo","ibm","devops"],
+        build: '1.1.0',
+        username: process.env.SAUCE_USERNAME,
+        accessKey: process.env.SAUCE_ACCESS_KEY
+    }).
+        build();
+  });
+
+  test.it("check if rule list populated in UI", function(done) {
+	  var in_url = process.env.REPORT_URL;
+        browser.get(in_url);
+                var flow = webdriver.promise.controlFlow();
+                flow.execute(function () { return webdriver.promise.delayed(3 * 1000); });
+		browser.findElement(webdriver.By.className('leftBlock,block')).then(function(element) {
+			//console.log('Found an element!');
+										element.getText().then(function(text) {
+											assert.notEqual(text,"");
+											});
+                                        
+			}, function(error) {
+			console.log('Element was not found');
+		});
+        done();
+    });
+
+  test.afterEach(function(done) {   
+           if(this.currentTest.state === 'passed')  
+             allPassed = true;
+            else
+             allPassed = false;
+            done();
+    });
+
+  test.after(function(done) {
+    browser.getSession().then(function(session){
+            var sauceAccount = new SauceLabs({
+                username: process.env.SAUCE_USERNAME,
+                password: process.env.SAUCE_ACCESS_KEY
+            });
+            sauceAccount.updateJob(session.getId(), {passed:allPassed}, function(){});
+            browser.quit();
+            done();
+    });
+   
+  });
+});
+
+test.describe('fvt-test6', function() {
+  var browser;
+  var allPassed = true;
+
+  test.before(function() {
+    browser = new webdriver.Builder().
+        usingServer(sauce).
+        withCapabilities({
+        browserName: 'Firefox',
+        platform: 'Windows XP',
+        name: 'Rule result check',
+        tags: ["demo","ibm","devops"],
+        build: '1.1.0',
+        username: process.env.SAUCE_USERNAME,
+        accessKey: process.env.SAUCE_ACCESS_KEY
+    }).
+        build();
+  });
+
+  test.it("check if rule results populated in UI", function(done) {
+	  var in_url = process.env.REPORT_URL;
+        browser.get(in_url);
+                var flow = webdriver.promise.controlFlow();
+                flow.execute(function () { return webdriver.promise.delayed(3 * 1000); });
+		browser.findElement(webdriver.By.className('rightBlock,block')).then(function(element) {
+			//console.log('Found an element!');
+										element.getText().then(function(text) {
+											assert.notEqual(text,"");
+											});
+                                        
+			}, function(error) {
+			console.log('Element was not found');
+		});
+        done();
+    });
+
+  test.afterEach(function(done) {   
+           if(this.currentTest.state === 'passed')  
+             allPassed = true;
+            else
+             allPassed = false;
+            done();
+    });
+
+  test.after(function(done) {
+    browser.getSession().then(function(session){
+            var sauceAccount = new SauceLabs({
+                username: process.env.SAUCE_USERNAME,
+                password: process.env.SAUCE_ACCESS_KEY
+            });
+            sauceAccount.updateJob(session.getId(), {passed:allPassed}, function(){});
+            browser.quit();
+            done();
+    });
+   
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+test.describe( 'Basic Report Type', function() {
+    var browser;
+    var allPassed = true;
+
+    test.before(function() {
+        browser = new webdriver.Builder().
+            usingServer(sauce).
+            withCapabilities({
+                browserName: 'Firefox',
+                platform: 'Windows XP',
+                name: 'Rule result check',
+                tags: ["demo","ibm","devops"],
+                build: '1.1.0',
+                username: process.env.SAUCE_USERNAME,
+                accessKey: process.env.SAUCE_ACCESS_KEY
+            }).
+            build();
+    });
+
+    test.it( "check if rule results populated in UI", function(done) {
+        var in_url = process.env.REPORT_URL;
+        browser.get(in_url);
+        var flow = webdriver.promise.controlFlow();
+        
+        flow.execute(function () { 
+            return webdriver.promise.delayed(3 * 1000); 
+        });
+        
+        browser.findElement(webdriver.By.className('rightBlock,block')).then(function(element) {
+            //console.log('Found an element!');
+            element.getText().then(function(text) {
+                assert.notEqual(text,"");
+            });
+
+        }, function(error) {
+            console.log('Element was not found');
+        });
+        
+        
+        done();
+    });
+
+    test.afterEach(function(done) {   
+        if(this.currentTest.state === 'passed')  
+            allPassed = true;
+        else
+            allPassed = false;
+        done();
+    });
+
+    test.after(function(done) {
+        browser.getSession().then(function(session){
+            var sauceAccount = new SauceLabs({
+                username: process.env.SAUCE_USERNAME,
+                password: process.env.SAUCE_ACCESS_KEY
+            });
+            
+            sauceAccount.updateJob(session.getId(), {passed:allPassed}, function(){});
+            browser.quit();
+            done();
+        });
+    });
+});

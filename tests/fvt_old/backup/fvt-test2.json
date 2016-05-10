@@ -1,0 +1,13 @@
+{
+    "projectName": "oneibmcloud | SampleFVTProject2",
+    "PIPELINE_STAGE_INPUT_REV": "3",
+    "server": "http://da-test.oneibmcloud.com",
+    "criteria": "criteria.json",
+    "events": [{
+        "type": "unittest",
+        "file": "mochaTest_current_fail.json"
+    }],
+    "decision": "Samplefvtcriteria2",
+    "seleniumtestfile": "selenium_file2.js",
+    "decisionfile": "decision.json"
+}

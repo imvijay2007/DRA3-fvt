@@ -1,0 +1,53 @@
+{
+    "_id": "564bb0f609202a1d00375625",
+    "criteriaName": "Samplefvtcriteria2",
+    "mode": "decision",
+    "revision": 2,
+    "projectName": "oneibmcloud | SampleFVTProject2",
+    "rules": [{
+        "name": "Unit Test Success (Mocha)",
+        "conditions": [{
+            "eval": "_mochaTestSuccessPercentage",
+            "op": "=",
+            "value": 100
+        }],
+        "failures": [{
+            "failed": "_mochaTestSuccessPercentage evaluated as: [75], expected: [100], operation: [=]"
+        }],
+        "functionResponse": [{
+            "functionname": "mochaTestSuccessPercentage",
+            "reportType": "TestResult",
+            "tests": 28,
+            "passes": 21,
+            "percentage": 75
+        }],
+        "matchedDocs": [
+            "564bb0f409202a1d00375624"
+        ],
+        "outcome": "Failed"
+    }, {
+        "name": "Unit Test Regression (Mocha)",
+        "conditions": [{
+            "eval": "_hasMochaTestRegressed",
+            "op": "=",
+            "value": false
+        }],
+        "failures": [],
+        "functionResponse": [{
+            "functionname": "hasMochaTestRegressed",
+            "reportType": "TestRegression",
+            "returnValue": false
+        }],
+        "matchedDocs": [
+            "564bb0f409202a1d00375624"
+        ],
+        "outcome": "Success"
+    }],
+    "score": "50%",
+    "decision": "Stop",
+    "eventType": "_decision",
+    "pipelineRunId": "oneibmcloud_SampleFVTProject2_3",
+    "projectKey": "814220aa-059f-4091-adc1-7340d07ff07d",
+    "timestamp": "2015-11-17T22:57:58.414Z",
+    "timestampsec": 1447801078414
+}

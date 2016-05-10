@@ -1,0 +1,87 @@
+{
+    "_id": "56525713b30b461d004cba43",
+    "criteriaName": "Fvt_functional_regression_test",
+    "mode": "decision",
+    "revision": 2,
+    "projectName": "oneibmcloud | FVT_functionaltest",
+    "rules": [{
+        "name": "At Least 90% Success in Functional Tests",
+        "conditions": [{
+            "eval": "_saucelabTestSuccessPercentage",
+            "op": ">",
+            "value": 90
+        }],
+        "failures": [{
+            "failed": "_saucelabTestSuccessPercentage evaluated as: [71], expected: [90], operation: [>]"
+        }],
+        "functionResponse": [{
+            "functionname": "saucelabTestSuccessPercentage",
+            "reportType": "TestResult",
+            "tests": 7,
+            "passes": 5,
+            "percentage": 71
+        }],
+        "matchedDocs": [
+            "56525711b30b461d004cba42"
+        ],
+        "outcome": "Failed"
+    }, {
+        "name": "No Failures in Critical Functional Tests",
+        "conditions": [{
+            "eval": "_hasSaucelabCriticalTestPassed(\"Rule list check\",\"Rule result check\")",
+            "op": "=",
+            "value": true
+        }],
+        "failures": [],
+        "functionResponse": [{
+            "functionname": "hasSaucelabCriticalTestPassed",
+            "reportType": "TestRegression",
+            "list": []
+        }],
+        "matchedDocs": [
+            "56525711b30b461d004cba42"
+        ],
+        "returnval": true,
+        "outcome": "Success"
+    }, {
+        "name": "No Regression in Functional Tests",
+        "conditions": [{
+            "eval": "_hasSaucelabTestRegressed",
+            "op": "=",
+            "value": false
+        }],
+        "failures": [{
+            "failed": "_hasSaucelabTestRegressed evaluated as: [true], expected: [false], operation: [=]"
+        }],
+        "functionResponse": [{
+            "functionname": "hasSaucelabTestRegressed",
+            "reportType": "TestRegression",
+            "returnValue": true,
+            "pipelinePast": {
+                "id": "oneibmcloud_FVT_functionaltest_2",
+                "timestamp": "2015-11-23T00:00:13.741Z"
+            },
+            "pipelineCurrent": {
+                "id": "oneibmcloud_FVT_functionaltest_5",
+                "timestamp": "2015-11-23T00:00:17.513Z"
+            },
+            "regressionOccured": true,
+            "list": [
+                "Build# check",
+                "Timestamp check"
+            ]
+        }],
+        "matchedDocs": [
+            "56525711b30b461d004cba42",
+            "5652570db30b461d004cba3e"
+        ],
+        "outcome": "Failed"
+    }],
+    "score": "33%",
+    "decision": "Stop",
+    "eventType": "_decision",
+    "pipelineRunId": "oneibmcloud_FVT_functionaltest_5",
+    "projectKey": "937de92c-14a7-4192-babb-a0a7e071382e",
+    "timestamp": "2015-11-23T00:00:19.080Z",
+    "timestampsec": 1448236819080
+}

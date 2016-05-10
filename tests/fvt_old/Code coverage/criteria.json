@@ -1,0 +1,32 @@
+{
+    "name": "Fvt_coverage_test",
+    "revision": 2,
+    "project": "key",
+    "mode": "decision",
+    "rules": [{
+        "name": "Coverage Regression (Istanbul)",
+        "conditions": [{
+            "eval": "_hasIstanbulCoverageRegressed(-2)",
+            "op": "=",
+            "value": false
+        }]
+    }, {
+        "name": "Code Coverage (Istanbul)",
+        "conditions": [{
+            "eval": "eventType",
+            "op": "=",
+            "value": "istanbulCoverage",
+            "reportType": "CoverageResult"
+        }, {
+            "eval": "filecontents.total.lines.pct",
+            "op": ">=",
+            "value": "40",
+            "reportType": "CoverageResult"
+        }, {
+            "eval": "filecontents.(routes/criteria.js).lines.pct",
+            "op": ">=",
+            "value": "40",
+            "reportType": "CoverageResult"
+        }]
+    }]
+}

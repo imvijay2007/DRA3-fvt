@@ -1,0 +1,210 @@
+[{
+    "_id": "ce37b2347c816dd75563b4df5d252c67",
+    "project_name": "DemoDRA",
+    "runtime_name": "b5262933-cb60-4cc1-b2d5-4c2a1b30a783",
+    "build_id": "oneibmcloud_DeployAnalytics_200",
+    "custom_metadata": {
+        "job_name": "Build",
+        "stage_name": "Build & UT",
+        "build_number": "8",
+        "toolchain_id": "19f03a59-825c-4419-a815-204ffad68ee2"
+    },
+    "timestamp": "2016-03-09T18:27:20.703Z",
+    "module_name": "DemoDRA",
+    "environment_name": "DEV",
+    "lifecycle_stage": "UNITTEST",
+    "tool_name": "blanket",
+    "org_id": "draorg1",
+    "timestampepoch": 1457548040703,
+    "contents": {
+        "instrumentation": "node-jscoverage",
+        "sloc": 9,
+        "hits": 5,
+        "misses": 4,
+        "coverage": 10,
+        "files": [{
+            "filename": "/home/jenkins/workspace/adc83cbf-5438-6f85-d962-5e30ce428874/dc60670c-1985-4de3-bdb5-9579e09743c3/routes/serverTest.js",
+            "coverage": 53.55555555555556,
+            "hits": 5,
+            "misses": 4,
+            "sloc": 9,
+            "source": {
+                "1": {
+                    "source": "// cow.js",
+                    "coverage": ""
+                },
+                "2": {
+                    "source": "(function(exports) {",
+                    "coverage": 1
+                },
+                "3": {
+                    "source": "  \"use strict\";",
+                    "coverage": 1
+                },
+                "4": {
+                    "source": "",
+                    "coverage": ""
+                },
+                "5": {
+                    "source": "  function Cow(name) {",
+                    "coverage": 1
+                },
+                "6": {
+                    "source": "    this.name = name || \"Anon cow\";",
+                    "coverage": 0
+                },
+                "7": {
+                    "source": "  }",
+                    "coverage": ""
+                },
+                "8": {
+                    "source": "  exports.Cow = Cow;",
+                    "coverage": 1
+                },
+                "9": {
+                    "source": "",
+                    "coverage": ""
+                },
+                "10": {
+                    "source": "  Cow.prototype = {",
+                    "coverage": 1
+                },
+                "11": {
+                    "source": "    greets: function(target) {",
+                    "coverage": ""
+                },
+                "12": {
+                    "source": "      if (!target)",
+                    "coverage": 0
+                },
+                "13": {
+                    "source": "        throw new Error(\"missing target\");",
+                    "coverage": 0
+                },
+                "14": {
+                    "source": "      return this.name + \" greets \" + target;",
+                    "coverage": 0
+                },
+                "15": {
+                    "source": "    }",
+                    "coverage": ""
+                },
+                "16": {
+                    "source": "  };",
+                    "coverage": ""
+                },
+                "17": {
+                    "source": "})(this)",
+                    "coverage": ""
+                }
+            }
+        }, {
+            "filename": "/home/jenkins/workspace/adc83cbf-5438-6f85-d962-5e30ce428874/dc60670c-1985-4de3-bdb5-9579e09743c3/routes/serverTest.js",
+            "coverage": 33,
+            "hits": 5,
+            "misses": 4,
+            "sloc": 9,
+            "source": {
+                "1": {
+                    "source": "// cow.js",
+                    "coverage": ""
+                },
+                "2": {
+                    "source": "(function(exports) {",
+                    "coverage": 1
+                },
+                "3": {
+                    "source": "  \"use strict\";",
+                    "coverage": 1
+                },
+                "4": {
+                    "source": "",
+                    "coverage": ""
+                },
+                "5": {
+                    "source": "  function Cow(name) {",
+                    "coverage": 1
+                },
+                "6": {
+                    "source": "    this.name = name || \"Anon cow\";",
+                    "coverage": 0
+                },
+                "7": {
+                    "source": "  }",
+                    "coverage": ""
+                },
+                "8": {
+                    "source": "  exports.Cow = Cow;",
+                    "coverage": 1
+                },
+                "9": {
+                    "source": "",
+                    "coverage": ""
+                },
+                "10": {
+                    "source": "  Cow.prototype = {",
+                    "coverage": 1
+                },
+                "11": {
+                    "source": "    greets: function(target) {",
+                    "coverage": ""
+                },
+                "12": {
+                    "source": "      if (!target)",
+                    "coverage": 0
+                },
+                "13": {
+                    "source": "        throw new Error(\"missing target\");",
+                    "coverage": 0
+                },
+                "14": {
+                    "source": "      return this.name + \" greets \" + target;",
+                    "coverage": 0
+                },
+                "15": {
+                    "source": "    }",
+                    "coverage": ""
+                },
+                "16": {
+                    "source": "  };",
+                    "coverage": ""
+                },
+                "17": {
+                    "source": "})(this)",
+                    "coverage": ""
+                }
+            }
+        }],
+        "stats": {
+            "suites": 3,
+            "tests": 3,
+            "passes": 0,
+            "pending": 0,
+            "failures": 3,
+            "start": "2015-10-01T22:39:47.914Z",
+            "end": "2015-10-01T22:39:47.918Z",
+            "duration": 4
+        },
+        "tests": [{
+            "title": "should have a default name",
+            "fullTitle": "Cow constructor should have a default name"
+        }, {
+            "title": "should set cow's name if provided",
+            "fullTitle": "Cow constructor should set cow's name if provided"
+        }, {
+            "title": "should greet passed target",
+            "fullTitle": "Cow #greets should greet passed target"
+        }],
+        "failures": [{
+            "title": "should have a default name",
+            "fullTitle": "Cow constructor should have a default name"
+        }, {
+            "title": "should set cow's name if provided",
+            "fullTitle": "Cow constructor should set cow's name if provided"
+        }, {
+            "title": "should greet passed target",
+            "fullTitle": "Cow #greets should greet passed target"
+        }],
+        "passes": []
+    }
+}]

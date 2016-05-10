@@ -1,0 +1,28 @@
+{
+    "name": "Fvt_functional_test",
+    "revision": 2,
+    "project": "key",
+    "mode": "decision",
+    "rules": [{
+        "name": "At Least 90% Success in Functional Tests",
+        "conditions": [{
+            "eval": "_saucelabTestSuccessPercentage",
+            "op": ">",
+            "value": 90
+        }]
+    }, {
+        "name": "No Failures in Critical Functional Tests",
+        "conditions": [{
+            "eval": "_hasSaucelabCriticalTestPassed(\"Rule list check\",\"Rule result check\")",
+            "op": "=",
+            "value": true
+        }]
+    }, {
+        "name": "No Regression in Functional Tests",
+        "conditions": [{
+            "eval": "_hasSaucelabTestRegressed",
+            "op": "=",
+            "value": false
+        }]
+    }]
+}

@@ -1,0 +1,11 @@
+#!/bin/bash -x
+
+#rename
+cf delete ${CF_APP} -f
+cf rename ${CF_APP}-blue ${CF_APP}
+
+#map new route
+export CF_DOMAIN=stage1.mybluemix.net
+cf unmap-route ${CF_APP}  ${CF_DOMAIN} -n ${CF_APP}-blue
+cf map-route ${CF_APP} ${CF_DOMAIN} -n ${CF_APP}
+

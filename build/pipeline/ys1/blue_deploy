@@ -1,0 +1,4 @@
+#!/bin/bash -x
+
+cf delete ${CF_APP}-blue -f
+cf push ${CF_APP}-blue -n ${CF_APP}-blue -f manifest-ys1.yml

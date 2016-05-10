@@ -1,0 +1,12 @@
+applications:
+- path: .
+  memory: 256M
+  instances: 1
+  domain: stage1.mybluemix.net
+  name: dlms-maint
+  host: dlms-maint
+  disk_quota: 1024M
+  services:
+  - cfg-dlms-ys1
+  env:
+    SECGRP: GRP1STGS

@@ -1,0 +1,13 @@
+{
+    "projectName": "oneibmcloud | SampleFVTProject3",
+    "PIPELINE_STAGE_INPUT_REV": "4",
+    "server": "http://da-test.oneibmcloud.com",
+    "criteria": "criteria.json",
+    "events": [{
+        "type": "istanbulCoverage",
+        "file": "istanbul_regressed_cov.json"
+    }],
+    "decision": "Samplefvtcriteria3",
+    "seleniumtestfile": "selenium_file3.js",
+    "decisionfile": "decision.json"
+}

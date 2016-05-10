@@ -1,0 +1,12 @@
+{
+    "projectName": "oneibmcloud | FVT_functionaltest",
+    "PIPELINE_STAGE_INPUT_REV": "5",
+    "server": "http://da-test.oneibmcloud.com",
+    "criteria": "criteria.json",
+    "events": [{
+        "type": "SaucelabFvtTest",
+        "file": "sauce_some_fail.json"
+    }],
+    "seleniumtestfile": "selenium_file1.js",
+    "decisionfile": "decision.json"
+}

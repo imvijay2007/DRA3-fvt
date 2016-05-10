@@ -1,0 +1,16 @@
+{
+    "_id": "56e9c603b1c5e50304f562bb",
+    "name": "DynamicCriteria_e5fe760a-503a-41e9-bb30-fc18303af67e",
+    "mode": "decision",
+    "rules": [{
+        "name": "At least 80% code coverage in unit tests (istanbul)",
+        "conditions": [{
+            "eval": "contents.total.lines.pct",
+            "op": ">=",
+            "value": "20",
+            "reportType": "CoverageResult",
+            "forTool": "istanbul",
+            "forStage": "unittest"
+        }]
+    }]
+}

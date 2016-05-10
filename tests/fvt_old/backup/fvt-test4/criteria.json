@@ -1,0 +1,67 @@
+{
+    "name": "Samplefvtcriteria4",
+    "revision": 2,
+    "project": "key",
+    "mode": "decision",
+    "rules": [{
+        "name": "At Least 90% Success in Functional Tests",
+        "conditions": [{
+            "eval": "_saucelabTestSuccessPercentage",
+            "op": ">",
+            "value": 90
+        }]
+    }, {
+        "name": "No Failures in Critical Functional Tests",
+        "conditions": [{
+            "eval": "_hasSaucelabCriticalTestPassed(\"Rule list check\",\"Rule result check\")",
+            "op": "=",
+            "value": true
+        }]
+    }, {
+        "name": "No Regression in Functional Tests",
+        "conditions": [{
+            "eval": "_hasSaucelabTestRegressed",
+            "op": "=",
+            "value": false
+        }]
+    }, {
+        "name": "Coverage Regression (Istanbul)",
+        "conditions": [{
+            "eval": "_hasIstanbulCoverageRegressed(-2)",
+            "op": "=",
+            "value": false
+        }]
+    }, {
+        "name": "Code Coverage (Istanbul)",
+        "conditions": [{
+            "eval": "eventType",
+            "op": "=",
+            "value": "istanbulCoverage",
+            "reportType": "CoverageResult"
+        }, {
+            "eval": "filecontents.total.lines.pct",
+            "op": ">=",
+            "value": "40",
+            "reportType": "CoverageResult"
+        }, {
+            "eval": "filecontents.(routes/criteria.js).lines.pct",
+            "op": ">=",
+            "value": "40",
+            "reportType": "CoverageResult"
+        }]
+    }, {
+        "name": "Unit Test Success (Mocha)",
+        "conditions": [{
+            "eval": "_mochaTestSuccessPercentage",
+            "op": "=",
+            "value": 100
+        }]
+    }, {
+        "name": "Unit Test Regression (Mocha)",
+        "conditions": [{
+            "eval": "_hasMochaTestRegressed",
+            "op": "=",
+            "value": false
+        }]
+    }]
+}

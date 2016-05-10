@@ -1,0 +1,10 @@
+[{
+    "testname": "Check unit test UI",
+    "tests": ["Unit test.json", "Unit test regression.json"]
+}, {
+    "testname": "Check coverage UI",
+    "tests": ["Code coverage.json", "Code coverage regression.json"]
+}, {
+    "testname": "Check functionaltest UI",
+    "tests": ["Functional test.json", "Functional test regression.json"]
+}]

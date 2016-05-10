@@ -1,0 +1,126 @@
+{
+    "_id": "5652536cb30b461d004cb9f6",
+    "criteriaName": "Fvt_coverage_regression_test",
+    "mode": "decision",
+    "revision": 2,
+    "projectName": "oneibmcloud | FVT_coveragetest",
+    "rules": [{
+        "name": "Code Coverage (Istanbul)",
+        "conditions": [{
+            "eval": "eventType",
+            "op": "=",
+            "value": "istanbulCoverage",
+            "reportType": "CoverageResult"
+        }, {
+            "eval": "filecontents.total.lines.pct",
+            "op": ">=",
+            "value": "40",
+            "reportType": "CoverageResult"
+        }, {
+            "eval": "filecontents.(routes/criteria.js).lines.pct",
+            "op": ">=",
+            "value": "40",
+            "reportType": "CoverageResult"
+        }],
+        "failures": [{
+            "failed": "Could not find matching filecontents.total.lines.pct: [40] by itself or along with other conditions"
+        }],
+        "functionResponse": [{
+            "eval": "eventType",
+            "actualValue": "istanbulCoverage",
+            "evaluation": "Success",
+            "reportType": "CoverageResult"
+        }, {
+            "eval": "filecontents.total.lines.pct",
+            "actualValue": 37.84,
+            "evaluation": "Failed",
+            "reportType": "Basic"
+        }, {
+            "eval": "filecontents.(routes/criteria.js).lines.pct",
+            "actualValue": 46.32,
+            "evaluation": "Success",
+            "reportType": "CoverageResult"
+        }],
+        "matchedDocs": [],
+        "outcome": "Failed",
+        "drilldownEventLogId": "5652536ab30b461d004cb9f5"
+    }, {
+        "name": "Coverage Regression (Istanbul)",
+        "conditions": [{
+            "eval": "_hasIstanbulCoverageRegressed(-2)",
+            "op": "=",
+            "value": false
+        }],
+        "failures": [{
+            "failed": "_hasIstanbulCoverageRegressed(-2) evaluated as: [true], expected: [false], operation: [=]"
+        }],
+        "functionResponse": [{
+            "functionname": "hasIstanbulCoverageRegressed",
+            "reportType": "CoverageRegression",
+            "pipelinePast": {
+                "id": "oneibmcloud_FVT_coveragetest_2",
+                "timestamp": "2015-11-22T23:44:38.396Z"
+            },
+            "pipelineCurrent": {
+                "id": "oneibmcloud_FVT_coveragetest_5",
+                "timestamp": "2015-11-22T23:44:42.382Z"
+            },
+            "regression": [{
+                "filename": "total",
+                "current": {
+                    "lines": 37.84,
+                    "statements": 55.91,
+                    "functions": 53.05,
+                    "branches": 57.31
+                },
+                "diff": {
+                    "lines": -22.99,
+                    "statements": -4.99,
+                    "functions": 3.65,
+                    "branches": 4.14
+                }
+            }, {
+                "filename": "routes/predefinedfunctions.js",
+                "current": {
+                    "lines": 8.89,
+                    "statements": 8.89,
+                    "functions": 0,
+                    "branches": 0
+                },
+                "diff": {
+                    "lines": -3.88,
+                    "statements": -3.88,
+                    "functions": 0,
+                    "branches": 0
+                }
+            }, {
+                "filename": "routes/criteria.js",
+                "current": {
+                    "lines": 46.32,
+                    "statements": 76.42,
+                    "functions": 83.33,
+                    "branches": 78.63
+                },
+                "diff": {
+                    "lines": -34.15,
+                    "statements": -4.14,
+                    "functions": -7.58,
+                    "branches": -1.37
+                }
+            }]
+        }],
+        "matchedDocs": [
+            "5652536ab30b461d004cb9f5",
+            "5652536ab30b461d004cb9f5",
+            "56525366b30b461d004cb9f1"
+        ],
+        "outcome": "Failed"
+    }],
+    "score": "0%",
+    "decision": "Stop",
+    "eventType": "_decision",
+    "pipelineRunId": "oneibmcloud_FVT_coveragetest_5",
+    "projectKey": "9b8f9add-883a-4776-87f7-d0584cf864ad",
+    "timestamp": "2015-11-22T23:44:44.219Z",
+    "timestampsec": 1448235884219
+}

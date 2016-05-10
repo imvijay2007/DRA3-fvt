@@ -1,0 +1,83 @@
+[{
+    "_id": "ce37b2347c816dd75563b4df5d252c68",
+    "project_name": "DemoDRA",
+    "runtime_name": "b5262933-cb60-4cc1-b2d5-4c2a1b30a783",
+    "build_id": "oneibmcloud_DeployAnalytics_201",
+    "custom_metadata": {
+        "job_name": "Build",
+        "stage_name": "Build & UT",
+        "build_number": "8",
+        "toolchain_id": "19f03a59-825c-4419-a815-204ffad68ee2"
+    },
+    "timestamp": "2016-03-09T18:27:20.703Z",
+    "module_name": "DemoDRA",
+    "environment_name": "DEV",
+    "lifecycle_stage": "UNITTEST",
+    "tool_name": "mocha",
+    "org_id": "draorg1",
+    "timestampepoch": 1457548040703,
+    "contents": {
+        "stats": {
+            "suites": 1,
+            "tests": 4,
+            "passes": 3,
+            "pending": 0,
+            "failures": 1,
+            "start": "2016-03-09T18:27:15.849Z",
+            "end": "2016-03-09T18:27:16.307Z",
+            "duration": 458
+        },
+        "tests": [{
+            "title": "with valid zip code",
+            "fullTitle": "Get Weather with valid zip code",
+            "duration": 198,
+            "currentRetry": 0,
+            "err": {}
+        }, {
+            "title": "with without zip code",
+            "fullTitle": "Get Weather with without zip code",
+            "duration": 4,
+            "currentRetry": 0,
+            "err": {}
+        }, {
+            "title": "with invalid zip code",
+            "fullTitle": "Get Weather with invalid zip code",
+            "duration": 126,
+            "currentRetry": 0,
+            "err": {}
+        }, {
+            "title": "with incomplete zip code",
+            "fullTitle": "Get Weather with incomplete zip code",
+            "duration": 124,
+            "currentRetry": 0,
+            "err": {}
+        }],
+        "pending": [],
+        "failures": [{
+            "title": "with without zip code",
+            "fullTitle": "Get Weather with without zip code",
+            "duration": 4,
+            "currentRetry": 0,
+            "err": {}
+        }],
+        "passes": [{
+            "title": "with valid zip code",
+            "fullTitle": "Get Weather with valid zip code",
+            "duration": 198,
+            "currentRetry": 0,
+            "err": {}
+        }, {
+            "title": "with invalid zip code",
+            "fullTitle": "Get Weather with invalid zip code",
+            "duration": 126,
+            "currentRetry": 0,
+            "err": {}
+        }, {
+            "title": "with incomplete zip code",
+            "fullTitle": "Get Weather with incomplete zip code",
+            "duration": 124,
+            "currentRetry": 0,
+            "err": {}
+        }]
+    }
+}]

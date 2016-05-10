@@ -1,0 +1,257 @@
+{
+    "_id": "564bb25d09202a1d00375637",
+    "criteriaName": "Samplefvtcriteria4",
+    "mode": "decision",
+    "revision": 2,
+    "projectName": "oneibmcloud | SampleFVTProject1",
+    "rules": [{
+        "name": "At Least 90% Success in Functional Tests",
+        "conditions": [{
+            "eval": "_saucelabTestSuccessPercentage",
+            "op": ">",
+            "value": 90
+        }],
+        "failures": [{
+            "failed": "_saucelabTestSuccessPercentage evaluated as: [71], expected: [90], operation: [>]"
+        }],
+        "functionResponse": [{
+            "functionname": "saucelabTestSuccessPercentage",
+            "reportType": "TestResult",
+            "tests": 7,
+            "passes": 5,
+            "percentage": 71
+        }],
+        "matchedDocs": [
+            "564bb25b09202a1d00375633"
+        ],
+        "outcome": "Failed"
+    }, {
+        "name": "No Failures in Critical Functional Tests",
+        "conditions": [{
+            "eval": "_hasSaucelabCriticalTestPassed(\"Rule list check\",\"Rule result check\")",
+            "op": "=",
+            "value": true
+        }],
+        "failures": [],
+        "functionResponse": [{
+            "functionname": "hasSaucelabCriticalTestPassed",
+            "reportType": "TestRegression",
+            "list": []
+        }],
+        "matchedDocs": [
+            "564bb25b09202a1d00375633"
+        ],
+        "returnval": true,
+        "outcome": "Success"
+    }, {
+        "name": "Code Coverage (Istanbul)",
+        "conditions": [{
+            "eval": "eventType",
+            "op": "=",
+            "value": "istanbulCoverage",
+            "reportType": "CoverageResult"
+        }, {
+            "eval": "filecontents.total.lines.pct",
+            "op": ">=",
+            "value": "40",
+            "reportType": "CoverageResult"
+        }, {
+            "eval": "filecontents.(routes/criteria.js).lines.pct",
+            "op": ">=",
+            "value": "40",
+            "reportType": "CoverageResult"
+        }],
+        "failures": [{
+            "failed": "Could not find matching filecontents.total.lines.pct: [40] by itself or along with other conditions"
+        }],
+        "functionResponse": [{
+            "eval": "eventType",
+            "actualValue": "istanbulCoverage",
+            "evaluation": "Success",
+            "reportType": "CoverageResult"
+        }, {
+            "eval": "filecontents.total.lines.pct",
+            "actualValue": 37.84,
+            "evaluation": "Failed",
+            "reportType": "Basic"
+        }, {
+            "eval": "filecontents.(routes/criteria.js).lines.pct",
+            "actualValue": 46.32,
+            "evaluation": "Success",
+            "reportType": "CoverageResult"
+        }],
+        "matchedDocs": [],
+        "outcome": "Failed",
+        "drilldownEventLogId": "564bb25b09202a1d00375635"
+    }, {
+        "name": "Unit Test Success (Mocha)",
+        "conditions": [{
+            "eval": "_mochaTestSuccessPercentage",
+            "op": "=",
+            "value": 100
+        }],
+        "failures": [{
+            "failed": "_mochaTestSuccessPercentage evaluated as: [75], expected: [100], operation: [=]"
+        }],
+        "functionResponse": [{
+            "functionname": "mochaTestSuccessPercentage",
+            "reportType": "TestResult",
+            "tests": 28,
+            "passes": 21,
+            "percentage": 75
+        }],
+        "matchedDocs": [
+            "564bb25b09202a1d00375634"
+        ],
+        "outcome": "Failed"
+    }, {
+        "name": "No Regression in Functional Tests",
+        "conditions": [{
+            "eval": "_hasSaucelabTestRegressed",
+            "op": "=",
+            "value": false
+        }],
+        "failures": [{
+            "failed": "_hasSaucelabTestRegressed evaluated as: [true], expected: [false], operation: [=]"
+        }],
+        "functionResponse": [{
+            "functionname": "hasSaucelabTestRegressed",
+            "reportType": "TestRegression",
+            "returnValue": true,
+            "pipelinePast": {
+                "id": "oneibmcloud_SampleFVTProject1_2",
+                "timestamp": "2015-11-17T23:03:47.566Z"
+            },
+            "pipelineCurrent": {
+                "id": "oneibmcloud_SampleFVTProject1_5",
+                "timestamp": "2015-11-17T23:03:55.626Z"
+            },
+            "regressionOccured": true,
+            "list": [
+                "Build# check",
+                "Timestamp check"
+            ]
+        }],
+        "matchedDocs": [
+            "564bb25b09202a1d00375633",
+            "564bb25309202a1d0037562d"
+        ],
+        "outcome": "Failed"
+    }, {
+        "name": "Unit Test Regression (Mocha)",
+        "conditions": [{
+            "eval": "_hasMochaTestRegressed",
+            "op": "=",
+            "value": false
+        }],
+        "failures": [{
+            "failed": "_hasMochaTestRegressed evaluated as: [true], expected: [false], operation: [=]"
+        }],
+        "functionResponse": [{
+            "functionname": "hasMochaTestRegressed",
+            "reportType": "TestRegression",
+            "returnValue": true,
+            "pipelinePast": {
+                "id": "oneibmcloud_SampleFVTProject1_2",
+                "timestamp": "2015-11-17T23:03:47.845Z"
+            },
+            "pipelineCurrent": {
+                "id": "oneibmcloud_SampleFVTProject1_5",
+                "timestamp": "2015-11-17T23:03:55.800Z"
+            },
+            "regressionOccured": true,
+            "list": [
+                "test rules engine with advisory criteria",
+                "test rules engine with decision criteria",
+                "test rules engine with decision criteria - test all conditions",
+                "test rules engine with decision criteria - test all conditions, with one failure",
+                "test rules engine with decision criteria - test all conditions, with one failure (advisory)",
+                "test rules engine test boolean true",
+                "test rules engine Predefinedfunctions - hasMochaTestRegressed (run once)"
+            ]
+        }],
+        "matchedDocs": [
+            "564bb25b09202a1d00375634",
+            "564bb25309202a1d0037562f"
+        ],
+        "outcome": "Failed"
+    }, {
+        "name": "Coverage Regression (Istanbul)",
+        "conditions": [{
+            "eval": "_hasIstanbulCoverageRegressed(-2)",
+            "op": "=",
+            "value": false
+        }],
+        "failures": [{
+            "failed": "_hasIstanbulCoverageRegressed(-2) evaluated as: [true], expected: [false], operation: [=]"
+        }],
+        "functionResponse": [{
+            "functionname": "hasIstanbulCoverageRegressed",
+            "reportType": "CoverageRegression",
+            "pipelinePast": {
+                "id": "oneibmcloud_SampleFVTProject1_2",
+                "timestamp": "2015-11-17T23:03:47.615Z"
+            },
+            "pipelineCurrent": {
+                "id": "oneibmcloud_SampleFVTProject1_5",
+                "timestamp": "2015-11-17T23:03:55.813Z"
+            },
+            "regression": [{
+                "filename": "total",
+                "current": {
+                    "lines": 37.84,
+                    "statements": 55.91,
+                    "functions": 45.05,
+                    "branches": 51.31
+                },
+                "diff": {
+                    "lines": -22.99,
+                    "statements": -4.99,
+                    "functions": -4.35,
+                    "branches": -1.86
+                }
+            }, {
+                "filename": "routes/predefinedfunctions.js",
+                "current": {
+                    "lines": 8.89,
+                    "statements": 8.89,
+                    "functions": 0,
+                    "branches": 0
+                },
+                "diff": {
+                    "lines": -3.88,
+                    "statements": -3.88,
+                    "functions": 0,
+                    "branches": 0
+                }
+            }, {
+                "filename": "routes/criteria.js",
+                "current": {
+                    "lines": 46.32,
+                    "statements": 76.42,
+                    "functions": 83.33,
+                    "branches": 78.63
+                },
+                "diff": {
+                    "lines": -34.15,
+                    "statements": -4.14,
+                    "functions": -7.58,
+                    "branches": -1.37
+                }
+            }]
+        }],
+        "matchedDocs": [
+            "564bb25b09202a1d00375635",
+            "564bb25b09202a1d00375635",
+            "564bb25309202a1d0037562e"
+        ],
+        "outcome": "Failed"
+    }],
+    "score": "14%",
+    "decision": "Stop",
+    "eventType": "_decision",
+    "pipelineRunId": "oneibmcloud_SampleFVTProject1_5",
+    "projectKey": "0e8fa955-764b-444f-951c-12dff9c6d712",
+    "timestamp": "2015-11-17T23:03:57.844Z",
+    "timestampsec": 1447801437844
+}
