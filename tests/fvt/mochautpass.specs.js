@@ -15,7 +15,9 @@ var uuid = require('node-uuid');
 
 var criteria = readfile('data/criteria/mocha_pass.json');
 var result = readfile('data/mochaResult_pass.json');
-result.build_id = "dra_fvt_" + uuid.v4();
+var uniq = uuid.v4();
+result.build_id = "dra_fvt_" + uniq;
+criteria.name = "criteria_" + uniq;
 
 var token;
 var assert_response;
