@@ -18,6 +18,7 @@
     "mocha": "^2.3.4"
   },
   "dependencies": {
+    "chai": "^3.5.0",
     "cloudant": "^1.4.1",
     "expect": "^1.18.0",
     "grunt": "^0.4.5",
