@@ -13,11 +13,14 @@ var auth_url = 'https://login.stage1.ng.bluemix.net/UAALoginServerWAR/oauth/toke
 var o_name = (process.env.CF_ORG || 'vjegase@us.ibm.com');
 var uuid = require('node-uuid');
 
-var criteria = readfile('data/criteria_1.json');
-var result = readfile('data/mochaEncodedResult.json');
+var criteria = readfile('data/criteria/mocha_pass.json');
+var result = readfile('data/mochaResult_pass.json');
 result.build_id = "dra_fvt_" + uuid.v4();
 
 var token;
+var assert_response;
+var assert_proceed;
+var assert_score;
 
 var request = REQUEST.defaults({
     strictSSL: false
@@ -77,6 +80,8 @@ describe('FVT - MOCHA UT PASS', function() {
         query.org_name = criteria.org_name;
         getdecision(dra_server, query, function() {
             assert.equal(assert_response, 200);
+            assert.equal(assert_proceed, true);
+            assert.equal(assert_score,"100%");
             done();
         });
     });
@@ -102,7 +107,7 @@ function gettoken(options, callback) {
         } 
         else {
             var tok = JSON.parse(body);
-            console.log("Token type:%s | Expires in:%s",tok.token_type,tok.expires_in);
+            console.log("User: %s |Token type:%s | Expires in:%s",process.env.CF_USER,tok.token_type,tok.expires_in);
             token = tok.access_token;
             assert_response = resp.statusCode;
         }
@@ -210,6 +215,8 @@ function getdecision(server, query, callback) {
         } else {
             if (resp.statusCode === 200) {
                 assert_response = resp.statusCode;
+                assert_proceed = body.contents.proceed;
+                assert_score = body.contents.score;
                 console.log(JSON.stringify(body));
             } else {
                 console.log("Get decision failed:", body);

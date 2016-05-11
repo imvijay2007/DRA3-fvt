@@ -5,7 +5,8 @@
           { "name": "testsuccesspercentage",
           "format": "mocha",
           "stage": "unittest",
-          "percentPass": 100
+          "percentPass": 100,
+            "criticalTests": ["'with incomplete zip code'"]
         } 
     ] 
 }

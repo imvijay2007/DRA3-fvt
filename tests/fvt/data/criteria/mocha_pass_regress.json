@@ -1,0 +1,13 @@
+{ 
+    "name": "scenario1",
+    "org_name": "vjegase@us.ibm.com",
+    "rules": [ 
+          { "name": "testsuccesspercentage",
+          "format": "mocha",
+          "stage": "unittest",
+          "percentPass": 100,
+            "criticalTests": ["'with incomplete zip code'"],
+           "regressionCheck": true
+        } 
+    ] 
+}

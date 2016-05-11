@@ -13,8 +13,8 @@ var auth_url = 'https://login.stage1.ng.bluemix.net/UAALoginServerWAR/oauth/toke
 var o_name = (process.env.CF_ORG || 'vjegase@us.ibm.com');
 var uuid = require('node-uuid');
 
-var criteria = readfile('data/criteria/istanbul_pass.json');
-var result = readfile('data/istanbulResult_pass.json');
+var criteria = readfile('data/criteria/mocha_pass.json');
+var result = readfile('data/mochaResult_fail.json');
 result.build_id = "dra_fvt_" + uuid.v4();
 
 var token;
@@ -26,7 +26,7 @@ var request = REQUEST.defaults({
     strictSSL: false
 });
 
-describe('FVT - ISTANBUL COVERAGE PASS', function() {
+describe('FVT - MOCHA UT FAIL', function() {
     it("get token", function(done) {
         this.timeout(20000);
         var options = { method: 'POST',
@@ -80,8 +80,8 @@ describe('FVT - ISTANBUL COVERAGE PASS', function() {
         query.org_name = criteria.org_name;
         getdecision(dra_server, query, function() {
             assert.equal(assert_response, 200);
-            assert.equal(assert_proceed, true);
-            assert.equal(assert_score,"100%");
+            assert.equal(assert_proceed, false);
+            assert.equal(assert_score, "0%");
             done();
         });
     });
