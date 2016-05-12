@@ -7,7 +7,7 @@
     "start": "node index.js",
     "test": "grunt test"
   },
-  "author": "DLMS",
+  "author": "Vijay",
   "devDependencies": {
     "chai": "^3.5.0",
     "grunt": "^0.4.5",
@@ -19,13 +19,11 @@
   },
   "dependencies": {
     "chai": "^3.5.0",
-    "cloudant": "^1.4.1",
     "expect": "^1.18.0",
     "grunt": "^0.4.5",
     "grunt-cli": "*",
     "grunt-mocha-test": "^0.12.7",
     "mocha": "^2.4.5",
-    "newrelic": "^1.26.1",
     "node-uuid": "^1.4.7",
     "request": "^2.60.0"
   }

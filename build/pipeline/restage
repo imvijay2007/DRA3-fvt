@@ -1,7 +1,0 @@
-#!/bin/bash
-
-#restage app to take effect for any new config bindings
-cf restage ${CF_APP}-blue
-
-#for some async reason, the bind does not fully take after command is done
-sleep 60

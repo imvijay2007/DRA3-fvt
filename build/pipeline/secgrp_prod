@@ -1,5 +1,0 @@
-#!/bin/bash
-
-#set the SECGRP for the app to GRP1 (internet accessible) BTA (beta) S (sensitive)
-cf set-env ${CF_APP}-blue SECGRP GRP1BTAS
-

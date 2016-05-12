@@ -1,6 +1,0 @@
-#!/bin/bash
-
-DIR=$(cd `dirname "$BASH_SOURCE[0]"` && pwd)
-
-CONFIG_ID=`cat $DIR/config_id`
-cf bind-service ${CF_APP}-blue $CONFIG_ID
