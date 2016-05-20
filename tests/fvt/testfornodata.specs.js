@@ -74,9 +74,7 @@ describe('FVT - TEST FOR NO DATA', function() {
         query.criteria_name = criteria.name;
         query.org_name = criteria.org_name;
         getdecision(dra_server, query, function() {
-            assert.equal(assert_response, 200);
-            assert.equal(assert_proceed, false);
-            assert.equal(assert_score,0);
+            assert.equal(assert_response,1);
             done();
         });
     });
