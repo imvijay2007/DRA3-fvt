@@ -5,28 +5,29 @@ var fs = require('fs');
 var path = require('path');
 var REQUEST = require('request');
 
-var dra_server = 'https://dra3.stage1.mybluemix.net';
+var dra_server = (process.env.DRA_SERVER || 'https://dra.stage1.ng.bluemix.net');
 //var dra_server = 'https://9.24.2.137:3456';
 //var dra_server = 'https://localhost:3456';
-var dlms_server = 'https://dlms-test.stage1.mybluemix.net';
+var dlms_server = (process.env.DLMS_SERVER || 'https://dlms.stage1.ng.bluemix.net');
 var auth_url = 'https://login.stage1.ng.bluemix.net/UAALoginServerWAR/oauth/token';
 var o_name = (process.env.CF_ORG || 'vjegase@us.ibm.com');
 var uuid = require('node-uuid');
 
-var criteria = readfile('data/criteria/junit_pass.json');
-var result = readfile('data/junitResult_fail.json');
-result.build_id = "dra_fvt_" + uuid.v4();
+var criteria = readfile('data/criteria/criteria_badparameter.json');
+var result = readfile('data/mochaResult_pass.json');
+var uniq = uuid.v4();
+result.build_id = "dra_fvt_" + uniq;
+criteria.name = "criteria_" + uniq;
 
 var token;
 var assert_response;
 var assert_proceed;
-var assert_score;
 
 var request = REQUEST.defaults({
     strictSSL: false
 });
 
-describe('FVT - JUNIT UT FAIL', function() {
+describe('FVT - (bad parameter in criteria)', function() {
     it("get token", function(done) {
         this.timeout(20000);
         var options = { method: 'POST',
@@ -53,13 +54,83 @@ describe('FVT - JUNIT UT FAIL', function() {
             done();
         });
     });
-    it("post criteria", function(done) {
+    it("post criteria - invalid parameter", function(done) {
         this.timeout(20000);
+        criteria.rules[0].format = "mocha";
+        criteria.rules[0].stage = "unittest";
+        //console.log(criteria);
         postcriteria(dra_server, criteria, function() {
-            assert.equal(assert_response, 201);
+            assert.equal(assert_response, 400);
+            assert.equal(assert_proceed, "Atleast one of the attributes - percentPass, criticalTests and regressionCheck should be defined for TestRule");
             done();
         });
     });
+    it("post criteria - invalid % value for unittest format", function(done) {
+        this.timeout(20000);
+        criteria.rules[0].percentPass = 120;
+        criteria.rules[0].regressionCheck = true;
+        //console.log(criteria);
+        postcriteria(dra_server, criteria, function() {
+            assert.equal(assert_response, 400);
+            assert.equal(assert_proceed, "Value provided in percentPass should be in the range of 0 - 100");
+            done();
+        });
+    });
+    it("post criteria - invalid % value for code format", function(done) {
+        this.timeout(20000);
+        delete criteria.rules[0].percentPass;
+        criteria.rules[0].format = "istanbul";
+        criteria.rules[0].stage = "code";
+        criteria.rules[0].codeCoverage = 120;
+        criteria.rules[0].regressionCheck = true;
+        //console.log(criteria);
+        postcriteria(dra_server, criteria, function() {
+            assert.equal(assert_response, 400);
+            assert.equal(assert_proceed, "Value provided in codeCoverage should be in the range of 0 - 100");
+            done();
+        });
+    });
+    it("post criteria - invalid regressionCheck", function(done) {
+        this.timeout(20000);
+        delete criteria.rules[0].percentPass;
+        delete criteria.rules[0].codeCoverage;
+        criteria.rules[0].regressionCheck = "abc";
+        //console.log(criteria);
+        postcriteria(dra_server, criteria, function() {
+            assert.equal(assert_response, 400);
+            assert.equal(assert_proceed, "Value provided in regressionCheck is invalid");
+            done();
+        });
+    });
+    it("post criteria - invalid parameter for code format", function(done) {
+        this.timeout(20000);
+        delete criteria.rules[0].codeCoverage;
+        criteria.rules[0].format = "istanbul";
+        criteria.rules[0].stage = "code";
+        criteria.rules[0].percentPass = 120;
+        criteria.rules[0].regressionCheck = true;
+        //console.log(criteria);
+        postcriteria(dra_server, criteria, function() {
+            assert.equal(assert_response, 400);
+            assert.equal(assert_proceed, "percentPass and criticalTests should not be defined for CoverageRule");
+            done();
+        });
+    });
+    it("post criteria - invalid parameter for unittest format", function(done) {
+        this.timeout(20000);
+        delete criteria.rules[0].percentPass;
+        criteria.rules[0].format = "mocha";
+        criteria.rules[0].stage = "unittest";
+        criteria.rules[0].codeCoverage = 120;
+        criteria.rules[0].regressionCheck = true;
+        //console.log(criteria);
+        postcriteria(dra_server, criteria, function() {
+            assert.equal(assert_response, 400);
+            assert.equal(assert_proceed, "codeCoverage should not be defined for TestRule");
+            done();
+        });
+    });
+    /*
     it("post result to DLMS", function(done) {
         this.timeout(20000);
         result.org_name = criteria.org_name;
@@ -68,6 +139,7 @@ describe('FVT - JUNIT UT FAIL', function() {
             done();
         });
     });
+    */
 
     it("Get decision from DRA", function(done) {
         this.timeout(20000);
@@ -79,8 +151,17 @@ describe('FVT - JUNIT UT FAIL', function() {
         query.criteria_name = criteria.name;
         query.org_name = criteria.org_name;
         getdecision(dra_server, query, function() {
+            assert.equal(assert_response, 400);
+            assert.notEqual(assert_proceed.message.indexOf('Failed to get criteria from database'),-1);
+            assert.equal(assert_proceed.proceed,false);
+            done();
+        });
+    });
+    
+    it("remove criteria", function(done) {
+        this.timeout(20000);
+        removecriteria(dra_server, criteria, function() {
             assert.equal(assert_response, 200);
-            assert.equal(assert_proceed, false);
             done();
         });
     });
@@ -163,7 +244,8 @@ function postcriteria(server, criteria, callback) {
                 console.log(body);
             } else {
                 console.log("Post criteria failed:", body);
-                assert_response = 1; // Just to flag the response anything else than success (200)
+                assert_proceed = body;
+                assert_response = resp.statusCode;
             }
         }
         callback();
@@ -218,7 +300,8 @@ function getdecision(server, query, callback) {
                 console.log(JSON.stringify(body));
             } else {
                 console.log("Get decision failed:", body);
-                assert_response = 1; // Just to flag the response anything else than success (200)
+                assert_proceed = body;
+                assert_response = resp.statusCode;
             }
         }
         callback();

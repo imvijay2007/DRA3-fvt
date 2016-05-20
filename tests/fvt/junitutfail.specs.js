@@ -13,8 +13,8 @@ var auth_url = 'https://login.stage1.ng.bluemix.net/UAALoginServerWAR/oauth/toke
 var o_name = (process.env.CF_ORG || 'vjegase@us.ibm.com');
 var uuid = require('node-uuid');
 
-var criteria = readfile('data/criteria/mocha_pass.json');
-var result = readfile('data/mochaResult_fail.json');
+var criteria = readfile('data/criteria/junit_pass.json');
+var result = readfile('data/junitResult_fail.json');
 var uniq = uuid.v4();
 result.build_id = "dra_fvt_" + uniq;
 criteria.name = "criteria_" + uniq;
@@ -29,7 +29,7 @@ var request = REQUEST.defaults({
     strictSSL: false
 });
 
-describe('FVT - MOCHA UT FAIL', function() {
+describe('FVT - JUNIT UT FAIL', function() {
     it("get token", function(done) {
         this.timeout(20000);
         var options = { method: 'POST',
@@ -88,7 +88,7 @@ describe('FVT - MOCHA UT FAIL', function() {
             for(i=0; i<decision_rules.length; i++)
                 {
                     assert.equal(decision_rules[i].stage,"unittest");
-                    assert.equal(decision_rules[i].format,"mocha");
+                    assert.equal(decision_rules[i].format,"junit");
                     if (decision_rules[i].name.indexOf("percentPass") > 0){
                         assert.equal(decision_rules[i].parameter_name,"percentPass");
                         assert.equal(decision_rules[i].expected_value,100);

@@ -4,7 +4,7 @@
     "rules": [
       {
         "name": "testcoveragepercentage",
-        "format": "istanbul",
+        "format": "blanket",
         "stage": "code",
         "codeCoverage": 80
       }

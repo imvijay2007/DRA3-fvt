@@ -1,12 +1,12 @@
 { 
-    "name": "scenario1",
     "org_name": "vjegase@us.ibm.com",
     "rules": [ 
-          { "name": "testsuccesspercentage",
+          { 
+              "name": "testsuccesspercentage",
           "format": "mocha",
           "stage": "unittest",
           "percentPass": 100,
-            "criticalTests": ["'with incomplete zip code'"]
+            "criticalTests": ["'Get Weather with incomplete zip code'"]
         } 
     ] 
 }

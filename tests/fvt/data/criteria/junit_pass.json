@@ -1,12 +1,11 @@
 { 
-    "name": "scenario3",
     "org_name": "vjegase@us.ibm.com",
     "rules": [ 
           { "name": "testsuccesspercentage",
           "format": "junit",
           "stage": "unittest",
           "percentPass": 100,
-           "criticalTests": ["'otc-github-brokerGitHubBroker-TestSetup#1WasauthenticatetestuserwithTIAMsuccessful?'"]
+           "criticalTests": ["otc-github-broker GitHub Broker - Test Setup #3 Was authenticate test user with TIAM successful?"]
         } 
     ] 
 }

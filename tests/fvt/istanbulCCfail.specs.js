@@ -13,8 +13,8 @@ var auth_url = 'https://login.stage1.ng.bluemix.net/UAALoginServerWAR/oauth/toke
 var o_name = (process.env.CF_ORG || 'vjegase@us.ibm.com');
 var uuid = require('node-uuid');
 
-var criteria = readfile('data/criteria/mocha_pass.json');
-var result = readfile('data/mochaResult_fail.json');
+var criteria = readfile('data/criteria/istanbul_pass.json');
+var result = readfile('data/istanbulResult_fail.json');
 var uniq = uuid.v4();
 result.build_id = "dra_fvt_" + uniq;
 criteria.name = "criteria_" + uniq;
@@ -29,7 +29,7 @@ var request = REQUEST.defaults({
     strictSSL: false
 });
 
-describe('FVT - MOCHA UT FAIL', function() {
+describe('FVT - ISTANBUL COVERAGE FAIL', function() {
     it("get token", function(done) {
         this.timeout(20000);
         var options = { method: 'POST',
@@ -63,6 +63,7 @@ describe('FVT - MOCHA UT FAIL', function() {
             done();
         });
     });
+    
     it("post result to DLMS", function(done) {
         this.timeout(20000);
         result.org_name = criteria.org_name;
@@ -87,21 +88,13 @@ describe('FVT - MOCHA UT FAIL', function() {
             assert.equal(assert_score,0);
             for(i=0; i<decision_rules.length; i++)
                 {
-                    assert.equal(decision_rules[i].stage,"unittest");
-                    assert.equal(decision_rules[i].format,"mocha");
-                    if (decision_rules[i].name.indexOf("percentPass") > 0){
-                        assert.equal(decision_rules[i].parameter_name,"percentPass");
-                        assert.equal(decision_rules[i].expected_value,100);
+                    assert.equal(decision_rules[i].stage,"code");
+                    assert.equal(decision_rules[i].format,"istanbul");
+                    if (decision_rules[i].name.indexOf("codeCoverage") > 0){
+                        assert.equal(decision_rules[i].parameter_name,"codeCoverage");
+                        assert.equal(decision_rules[i].expected_value,80);
                         assert.equal(decision_rules[i].proceed,false);
                         assert.isBelow(decision_rules[i].functionResponse.actual_value,decision_rules[i].expected_value);
-                    }
-                    if (decision_rules[i].name.indexOf("criticalTests") > 0){
-                        assert.equal(decision_rules[i].parameter_name,"criticalTests");
-                        assert.equal(decision_rules[i].expected_value.length,decision_rules[i].functionResponse.failed_tests.length);
-                        assert.equal(decision_rules[i].proceed,false);
-                        assert.notEqual(decision_rules[i].expected_value[0].indexOf(decision_rules[i].functionResponse.failed_tests[0].test),-1);
-                        
-                        assert.equal(decision_rules[i].functionResponse.failed_tests[0].status,"failed");
                     }
                 }
             done();
@@ -115,6 +108,7 @@ describe('FVT - MOCHA UT FAIL', function() {
             done();
         });
     });
+    
 
 });
 

@@ -5,17 +5,21 @@ var fs = require('fs');
 var path = require('path');
 var REQUEST = require('request');
 
-var dra_server = 'https://dra3.stage1.mybluemix.net';
+var dra_server = (process.env.DRA_SERVER || 'https://dra.stage1.ng.bluemix.net');
 //var dra_server = 'https://9.24.2.137:3456';
 //var dra_server = 'https://localhost:3456';
-var dlms_server = 'https://dlms-test.stage1.mybluemix.net';
+var dlms_server = (process.env.DLMS_SERVER || 'https://dlms.stage1.ng.bluemix.net');
 var auth_url = 'https://login.stage1.ng.bluemix.net/UAALoginServerWAR/oauth/token';
 var o_name = (process.env.CF_ORG || 'vjegase@us.ibm.com');
 var uuid = require('node-uuid');
 
-var criteria = readfile('data/criteria/junit_pass.json');
-var result = readfile('data/junitResult_pass.json');
-result.build_id = "dra_fvt_" + uuid.v4();
+var criteria = readfile('data/criteria/mocha_pass.json');
+var result_good = readfile('data/mochaResult_pass.json');
+var result_bad = readfile('data/mochaResult_fail.json');
+var uniq = uuid.v4();
+criteria.name = "criteria_" + uniq;
+result_good.build_id = "dra_fvt_" + uniq;
+result_bad.build_id = "dra_fvt_" + uniq; // Assign same build ID to see if event picked by timestamp
 
 var token;
 var assert_response;
@@ -26,7 +30,7 @@ var request = REQUEST.defaults({
     strictSSL: false
 });
 
-describe('FVT - JUNIT UT PASS', function() {
+describe('FVT - MOCHA UT BAD vs. GOOD', function() {
     it("get token", function(done) {
         this.timeout(20000);
         var options = { method: 'POST',
@@ -60,27 +64,47 @@ describe('FVT - JUNIT UT PASS', function() {
             done();
         });
     });
-    it("post result to DLMS", function(done) {
+    it("post bad result to DLMS", function(done) {
         this.timeout(20000);
-        result.org_name = criteria.org_name;
-        postresult(dlms_server, result, function() {
+        result_bad.org_name = criteria.org_name;
+        postresult(dlms_server, result_bad, function() {
             assert.equal(assert_response, 200);
             done();
         });
     });
+    it("post good result to DLMS", function(done) {
+        this.timeout(20000);
+        setTimeout(function () {
+          result_good.org_name = criteria.org_name;
+            postresult(dlms_server, result_good, function() {
+            assert.equal(assert_response, 200);
+            done();
+        });
+        }, 2000);
+        
+    });
 
-    it("Get decision from DRA", function(done) {
+    it("Get decision from DRA for good", function(done) {
         this.timeout(20000);
         var query = {};
-        query.project_name = result.project_name;
-        query.runtime_name = result.runtime_name;
-        query.build_id = result.build_id;
-        query.module_name = result.module_name;
+        query.project_name = result_good.project_name;
+        query.runtime_name = result_good.runtime_name;
+        query.build_id = result_good.build_id;
+        query.module_name = result_good.module_name;
         query.criteria_name = criteria.name;
         query.org_name = criteria.org_name;
         getdecision(dra_server, query, function() {
             assert.equal(assert_response, 200);
             assert.equal(assert_proceed, true);
+            assert.equal(assert_score, 100);
+            done();
+        });
+    });
+
+    it("remove criteria", function(done) {
+        this.timeout(20000);
+        removecriteria(dra_server, criteria, function() {
+            assert.equal(assert_response, 200);
             done();
         });
     });
@@ -215,6 +239,7 @@ function getdecision(server, query, callback) {
             if (resp.statusCode === 200) {
                 assert_response = resp.statusCode;
                 assert_proceed = body.contents.proceed;
+                assert_score = body.contents.score;
                 console.log(JSON.stringify(body));
             } else {
                 console.log("Get decision failed:", body);

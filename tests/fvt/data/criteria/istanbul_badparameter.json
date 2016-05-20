@@ -6,7 +6,8 @@
         "name": "testcoveragepercentage",
         "format": "istanbul",
         "stage": "code",
-        "codeCoverage": 80
+        "percentPass": 100,
+        "criticalTests": ["'Get Weather with invalid zip code'"]
       }
     ]
 }

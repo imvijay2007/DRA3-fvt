@@ -5,15 +5,16 @@ var fs = require('fs');
 var path = require('path');
 var REQUEST = require('request');
 
-var dra_server = 'https://dra3.stage1.mybluemix.net';
+var dra_server = (process.env.DRA_SERVER || 'https://dra.stage1.ng.bluemix.net');
 //var dra_server = 'https://9.24.2.137:3456';
 //var dra_server = 'https://localhost:3456';
-var dlms_server = 'https://dlms-test.stage1.mybluemix.net';
+var dlms_server = (process.env.DLMS_SERVER || 'https://dlms.stage1.ng.bluemix.net');
 var auth_url = 'https://login.stage1.ng.bluemix.net/UAALoginServerWAR/oauth/token';
 var o_name = (process.env.CF_ORG || 'vjegase@us.ibm.com');
 var uuid = require('node-uuid');
 
-var criteria = readfile('data/criteria/mocha_pass_regress.json');
+var criteria = readfile('data/criteria/mocha_pass.json');
+criteria.rules[0].regressionCheck=true;
 var result_good = readfile('data/mochaResult_pass.json');
 var result_bad = readfile('data/mochaResult_fail.json');
 var uniq = uuid.v4();
@@ -24,6 +25,7 @@ var token;
 var assert_response;
 var assert_proceed;
 var assert_score;
+var decision_rules;
 
 var request = REQUEST.defaults({
     strictSSL: false
@@ -84,7 +86,7 @@ describe('FVT - MOCHA UT REGRESSION', function() {
         getdecision(dra_server, query, function() {
             assert.equal(assert_response, 200);
             assert.equal(assert_proceed, true);
-            assert.equal(assert_score,"100%");
+            assert.equal(assert_score,100);
             done();
         });
     });
@@ -111,7 +113,32 @@ describe('FVT - MOCHA UT REGRESSION', function() {
         getdecision(dra_server, query, function() {
             assert.equal(assert_response, 200);
             assert.equal(assert_proceed, false);
-            assert.equal(assert_score,"0%");
+            assert.equal(assert_score,0);
+            for(i=0; i<decision_rules.length; i++)
+                {
+                    assert.equal(decision_rules[i].stage,"unittest");
+                    assert.equal(decision_rules[i].format,"mocha");
+                    if (decision_rules[i].name.indexOf("percentPass") > 0){
+                        assert.equal(decision_rules[i].parameter_name,"percentPass");
+                        assert.equal(decision_rules[i].expected_value,100);
+                        assert.equal(decision_rules[i].proceed,false);
+                        assert.isBelow(decision_rules[i].functionResponse.actual_value,decision_rules[i].expected_value);
+                    }
+                    if (decision_rules[i].name.indexOf("criticalTests") > 0){
+                        assert.equal(decision_rules[i].parameter_name,"criticalTests");
+                        assert.equal(decision_rules[i].expected_value.length,decision_rules[i].functionResponse.failed_tests.length);
+                        assert.equal(decision_rules[i].proceed,false);
+                        assert.notEqual(decision_rules[i].expected_value[0].indexOf(decision_rules[i].functionResponse.failed_tests[0].test),-1);
+                        assert.equal(decision_rules[i].functionResponse.failed_tests[0].status,"failed");
+                    }
+                    if (decision_rules[i].name.indexOf("regressionCheck") > 0){
+                        assert.equal(decision_rules[i].parameter_name,"regressionCheck");
+                        assert.equal(decision_rules[i].expected_value,true);
+                        assert.equal(decision_rules[i].proceed,false);
+                        assert.equal(decision_rules[i].functionResponse.last_good_build.build_id,result_good.build_id);
+                        assert.notEqual(criteria.rules[0].criticalTests[0].indexOf(decision_rules[i].functionResponse.testcases_regressed[0]),-1);
+                    }
+                }
             done();
         });
     });
@@ -255,6 +282,7 @@ function getdecision(server, query, callback) {
                 assert_response = resp.statusCode;
                 assert_proceed = body.contents.proceed;
                 assert_score = body.contents.score;
+                decision_rules = body.contents.rules;
                 console.log(JSON.stringify(body));
             } else {
                 console.log("Get decision failed:", body);

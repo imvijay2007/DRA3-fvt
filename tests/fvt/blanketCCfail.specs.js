@@ -5,16 +5,16 @@ var fs = require('fs');
 var path = require('path');
 var REQUEST = require('request');
 
-var dra_server = 'https://dra3.stage1.mybluemix.net';
+var dra_server = (process.env.DRA_SERVER || 'https://dra.stage1.ng.bluemix.net');
 //var dra_server = 'https://9.24.2.137:3456';
 //var dra_server = 'https://localhost:3456';
-var dlms_server = 'https://dlms-test.stage1.mybluemix.net';
+var dlms_server = (process.env.DLMS_SERVER || 'https://dlms.stage1.ng.bluemix.net');
 var auth_url = 'https://login.stage1.ng.bluemix.net/UAALoginServerWAR/oauth/token';
 var o_name = (process.env.CF_ORG || 'vjegase@us.ibm.com');
 var uuid = require('node-uuid');
 
-var criteria = readfile('data/criteria/istanbul_pass.json');
-var result = readfile('data/istanbulResult_pass.json');
+var criteria = readfile('data/criteria/blanket_pass.json');
+var result = readfile('data/blanketResult_fail.json');
 var uniq = uuid.v4();
 result.build_id = "dra_fvt_" + uniq;
 criteria.name = "criteria_" + uniq;
@@ -23,12 +23,13 @@ var token;
 var assert_response;
 var assert_proceed;
 var assert_score;
+var decision_rules;
 
 var request = REQUEST.defaults({
     strictSSL: false
 });
 
-describe('FVT - ISTANBUL COVERAGE PASS', function() {
+describe('FVT - BLANKET COVERAGE FAIL', function() {
     it("get token", function(done) {
         this.timeout(20000);
         var options = { method: 'POST',
@@ -82,8 +83,18 @@ describe('FVT - ISTANBUL COVERAGE PASS', function() {
         query.org_name = criteria.org_name;
         getdecision(dra_server, query, function() {
             assert.equal(assert_response, 200);
-            assert.equal(assert_proceed, true);
-            assert.equal(assert_score,"100%");
+            assert.equal(assert_proceed, false);
+            assert.equal(assert_score,0);
+            for(i=0; i<decision_rules.length; i++)
+                {
+                    assert.equal(decision_rules[i].stage,"code");
+                    assert.equal(decision_rules[i].format,"blanket");
+                    if (decision_rules[i].name.indexOf("codeCoverage") > 0){
+                        assert.equal(decision_rules[i].parameter_name,"codeCoverage");
+                        assert.isBelow(decision_rules[i].functionResponse.actual_value,decision_rules[i].expected_value);
+                        assert.equal(decision_rules[i].proceed,false);
+                    }
+                }
             done();
         });
     });
@@ -227,6 +238,7 @@ function getdecision(server, query, callback) {
                 assert_response = resp.statusCode;
                 assert_proceed = body.contents.proceed;
                 assert_score = body.contents.score;
+                decision_rules = body.contents.rules;
                 console.log(JSON.stringify(body));
             } else {
                 console.log("Get decision failed:", body);

@@ -1,0 +1,11 @@
+{ 
+    "org_name": "vjegase@us.ibm.com",
+    "rules": [ 
+          { "name": "testsuccesspercentage",
+          "format": "karmamocha",
+          "stage": "unittest",
+          "percentPass": 100,
+        "criticalTests": ["'Report UI RegressionController1 Decision and Image values for STOP $scope.decision should be STOP and $image_name should be imagefiles/stop.png'"]
+        } 
+    ] 
+}
