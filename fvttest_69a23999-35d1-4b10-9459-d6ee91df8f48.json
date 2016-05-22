@@ -1,0 +1,2254 @@
+User: vjegase@us.ibm.com |Token type:bearer | Expires in:43199
+{ msg: 'Criteria: criteria_deed613a-7d72-4dc5-905d-3a868bdf8c35 not found in database' }
+Post criteria failed: Atleast one of the attributes - percentPass, criticalTests and regressionCheck should be defined for TestRule
+Post criteria failed: Value provided in percentPass should be in the range of 0 - 100
+Post criteria failed: Value provided in codeCoverage should be in the range of 0 - 100
+Post criteria failed: Value provided in regressionCheck is invalid
+Post criteria failed: percentPass and criticalTests should not be defined for CoverageRule
+Post criteria failed: codeCoverage should not be defined for TestRule
+Get decision failed: { message: 'Failed to get criteria from database: criteria_deed613a-7d72-4dc5-905d-3a868bdf8c35',
+  proceed: false }
+{ msg: 'Criteria: criteria_deed613a-7d72-4dc5-905d-3a868bdf8c35 not found in database' }
+User: vjegase@us.ibm.com |Token type:bearer | Expires in:43199
+{ msg: 'Criteria: criteria_1a2fbdbb-bd1b-4a43-af53-c2a175ec2fac not found in database' }
+{ msg: 'Successfully added criteria: criteria_1a2fbdbb-bd1b-4a43-af53-c2a175ec2fac to the database' }
+{ status: 'Accepted' }
+{"org_id":"2b4cdfd3-c2af-4d23-92ef-a644d646ef5d","project_name":"DemoDRA","build_id":"dra_fvt_1a2fbdbb-bd1b-4a43-af53-c2a175ec2fac","criteria_name":"criteria_1a2fbdbb-bd1b-4a43-af53-c2a175ec2fac","runtime_name":"b5262933-cb60-4cc1-b2d5-4c2a1b30a783","module_name":"DemoDRA","environment_name":"DEV","timestamp":"2016-05-20T22:37:30.799Z","contents":{"rules":[{"name":"testcoveragepercentage - codeCoverage","stage":"code","format":"blanket","parameter_name":"codeCoverage","expected_value":80,"proceed":false,"functionResponse":{"actual_value":21},"user_message":""}],"score":0,"proceed":false},"decision_id":"573f91aac3f7871d00fb683d"}
+{ msg: 'Successfully deleted 1 copy(ies) of criteria: criteria_1a2fbdbb-bd1b-4a43-af53-c2a175ec2fac from the database' }
+User: vjegase@us.ibm.com |Token type:bearer | Expires in:43200
+{ msg: 'Criteria: criteria_21de57a1-3811-4460-aa39-a24de42bd50d not found in database' }
+{ msg: 'Successfully added criteria: criteria_21de57a1-3811-4460-aa39-a24de42bd50d to the database' }
+{ status: 'Accepted' }
+{"org_id":"2b4cdfd3-c2af-4d23-92ef-a644d646ef5d","project_name":"DemoDRA","build_id":"dra_fvt_21de57a1-3811-4460-aa39-a24de42bd50d","criteria_name":"criteria_21de57a1-3811-4460-aa39-a24de42bd50d","runtime_name":"b5262933-cb60-4cc1-b2d5-4c2a1b30a783","module_name":"DemoDRA","environment_name":"DEV","timestamp":"2016-05-20T22:37:35.027Z","contents":{"rules":[{"name":"testcoveragepercentage - codeCoverage","stage":"code","format":"blanket","parameter_name":"codeCoverage","expected_value":80,"proceed":true,"functionResponse":{"actual_value":86},"user_message":""}],"score":100,"proceed":true},"decision_id":"573f91afc3f7871d00fb683f"}
+{ msg: 'Successfully deleted 1 copy(ies) of criteria: criteria_21de57a1-3811-4460-aa39-a24de42bd50d from the database' }
+User: vjegase@us.ibm.com |Token type:bearer | Expires in:43200
+{ msg: 'Criteria: criteria_89cee3d8-aa78-4d13-8391-1103dbded927 not found in database' }
+{ msg: 'Successfully added criteria: criteria_89cee3d8-aa78-4d13-8391-1103dbded927 to the database' }
+{ status: 'Accepted' }
+{"org_id":"2b4cdfd3-c2af-4d23-92ef-a644d646ef5d","project_name":"DemoDRA","build_id":"dra_fvt_89cee3d8-aa78-4d13-8391-1103dbded927","criteria_name":"criteria_89cee3d8-aa78-4d13-8391-1103dbded927","runtime_name":"b5262933-cb60-4cc1-b2d5-4c2a1b30a783","module_name":"DemoDRA","environment_name":"DEV","timestamp":"2016-05-20T22:37:39.667Z","contents":{"rules":[{"name":"testcoveragepercentage - codeCoverage","stage":"code","format":"blanket","parameter_name":"codeCoverage","expected_value":80,"proceed":true,"functionResponse":{"actual_value":86},"user_message":""},{"name":"testcoveragepercentage - regressionCheck","stage":"code","format":"blanket","parameter_name":"regressionCheck","expected_value":true,"proceed":true,"functionResponse":{"last_good_build":{"build_id":"dra_fvt_21de57a1-3811-4460-aa39-a24de42bd50d","timestamp":"2016-05-20T22:37:33.677Z"},"regression":[{"filename":"/home/jenkins/workspace/adc83cbf-5438-6f85-d962-5e30ce428874/dc60670c-1985-4de3-bdb5-9579e09743c3/routes/serverTest.js","current":{"coverage":93.55555555555556},"diff":{"coverage":7.56},"proceed":true},{"filename":"/home/jenkins/workspace/adc83cbf-5438-6f85-d962-5e30ce428874/dc60670c-1985-4de3-bdb5-9579e09743c3/routes/serverTest.js","current":{"coverage":86},"diff":{"coverage":0},"proceed":true},{"filename":"total","current":{"coverage":20},"diff":{"coverage":0},"proceed":true}]},"user_message":""}],"score":100,"proceed":true},"decision_id":"573f91b3c3f7871d00fb6841"}
+{ status: 'Accepted' }
+{"org_id":"2b4cdfd3-c2af-4d23-92ef-a644d646ef5d","project_name":"DemoDRA","build_id":"dra_fvt_536bae1c-f912-49b8-9e5a-b4613fe20926","criteria_name":"criteria_89cee3d8-aa78-4d13-8391-1103dbded927","runtime_name":"b5262933-cb60-4cc1-b2d5-4c2a1b30a783","module_name":"DemoDRA","environment_name":"DEV","timestamp":"2016-05-20T22:37:41.852Z","contents":{"rules":[{"name":"testcoveragepercentage - codeCoverage","stage":"code","format":"blanket","parameter_name":"codeCoverage","expected_value":80,"proceed":false,"functionResponse":{"actual_value":21},"user_message":""},{"name":"testcoveragepercentage - regressionCheck","stage":"code","format":"blanket","parameter_name":"regressionCheck","expected_value":true,"proceed":false,"functionResponse":{"last_good_build":{"build_id":"dra_fvt_89cee3d8-aa78-4d13-8391-1103dbded927","timestamp":"2016-05-20T22:37:38.021Z"},"regression":[{"filename":"/home/jenkins/workspace/adc83cbf-5438-6f85-d962-5e30ce428874/dc60670c-1985-4de3-bdb5-9579e09743c3/routes/serverTest.js","current":{"coverage":96.55555555555556},"diff":{"coverage":10.56},"proceed":true},{"filename":"/home/jenkins/workspace/adc83cbf-5438-6f85-d962-5e30ce428874/dc60670c-1985-4de3-bdb5-9579e09743c3/routes/serverTest.js","current":{"coverage":21},"diff":{"coverage":-65},"proceed":false},{"filename":"total","current":{"coverage":15},"diff":{"coverage":-5},"proceed":false}]},"user_message":""}],"score":0,"proceed":false},"decision_id":"573f91b5c3f7871d00fb6842"}
+{ msg: 'Successfully deleted 1 copy(ies) of criteria: criteria_89cee3d8-aa78-4d13-8391-1103dbded927 from the database' }
+User: vjegase@us.ibm.com |Token type:bearer | Expires in:43199
+{ msg: 'Criteria: criteria_eff45a6e-735c-4620-b3ab-2e66a9fc9e9b not found in database' }
+{ msg: 'Successfully added criteria: criteria_eff45a6e-735c-4620-b3ab-2e66a9fc9e9b to the database' }
+{ status: 'Accepted' }
+{ status: 'Accepted' }
+{"org_id":"2b4cdfd3-c2af-4d23-92ef-a644d646ef5d","project_name":"DemoDRA","build_id":"dra_fvt_eff45a6e-735c-4620-b3ab-2e66a9fc9e9b","criteria_name":"criteria_eff45a6e-735c-4620-b3ab-2e66a9fc9e9b","runtime_name":"b5262933-cb60-4cc1-b2d5-4c2a1b30a783","module_name":"DemoDRA","environment_name":"DEV","timestamp":"2016-05-20T22:37:48.243Z","contents":{"rules":[{"name":"testcoveragepercentage - codeCoverage","stage":"code","format":"istanbul","parameter_name":"codeCoverage","expected_value":80,"proceed":true,"functionResponse":{"actual_value":90.48}}],"score":100,"proceed":true},"decision_id":"573f91bcc3f7871d00fb6844"}
+{ msg: 'Successfully deleted 1 copy(ies) of criteria: criteria_eff45a6e-735c-4620-b3ab-2e66a9fc9e9b from the database' }
+User: vjegase@us.ibm.com |Token type:bearer | Expires in:43200
+{ msg: 'Criteria: criteria_83af4bd9-cb46-4ad6-ad81-2e6c99c5d0de not found in database' }
+{ msg: 'Successfully added criteria: criteria_83af4bd9-cb46-4ad6-ad81-2e6c99c5d0de to the database' }
+{ status: 'Accepted' }
+{"org_id":"2b4cdfd3-c2af-4d23-92ef-a644d646ef5d","project_name":"DemoDRA","build_id":"dra_fvt_83af4bd9-cb46-4ad6-ad81-2e6c99c5d0de","criteria_name":"criteria_83af4bd9-cb46-4ad6-ad81-2e6c99c5d0de","runtime_name":"b5262933-cb60-4cc1-b2d5-4c2a1b30a783","module_name":"DemoDRA","environment_name":"DEV","timestamp":"2016-05-20T22:37:52.173Z","contents":{"rules":[{"name":"testcoveragepercentage - codeCoverage","stage":"code","format":"istanbul","parameter_name":"codeCoverage","expected_value":80,"proceed":false,"functionResponse":{"actual_value":70.48}}],"score":0,"proceed":false},"decision_id":"573f91c0c3f7871d00fb6846"}
+{ msg: 'Successfully deleted 1 copy(ies) of criteria: criteria_83af4bd9-cb46-4ad6-ad81-2e6c99c5d0de from the database' }
+User: vjegase@us.ibm.com |Token type:bearer | Expires in:43199
+{ msg: 'Criteria: criteria_cc3a00cf-9fac-47b2-9ffa-3f7dd80c767b not found in database' }
+{ msg: 'Successfully added criteria: criteria_cc3a00cf-9fac-47b2-9ffa-3f7dd80c767b to the database' }
+{ status: 'Accepted' }
+{"org_id":"2b4cdfd3-c2af-4d23-92ef-a644d646ef5d","project_name":"DemoDRA","build_id":"dra_fvt_cc3a00cf-9fac-47b2-9ffa-3f7dd80c767b","criteria_name":"criteria_cc3a00cf-9fac-47b2-9ffa-3f7dd80c767b","runtime_name":"b5262933-cb60-4cc1-b2d5-4c2a1b30a783","module_name":"DemoDRA","environment_name":"DEV","timestamp":"2016-05-20T22:37:55.679Z","contents":{"rules":[{"name":"testcoveragepercentage - codeCoverage","stage":"code","format":"istanbul","parameter_name":"codeCoverage","expected_value":80,"proceed":true,"functionResponse":{"actual_value":90.48}}],"score":100,"proceed":true},"decision_id":"573f91c3c3f7871d00fb6848"}
+{ msg: 'Successfully deleted 1 copy(ies) of criteria: criteria_cc3a00cf-9fac-47b2-9ffa-3f7dd80c767b from the database' }
+User: vjegase@us.ibm.com |Token type:bearer | Expires in:43200
+{ msg: 'Criteria: criteria_baf0bb57-64a6-44bd-ba7a-88e7bbf224da not found in database' }
+{ msg: 'Successfully added criteria: criteria_baf0bb57-64a6-44bd-ba7a-88e7bbf224da to the database' }
+{ status: 'Accepted' }
+{"org_id":"2b4cdfd3-c2af-4d23-92ef-a644d646ef5d","project_name":"DemoDRA","build_id":"dra_fvt_baf0bb57-64a6-44bd-ba7a-88e7bbf224da","criteria_name":"criteria_baf0bb57-64a6-44bd-ba7a-88e7bbf224da","runtime_name":"b5262933-cb60-4cc1-b2d5-4c2a1b30a783","module_name":"DemoDRA","environment_name":"DEV","timestamp":"2016-05-20T22:38:00.167Z","contents":{"rules":[{"name":"testcoveragepercentage - codeCoverage","stage":"code","format":"istanbul","parameter_name":"codeCoverage","expected_value":80,"proceed":true,"functionResponse":{"actual_value":90.48}},{"name":"testcoveragepercentage - regressionCheck","stage":"code","format":"istanbul","parameter_name":"regressionCheck","expected_value":true,"proceed":true,"functionResponse":{"last_good_build":{"build_id":"dra_fvt_cc3a00cf-9fac-47b2-9ffa-3f7dd80c767b","timestamp":"2016-05-20T22:37:54.967Z"},"regression":[{"filename":"total","current":{"lines":90.48,"statements":90.48,"functions":100,"branches":87.5},"diff":{"lines":0,"statements":0,"functions":0,"branches":0},"proceed":true},{"filename":"routes/apiv1.js","current":{"lines":90.48,"statements":90.48,"functions":100,"branches":87.5},"diff":{"lines":0,"statements":0,"functions":0,"branches":0},"proceed":true}]},"user_message":""}],"score":100,"proceed":true},"decision_id":"573f91c8c3f7871d00fb684a"}
+{ status: 'Accepted' }
+{"org_id":"2b4cdfd3-c2af-4d23-92ef-a644d646ef5d","project_name":"DemoDRA","build_id":"dra_fvt_74223ec2-c751-4b5f-9748-b2183976b1ff","criteria_name":"criteria_baf0bb57-64a6-44bd-ba7a-88e7bbf224da","runtime_name":"b5262933-cb60-4cc1-b2d5-4c2a1b30a783","module_name":"DemoDRA","environment_name":"DEV","timestamp":"2016-05-20T22:38:02.292Z","contents":{"rules":[{"name":"testcoveragepercentage - codeCoverage","stage":"code","format":"istanbul","parameter_name":"codeCoverage","expected_value":80,"proceed":false,"functionResponse":{"actual_value":70.48}},{"name":"testcoveragepercentage - regressionCheck","stage":"code","format":"istanbul","parameter_name":"regressionCheck","expected_value":true,"proceed":false,"functionResponse":{"last_good_build":{"build_id":"dra_fvt_baf0bb57-64a6-44bd-ba7a-88e7bbf224da","timestamp":"2016-05-20T22:37:58.679Z"},"regression":[{"filename":"total","current":{"lines":70.48,"statements":70.48,"functions":100,"branches":87.5},"diff":{"lines":-20,"statements":-20,"functions":0,"branches":0},"proceed":false},{"filename":"routes/apiv1.js","current":{"lines":90.48,"statements":90.48,"functions":100,"branches":87.5},"diff":{"lines":0,"statements":0,"functions":0,"branches":0},"proceed":true}]},"user_message":""}],"score":0,"proceed":false},"decision_id":"573f91cac3f7871d00fb684b"}
+{ msg: 'Successfully deleted 1 copy(ies) of criteria: criteria_baf0bb57-64a6-44bd-ba7a-88e7bbf224da from the database' }
+User: vjegase@us.ibm.com |Token type:bearer | Expires in:43200
+{ msg: 'Criteria: criteria_0c01e5db-b369-4dfd-b3d1-87f3cae6fde3 not found in database' }
+{ msg: 'Successfully added criteria: criteria_0c01e5db-b369-4dfd-b3d1-87f3cae6fde3 to the database' }
+{ status: 'Accepted' }
+{"org_id":"2b4cdfd3-c2af-4d23-92ef-a644d646ef5d","project_name":"DemoDRA","build_id":"dra_fvt_0c01e5db-b369-4dfd-b3d1-87f3cae6fde3","criteria_name":"criteria_0c01e5db-b369-4dfd-b3d1-87f3cae6fde3","runtime_name":"b5262933-cb60-4cc1-b2d5-4c2a1b30a783","module_name":"DemoDRA","environment_name":"DEV","timestamp":"2016-05-20T22:38:06.857Z","contents":{"rules":[{"name":"testsuccesspercentage - percentPass","stage":"unittest","format":"junit","parameter_name":"percentPass","expected_value":100,"proceed":false,"functionResponse":{"tests":224,"passes":223,"actual_value":99},"user_message":""},{"name":"testsuccesspercentage - criticalTests","stage":"unittest","format":"junit","parameter_name":"criticalTests","expected_value":["otc-github-broker GitHub Broker - Test Setup #3 Was authenticate test user with TIAM successful?"],"proceed":false,"functionResponse":{"failed_tests":[{"test":"otc-github-broker GitHub Broker - Test Setup #3 Was authenticate test user with TIAM successful?","status":"failed"}]},"user_message":""}],"score":0,"proceed":false},"decision_id":"573f91cec3f7871d00fb684d"}
+{ msg: 'Successfully deleted 1 copy(ies) of criteria: criteria_0c01e5db-b369-4dfd-b3d1-87f3cae6fde3 from the database' }
+User: vjegase@us.ibm.com |Token type:bearer | Expires in:43199
+{ msg: 'Criteria: criteria_d25eedae-bbd9-4bc6-9acf-5d68733cdb5f not found in database' }
+{ msg: 'Successfully added criteria: criteria_d25eedae-bbd9-4bc6-9acf-5d68733cdb5f to the database' }
+{ status: 'Accepted' }
+{"org_id":"2b4cdfd3-c2af-4d23-92ef-a644d646ef5d","project_name":"DemoDRA","build_id":"dra_fvt_d25eedae-bbd9-4bc6-9acf-5d68733cdb5f","criteria_name":"criteria_d25eedae-bbd9-4bc6-9acf-5d68733cdb5f","runtime_name":"b5262933-cb60-4cc1-b2d5-4c2a1b30a783","module_name":"DemoDRA","environment_name":"DEV","timestamp":"2016-05-20T22:38:10.865Z","contents":{"rules":[{"name":"testsuccesspercentage - percentPass","stage":"unittest","format":"junit","parameter_name":"percentPass","expected_value":100,"proceed":true,"functionResponse":{"tests":225,"passes":225,"actual_value":100},"user_message":""},{"name":"testsuccesspercentage - criticalTests","stage":"unittest","format":"junit","parameter_name":"criticalTests","expected_value":["otc-github-broker GitHub Broker - Test Setup #3 Was authenticate test user with TIAM successful?"],"proceed":true,"functionResponse":{"failed_tests":[{"test":"otc-github-broker GitHub Broker - Test Setup #3 Was authenticate test user with TIAM successful?","status":"success"}]},"user_message":""}],"score":100,"proceed":true},"decision_id":"573f91d2c3f7871d00fb684f"}
+{ msg: 'Successfully deleted 1 copy(ies) of criteria: criteria_d25eedae-bbd9-4bc6-9acf-5d68733cdb5f from the database' }
+User: vjegase@us.ibm.com |Token type:bearer | Expires in:43199
+{ msg: 'Criteria: criteria_a09bbbe4-e5c0-4c47-a2fa-100d2be79730 not found in database' }
+{ msg: 'Successfully added criteria: criteria_a09bbbe4-e5c0-4c47-a2fa-100d2be79730 to the database' }
+{ status: 'Accepted' }
+{"org_id":"2b4cdfd3-c2af-4d23-92ef-a644d646ef5d","project_name":"DemoDRA","build_id":"dra_fvt_a09bbbe4-e5c0-4c47-a2fa-100d2be79730","criteria_name":"criteria_a09bbbe4-e5c0-4c47-a2fa-100d2be79730","runtime_name":"b5262933-cb60-4cc1-b2d5-4c2a1b30a783","module_name":"DemoDRA","environment_name":"DEV","timestamp":"2016-05-20T22:38:14.868Z","contents":{"rules":[{"name":"testsuccesspercentage - percentPass","stage":"unittest","format":"junit","parameter_name":"percentPass","expected_value":100,"proceed":true,"functionResponse":{"tests":225,"passes":225,"actual_value":100},"user_message":""},{"name":"testsuccesspercentage - criticalTests","stage":"unittest","format":"junit","parameter_name":"criticalTests","expected_value":["otc-github-broker GitHub Broker - Test Setup #3 Was authenticate test user with TIAM successful?"],"proceed":true,"functionResponse":{"failed_tests":[{"test":"otc-github-broker GitHub Broker - Test Setup #3 Was authenticate test user with TIAM successful?","status":"success"}]},"user_message":""},{"name":"testsuccesspercentage - regressionCheck","stage":"unittest","format":"junit","parameter_name":"regressionCheck","expected_value":true,"proceed":true,"functionResponse":{},"user_message":""}],"score":100,"proceed":true},"decision_id":"573f91d6c3f7871d00fb6851"}
+{ status: 'Accepted' }
+{"org_id":"2b4cdfd3-c2af-4d23-92ef-a644d646ef5d","project_name":"DemoDRA","build_id":"dra_fvt_3be7b6ae-c581-4799-82b3-c162d298374b","criteria_name":"criteria_a09bbbe4-e5c0-4c47-a2fa-100d2be79730","runtime_name":"b5262933-cb60-4cc1-b2d5-4c2a1b30a783","module_name":"DemoDRA","environment_name":"DEV","timestamp":"2016-05-20T22:38:17.835Z","contents":{"rules":[{"name":"testsuccesspercentage - percentPass","stage":"unittest","format":"junit","parameter_name":"percentPass","expected_value":100,"proceed":false,"functionResponse":{"tests":224,"passes":223,"actual_value":99},"user_message":""},{"name":"testsuccesspercentage - criticalTests","stage":"unittest","format":"junit","parameter_name":"criticalTests","expected_value":["otc-github-broker GitHub Broker - Test Setup #3 Was authenticate test user with TIAM successful?"],"proceed":false,"functionResponse":{"failed_tests":[{"test":"otc-github-broker GitHub Broker - Test Setup #3 Was authenticate test user with TIAM successful?","status":"failed"}]},"user_message":""},{"name":"testsuccesspercentage - regressionCheck","stage":"unittest","format":"junit","parameter_name":"regressionCheck","expected_value":true,"proceed":false,"functionResponse":{"last_good_build":{"build_id":"dra_fvt_a09bbbe4-e5c0-4c47-a2fa-100d2be79730","timestamp":"2016-05-20T22:38:14.096Z"},"testcases_regressed":["otc-github-broker GitHub Broker - Test Setup #3 Was authenticate test user with TIAM successful?"]},"user_message":""}],"score":0,"proceed":false},"decision_id":"573f91d9c3f7871d00fb6852"}
+{ msg: 'Successfully deleted 1 copy(ies) of criteria: criteria_a09bbbe4-e5c0-4c47-a2fa-100d2be79730 from the database' }
+User: vjegase@us.ibm.com |Token type:bearer | Expires in:43200
+{ msg: 'Criteria: criteria_358e3f02-8bad-49a7-9712-5f13bc751bb9 not found in database' }
+{ msg: 'Successfully added criteria: criteria_358e3f02-8bad-49a7-9712-5f13bc751bb9 to the database' }
+{ status: 'Accepted' }
+{"org_id":"2b4cdfd3-c2af-4d23-92ef-a644d646ef5d","project_name":"DemoDRA","build_id":"dra_fvt_358e3f02-8bad-49a7-9712-5f13bc751bb9","criteria_name":"criteria_358e3f02-8bad-49a7-9712-5f13bc751bb9","runtime_name":"b5262933-cb60-4cc1-b2d5-4c2a1b30a783","module_name":"DemoDRA","environment_name":"DEV","timestamp":"2016-05-20T22:38:22.043Z","contents":{"rules":[{"name":"testsuccesspercentage - percentPass","stage":"unittest","format":"karmamocha","parameter_name":"percentPass","expected_value":100,"proceed":false,"functionResponse":{"tests":37,"passes":36,"actual_value":97},"user_message":""},{"name":"testsuccesspercentage - criticalTests","stage":"unittest","format":"karmamocha","parameter_name":"criticalTests","expected_value":["'Report UI RegressionController1 Decision and Image values for STOP $scope.decision should be STOP and $image_name should be imagefiles/stop.png'"],"proceed":false,"functionResponse":{"failed_tests":[{"test":"Report UI RegressionController1 Decision and Image values for STOP $scope.decision should be STOP and $image_name should be imagefiles/stop.png","status":"failed"}]},"user_message":""}],"score":0,"proceed":false},"decision_id":"573f91dec3f7871d00fb6854"}
+{ msg: 'Successfully deleted 1 copy(ies) of criteria: criteria_358e3f02-8bad-49a7-9712-5f13bc751bb9 from the database' }
+User: vjegase@us.ibm.com |Token type:bearer | Expires in:43200
+{ msg: 'Criteria: criteria_97818bd4-f478-4fdb-b7eb-a35135258cd9 not found in database' }
+{ msg: 'Successfully added criteria: criteria_97818bd4-f478-4fdb-b7eb-a35135258cd9 to the database' }
+{ status: 'Accepted' }
+{"org_id":"2b4cdfd3-c2af-4d23-92ef-a644d646ef5d","project_name":"DemoDRA","build_id":"dra_fvt_97818bd4-f478-4fdb-b7eb-a35135258cd9","criteria_name":"criteria_97818bd4-f478-4fdb-b7eb-a35135258cd9","runtime_name":"b5262933-cb60-4cc1-b2d5-4c2a1b30a783","module_name":"DemoDRA","environment_name":"DEV","timestamp":"2016-05-20T22:38:25.568Z","contents":{"rules":[{"name":"testsuccesspercentage - percentPass","stage":"unittest","format":"karmamocha","parameter_name":"percentPass","expected_value":100,"proceed":true,"functionResponse":{"tests":37,"passes":37,"actual_value":100},"user_message":""},{"name":"testsuccesspercentage - criticalTests","stage":"unittest","format":"karmamocha","parameter_name":"criticalTests","expected_value":["'Report UI RegressionController1 Decision and Image values for STOP $scope.decision should be STOP and $image_name should be imagefiles/stop.png'"],"proceed":true,"functionResponse":{"failed_tests":[{"test":"Report UI RegressionController1 Decision and Image values for STOP $scope.decision should be STOP and $image_name should be imagefiles/stop.png","status":"success"}]},"user_message":""}],"score":100,"proceed":true},"decision_id":"573f91e1c3f7871d00fb6856"}
+{ msg: 'Successfully deleted 1 copy(ies) of criteria: criteria_97818bd4-f478-4fdb-b7eb-a35135258cd9 from the database' }
+User: vjegase@us.ibm.com |Token type:bearer | Expires in:43199
+{ msg: 'Criteria: criteria_53eda191-0129-4bd0-83de-8dc425960bf3 not found in database' }
+{ msg: 'Successfully added criteria: criteria_53eda191-0129-4bd0-83de-8dc425960bf3 to the database' }
+{ status: 'Accepted' }
+{"org_id":"2b4cdfd3-c2af-4d23-92ef-a644d646ef5d","project_name":"DemoDRA","build_id":"dra_fvt_53eda191-0129-4bd0-83de-8dc425960bf3","criteria_name":"criteria_53eda191-0129-4bd0-83de-8dc425960bf3","runtime_name":"b5262933-cb60-4cc1-b2d5-4c2a1b30a783","module_name":"DemoDRA","environment_name":"DEV","timestamp":"2016-05-20T22:38:29.053Z","contents":{"rules":[{"name":"testsuccesspercentage - percentPass","stage":"unittest","format":"karmamocha","parameter_name":"percentPass","expected_value":100,"proceed":true,"functionResponse":{"tests":37,"passes":37,"actual_value":100},"user_message":""},{"name":"testsuccesspercentage - criticalTests","stage":"unittest","format":"karmamocha","parameter_name":"criticalTests","expected_value":["'Report UI RegressionController1 Decision and Image values for STOP $scope.decision should be STOP and $image_name should be imagefiles/stop.png'"],"proceed":true,"functionResponse":{"failed_tests":[{"test":"Report UI RegressionController1 Decision and Image values for STOP $scope.decision should be STOP and $image_name should be imagefiles/stop.png","status":"success"}]},"user_message":""},{"name":"testsuccesspercentage - regressionCheck","stage":"unittest","format":"karmamocha","parameter_name":"regressionCheck","expected_value":true,"proceed":true,"functionResponse":{},"user_message":""}],"score":100,"proceed":true},"decision_id":"573f91e5c3f7871d00fb6858"}
+{ status: 'Accepted' }
+{"org_id":"2b4cdfd3-c2af-4d23-92ef-a644d646ef5d","project_name":"DemoDRA","build_id":"dra_fvt_fd80bce0-b455-48ef-9d14-2d328fa89631","criteria_name":"criteria_53eda191-0129-4bd0-83de-8dc425960bf3","runtime_name":"b5262933-cb60-4cc1-b2d5-4c2a1b30a783","module_name":"DemoDRA","environment_name":"DEV","timestamp":"2016-05-20T22:38:31.093Z","contents":{"rules":[{"name":"testsuccesspercentage - percentPass","stage":"unittest","format":"karmamocha","parameter_name":"percentPass","expected_value":100,"proceed":false,"functionResponse":{"tests":37,"passes":36,"actual_value":97},"user_message":""},{"name":"testsuccesspercentage - criticalTests","stage":"unittest","format":"karmamocha","parameter_name":"criticalTests","expected_value":["'Report UI RegressionController1 Decision and Image values for STOP $scope.decision should be STOP and $image_name should be imagefiles/stop.png'"],"proceed":false,"functionResponse":{"failed_tests":[{"test":"Report UI RegressionController1 Decision and Image values for STOP $scope.decision should be STOP and $image_name should be imagefiles/stop.png","status":"failed"}]},"user_message":""},{"name":"testsuccesspercentage - regressionCheck","stage":"unittest","format":"karmamocha","parameter_name":"regressionCheck","expected_value":true,"proceed":false,"functionResponse":{"last_good_build":{"build_id":"dra_fvt_53eda191-0129-4bd0-83de-8dc425960bf3","timestamp":"2016-05-20T22:38:28.317Z"},"testcases_regressed":["Report UI RegressionController1 Decision and Image values for STOP $scope.decision should be STOP and $image_name should be imagefiles/stop.png"]},"user_message":""}],"score":0,"proceed":false},"decision_id":"573f91e7c3f7871d00fb6859"}
+{ msg: 'Successfully deleted 1 copy(ies) of criteria: criteria_53eda191-0129-4bd0-83de-8dc425960bf3 from the database' }
+User: vjegase@us.ibm.com |Token type:bearer | Expires in:43200
+{ msg: 'Criteria: criteria_5e8e7818-6f2f-47d8-b5d3-11b3b5d3f13c not found in database' }
+{ msg: 'Successfully added criteria: criteria_5e8e7818-6f2f-47d8-b5d3-11b3b5d3f13c to the database' }
+{ status: 'Accepted' }
+{ status: 'Accepted' }
+{"org_id":"2b4cdfd3-c2af-4d23-92ef-a644d646ef5d","project_name":"DemoDRA","build_id":"dra_fvt_5e8e7818-6f2f-47d8-b5d3-11b3b5d3f13c","criteria_name":"criteria_5e8e7818-6f2f-47d8-b5d3-11b3b5d3f13c","runtime_name":"b5262933-cb60-4cc1-b2d5-4c2a1b30a783","module_name":"DemoDRA","environment_name":"DEV","timestamp":"2016-05-20T22:38:37.338Z","contents":{"rules":[{"name":"testsuccesspercentage - percentPass","stage":"unittest","format":"mocha","parameter_name":"percentPass","expected_value":100,"proceed":true,"functionResponse":{"tests":4,"passes":4,"actual_value":100},"user_message":""},{"name":"testsuccesspercentage - criticalTests","stage":"unittest","format":"mocha","parameter_name":"criticalTests","expected_value":["'Get Weather with incomplete zip code'"],"proceed":true,"functionResponse":{"failed_tests":[{"test":"Get Weather with incomplete zip code","status":"success"}]},"user_message":""}],"score":100,"proceed":true},"decision_id":"573f91edc3f7871d00fb685b"}
+{ msg: 'Successfully deleted 1 copy(ies) of criteria: criteria_5e8e7818-6f2f-47d8-b5d3-11b3b5d3f13c from the database' }
+User: vjegase@us.ibm.com |Token type:bearer | Expires in:43200
+{ msg: 'Criteria: criteria_c2a02227-17b9-440c-8426-ce63a33f73eb not found in database' }
+{ msg: 'Successfully added criteria: criteria_c2a02227-17b9-440c-8426-ce63a33f73eb to the database' }
+{ status: 'Accepted' }
+{"org_id":"2b4cdfd3-c2af-4d23-92ef-a644d646ef5d","project_name":"DemoDRA","build_id":"dra_fvt_c2a02227-17b9-440c-8426-ce63a33f73eb","criteria_name":"criteria_c2a02227-17b9-440c-8426-ce63a33f73eb","runtime_name":"b5262933-cb60-4cc1-b2d5-4c2a1b30a783","module_name":"DemoDRA","environment_name":"DEV","timestamp":"2016-05-20T22:38:40.979Z","contents":{"rules":[{"name":"testsuccesspercentage - percentPass","stage":"unittest","format":"mocha","parameter_name":"percentPass","expected_value":100,"proceed":false,"functionResponse":{"tests":4,"passes":3,"actual_value":75},"user_message":""},{"name":"testsuccesspercentage - criticalTests","stage":"unittest","format":"mocha","parameter_name":"criticalTests","expected_value":["'Get Weather with incomplete zip code'"],"proceed":false,"functionResponse":{"failed_tests":[{"test":"Get Weather with incomplete zip code","status":"failed"}]},"user_message":""}],"score":0,"proceed":false},"decision_id":"573f91f0c3f7871d00fb685d"}
+{ msg: 'Successfully deleted 1 copy(ies) of criteria: criteria_c2a02227-17b9-440c-8426-ce63a33f73eb from the database' }
+User: vjegase@us.ibm.com |Token type:bearer | Expires in:43199
+{ msg: 'Criteria: criteria_6647bbf2-4015-498d-9fb8-cff267850e1d not found in database' }
+{ msg: 'Successfully added criteria: criteria_6647bbf2-4015-498d-9fb8-cff267850e1d to the database' }
+{ status: 'Accepted' }
+{"org_id":"2b4cdfd3-c2af-4d23-92ef-a644d646ef5d","project_name":"DemoDRA","build_id":"dra_fvt_6647bbf2-4015-498d-9fb8-cff267850e1d","criteria_name":"criteria_6647bbf2-4015-498d-9fb8-cff267850e1d","runtime_name":"b5262933-cb60-4cc1-b2d5-4c2a1b30a783","module_name":"DemoDRA","environment_name":"DEV","timestamp":"2016-05-20T22:38:44.656Z","contents":{"rules":[{"name":"testsuccesspercentage - percentPass","stage":"unittest","format":"mocha","parameter_name":"percentPass","expected_value":100,"proceed":true,"functionResponse":{"tests":4,"passes":4,"actual_value":100},"user_message":""},{"name":"testsuccesspercentage - criticalTests","stage":"unittest","format":"mocha","parameter_name":"criticalTests","expected_value":["'Get Weather with incomplete zip code'"],"proceed":true,"functionResponse":{"failed_tests":[{"test":"Get Weather with incomplete zip code","status":"success"}]},"user_message":""}],"score":100,"proceed":true},"decision_id":"573f91f4c3f7871d00fb685f"}
+{ msg: 'Successfully deleted 1 copy(ies) of criteria: criteria_6647bbf2-4015-498d-9fb8-cff267850e1d from the database' }
+User: vjegase@us.ibm.com |Token type:bearer | Expires in:43199
+{ msg: 'Criteria: criteria_c1ba01c1-0b80-4064-87d0-0e54a6ebe454 not found in database' }
+{ msg: 'Successfully added criteria: criteria_c1ba01c1-0b80-4064-87d0-0e54a6ebe454 to the database' }
+{ status: 'Accepted' }
+{"org_id":"2b4cdfd3-c2af-4d23-92ef-a644d646ef5d","project_name":"DemoDRA","build_id":"dra_fvt_c1ba01c1-0b80-4064-87d0-0e54a6ebe454","criteria_name":"criteria_c1ba01c1-0b80-4064-87d0-0e54a6ebe454","runtime_name":"b5262933-cb60-4cc1-b2d5-4c2a1b30a783","module_name":"DemoDRA","environment_name":"DEV","timestamp":"2016-05-20T22:38:48.372Z","contents":{"rules":[{"name":"testsuccesspercentage - percentPass","stage":"unittest","format":"mocha","parameter_name":"percentPass","expected_value":100,"proceed":true,"functionResponse":{"tests":4,"passes":4,"actual_value":100},"user_message":""},{"name":"testsuccesspercentage - criticalTests","stage":"unittest","format":"mocha","parameter_name":"criticalTests","expected_value":["'Get Weather with incomplete zip code'"],"proceed":true,"functionResponse":{"failed_tests":[{"test":"Get Weather with incomplete zip code","status":"success"}]},"user_message":""},{"name":"testsuccesspercentage - regressionCheck","stage":"unittest","format":"mocha","parameter_name":"regressionCheck","expected_value":true,"proceed":true,"functionResponse":{},"user_message":""}],"score":100,"proceed":true},"decision_id":"573f91f8c3f7871d00fb6861"}
+{ status: 'Accepted' }
+{"org_id":"2b4cdfd3-c2af-4d23-92ef-a644d646ef5d","project_name":"DemoDRA","build_id":"dra_fvt_4c0946a9-89cd-4553-be12-64c36297796e","criteria_name":"criteria_c1ba01c1-0b80-4064-87d0-0e54a6ebe454","runtime_name":"b5262933-cb60-4cc1-b2d5-4c2a1b30a783","module_name":"DemoDRA","environment_name":"DEV","timestamp":"2016-05-20T22:38:50.456Z","contents":{"rules":[{"name":"testsuccesspercentage - percentPass","stage":"unittest","format":"mocha","parameter_name":"percentPass","expected_value":100,"proceed":false,"functionResponse":{"tests":4,"passes":3,"actual_value":75},"user_message":""},{"name":"testsuccesspercentage - criticalTests","stage":"unittest","format":"mocha","parameter_name":"criticalTests","expected_value":["'Get Weather with incomplete zip code'"],"proceed":false,"functionResponse":{"failed_tests":[{"test":"Get Weather with incomplete zip code","status":"failed"}]},"user_message":""},{"name":"testsuccesspercentage - regressionCheck","stage":"unittest","format":"mocha","parameter_name":"regressionCheck","expected_value":true,"proceed":false,"functionResponse":{"last_good_build":{"build_id":"dra_fvt_c1ba01c1-0b80-4064-87d0-0e54a6ebe454","timestamp":"2016-05-20T22:38:47.641Z"},"testcases_regressed":["Get Weather with incomplete zip code"]},"user_message":""}],"score":0,"proceed":false},"decision_id":"573f91fac3f7871d00fb6862"}
+{ msg: 'Successfully deleted 1 copy(ies) of criteria: criteria_c1ba01c1-0b80-4064-87d0-0e54a6ebe454 from the database' }
+User: vjegase@us.ibm.com |Token type:bearer | Expires in:43199
+{ msg: 'Criteria: criteria_b6c0cf5b-9994-4c1a-b683-7c7af6a0270a not found in database' }
+{ msg: 'Successfully added criteria: criteria_b6c0cf5b-9994-4c1a-b683-7c7af6a0270a to the database' }
+{ status: 'Accepted' }
+{"org_id":"2b4cdfd3-c2af-4d23-92ef-a644d646ef5d","project_name":"DemoDRA","build_id":"dra_fvt_b6c0cf5b-9994-4c1a-b683-7c7af6a0270a","criteria_name":"criteria_b6c0cf5b-9994-4c1a-b683-7c7af6a0270a","runtime_name":"b5262933-cb60-4cc1-b2d5-4c2a1b30a783","module_name":"DemoDRA","environment_name":"DEV","timestamp":"2016-05-20T22:38:54.262Z","contents":{"rules":[{"name":"testsuccesspercentage - percentPass","stage":"unittest","format":"saucelabs","parameter_name":"percentPass","expected_value":100,"proceed":false,"functionResponse":{"tests":3,"passes":2,"actual_value":66},"user_message":""},{"name":"testsuccesspercentage - criticalTests","stage":"unittest","format":"saucelabs","parameter_name":"criticalTests","expected_value":["'Test App page'"],"proceed":false,"functionResponse":{"failed_tests":[{"test":"Test App page","status":"failed"}]},"user_message":""}],"score":0,"proceed":false},"decision_id":"573f91fec3f7871d00fb6864"}
+{ msg: 'Successfully deleted 1 copy(ies) of criteria: criteria_b6c0cf5b-9994-4c1a-b683-7c7af6a0270a from the database' }
+User: vjegase@us.ibm.com |Token type:bearer | Expires in:43199
+{ msg: 'Criteria: criteria_375ebbf1-f006-45f2-9715-a26bc6fb867e not found in database' }
+{ msg: 'Successfully added criteria: criteria_375ebbf1-f006-45f2-9715-a26bc6fb867e to the database' }
+{ status: 'Accepted' }
+{"org_id":"2b4cdfd3-c2af-4d23-92ef-a644d646ef5d","project_name":"DemoDRA","build_id":"dra_fvt_375ebbf1-f006-45f2-9715-a26bc6fb867e","criteria_name":"criteria_375ebbf1-f006-45f2-9715-a26bc6fb867e","runtime_name":"b5262933-cb60-4cc1-b2d5-4c2a1b30a783","module_name":"DemoDRA","environment_name":"DEV","timestamp":"2016-05-20T22:38:58.078Z","contents":{"rules":[{"name":"testsuccesspercentage - percentPass","stage":"unittest","format":"saucelabs","parameter_name":"percentPass","expected_value":100,"proceed":true,"functionResponse":{"tests":3,"passes":3,"actual_value":100},"user_message":""},{"name":"testsuccesspercentage - criticalTests","stage":"unittest","format":"saucelabs","parameter_name":"criticalTests","expected_value":["'Test App page'"],"proceed":true,"functionResponse":{"failed_tests":[{"test":"Test App page","status":"success"}]},"user_message":""}],"score":100,"proceed":true},"decision_id":"573f9202c3f7871d00fb6866"}
+{ msg: 'Successfully deleted 1 copy(ies) of criteria: criteria_375ebbf1-f006-45f2-9715-a26bc6fb867e from the database' }
+User: vjegase@us.ibm.com |Token type:bearer | Expires in:43200
+{ msg: 'Criteria: criteria_fe1b8f4a-f6ad-4436-96be-e71206889d18 not found in database' }
+{ msg: 'Successfully added criteria: criteria_fe1b8f4a-f6ad-4436-96be-e71206889d18 to the database' }
+{ status: 'Accepted' }
+{"org_id":"2b4cdfd3-c2af-4d23-92ef-a644d646ef5d","project_name":"DemoDRA","build_id":"dra_fvt_fe1b8f4a-f6ad-4436-96be-e71206889d18","criteria_name":"criteria_fe1b8f4a-f6ad-4436-96be-e71206889d18","runtime_name":"b5262933-cb60-4cc1-b2d5-4c2a1b30a783","module_name":"DemoDRA","environment_name":"DEV","timestamp":"2016-05-20T22:39:02.230Z","contents":{"rules":[{"name":"testsuccesspercentage - percentPass","stage":"unittest","format":"saucelabs","parameter_name":"percentPass","expected_value":100,"proceed":true,"functionResponse":{"tests":3,"passes":3,"actual_value":100},"user_message":""},{"name":"testsuccesspercentage - criticalTests","stage":"unittest","format":"saucelabs","parameter_name":"criticalTests","expected_value":["'Test App page'"],"proceed":true,"functionResponse":{"failed_tests":[{"test":"Test App page","status":"success"}]},"user_message":""},{"name":"testsuccesspercentage - regressionCheck","stage":"unittest","format":"saucelabs","parameter_name":"regressionCheck","expected_value":true,"proceed":true,"functionResponse":{},"user_message":""}],"score":100,"proceed":true},"decision_id":"573f9206c3f7871d00fb6868"}
+{ status: 'Accepted' }
+{"org_id":"2b4cdfd3-c2af-4d23-92ef-a644d646ef5d","project_name":"DemoDRA","build_id":"dra_fvt_bee2dd35-df3c-4c4d-bed2-4d2dcae4e5b3","criteria_name":"criteria_fe1b8f4a-f6ad-4436-96be-e71206889d18","runtime_name":"b5262933-cb60-4cc1-b2d5-4c2a1b30a783","module_name":"DemoDRA","environment_name":"DEV","timestamp":"2016-05-20T22:39:04.456Z","contents":{"rules":[{"name":"testsuccesspercentage - percentPass","stage":"unittest","format":"saucelabs","parameter_name":"percentPass","expected_value":100,"proceed":false,"functionResponse":{"tests":3,"passes":2,"actual_value":66},"user_message":""},{"name":"testsuccesspercentage - criticalTests","stage":"unittest","format":"saucelabs","parameter_name":"criticalTests","expected_value":["'Test App page'"],"proceed":false,"functionResponse":{"failed_tests":[{"test":"Test App page","status":"failed"}]},"user_message":""},{"name":"testsuccesspercentage - regressionCheck","stage":"unittest","format":"saucelabs","parameter_name":"regressionCheck","expected_value":true,"proceed":false,"functionResponse":{"last_good_build":{"build_id":"dra_fvt_fe1b8f4a-f6ad-4436-96be-e71206889d18","timestamp":"2016-05-20T22:39:01.446Z"},"testcases_regressed":["Test App page"]},"user_message":""}],"score":0,"proceed":false},"decision_id":"573f9208c3f7871d00fb6869"}
+{ msg: 'Successfully deleted 1 copy(ies) of criteria: criteria_fe1b8f4a-f6ad-4436-96be-e71206889d18 from the database' }
+User: vjegase@us.ibm.com |Token type:bearer | Expires in:43199
+{ msg: 'Criteria: criteria_c66b15f0-2323-4390-9129-7fe5eb3328ab not found in database' }
+{ msg: 'Successfully added criteria: criteria_c66b15f0-2323-4390-9129-7fe5eb3328ab to the database' }
+Get decision failed: No test results were found for the parameters specified
+{ msg: 'Successfully deleted 1 copy(ies) of criteria: criteria_c66b15f0-2323-4390-9129-7fe5eb3328ab from the database' }
+{
+  "stats": {
+    "suites": 22,
+    "tests": 149,
+    "passes": 149,
+    "pending": 0,
+    "failures": 0,
+    "start": "2016-05-20T22:37:22.120Z",
+    "end": "2016-05-20T22:39:07.777Z",
+    "duration": 105657
+  },
+  "tests": [
+    {
+      "title": "get token",
+      "fullTitle": "FVT - (bad parameter in criteria) get token",
+      "duration": 875,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - (bad parameter in criteria) remove criteria",
+      "duration": 508,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria - invalid parameter",
+      "fullTitle": "FVT - (bad parameter in criteria) post criteria - invalid parameter",
+      "duration": 456,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria - invalid % value for unittest format",
+      "fullTitle": "FVT - (bad parameter in criteria) post criteria - invalid % value for unittest format",
+      "duration": 355,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria - invalid % value for code format",
+      "fullTitle": "FVT - (bad parameter in criteria) post criteria - invalid % value for code format",
+      "duration": 368,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria - invalid regressionCheck",
+      "fullTitle": "FVT - (bad parameter in criteria) post criteria - invalid regressionCheck",
+      "duration": 462,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria - invalid parameter for code format",
+      "fullTitle": "FVT - (bad parameter in criteria) post criteria - invalid parameter for code format",
+      "duration": 522,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria - invalid parameter for unittest format",
+      "fullTitle": "FVT - (bad parameter in criteria) post criteria - invalid parameter for unittest format",
+      "duration": 463,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA",
+      "fullTitle": "FVT - (bad parameter in criteria) Get decision from DRA",
+      "duration": 425,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - (bad parameter in criteria) remove criteria",
+      "duration": 486,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - BLANKET COVERAGE FAIL get token",
+      "duration": 747,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - BLANKET COVERAGE FAIL remove criteria",
+      "duration": 480,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - BLANKET COVERAGE FAIL post criteria",
+      "duration": 531,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post result to DLMS",
+      "fullTitle": "FVT - BLANKET COVERAGE FAIL post result to DLMS",
+      "duration": 791,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA",
+      "fullTitle": "FVT - BLANKET COVERAGE FAIL Get decision from DRA",
+      "duration": 843,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - BLANKET COVERAGE FAIL remove criteria",
+      "duration": 398,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - BLANKET COVERAGE PASS get token",
+      "duration": 817,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - BLANKET COVERAGE PASS remove criteria",
+      "duration": 482,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - BLANKET COVERAGE PASS post criteria",
+      "duration": 527,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post result to DLMS",
+      "fullTitle": "FVT - BLANKET COVERAGE PASS post result to DLMS",
+      "duration": 687,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA",
+      "fullTitle": "FVT - BLANKET COVERAGE PASS Get decision from DRA",
+      "duration": 1363,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - BLANKET COVERAGE PASS remove criteria",
+      "duration": 494,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - BLANKET REGRESSION get token",
+      "duration": 832,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - BLANKET REGRESSION remove criteria",
+      "duration": 480,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - BLANKET REGRESSION post criteria",
+      "duration": 513,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post good result to DLMS",
+      "fullTitle": "FVT - BLANKET REGRESSION post good result to DLMS",
+      "duration": 604,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA for good",
+      "fullTitle": "FVT - BLANKET REGRESSION Get decision from DRA for good",
+      "duration": 1668,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post bad result to DLMS",
+      "fullTitle": "FVT - BLANKET REGRESSION post bad result to DLMS",
+      "duration": 608,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA for bad",
+      "fullTitle": "FVT - BLANKET REGRESSION Get decision from DRA for bad",
+      "duration": 1581,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - BLANKET REGRESSION remove criteria",
+      "duration": 485,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - ISTANBUL CC BAD vs. GOOD get token",
+      "duration": 851,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - ISTANBUL CC BAD vs. GOOD remove criteria",
+      "duration": 509,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - ISTANBUL CC BAD vs. GOOD post criteria",
+      "duration": 518,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post bad result to DLMS",
+      "fullTitle": "FVT - ISTANBUL CC BAD vs. GOOD post bad result to DLMS",
+      "duration": 608,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post good result to DLMS",
+      "fullTitle": "FVT - ISTANBUL CC BAD vs. GOOD post good result to DLMS",
+      "duration": 2585,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA for good",
+      "fullTitle": "FVT - ISTANBUL CC BAD vs. GOOD Get decision from DRA for good",
+      "duration": 825,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - ISTANBUL CC BAD vs. GOOD remove criteria",
+      "duration": 506,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - ISTANBUL COVERAGE FAIL get token",
+      "duration": 821,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - ISTANBUL COVERAGE FAIL remove criteria",
+      "duration": 544,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - ISTANBUL COVERAGE FAIL post criteria",
+      "duration": 521,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post result to DLMS",
+      "fullTitle": "FVT - ISTANBUL COVERAGE FAIL post result to DLMS",
+      "duration": 600,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA",
+      "fullTitle": "FVT - ISTANBUL COVERAGE FAIL Get decision from DRA",
+      "duration": 971,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - ISTANBUL COVERAGE FAIL remove criteria",
+      "duration": 479,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - ISTANBUL COVERAGE PASS get token",
+      "duration": 743,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - ISTANBUL COVERAGE PASS remove criteria",
+      "duration": 404,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - ISTANBUL COVERAGE PASS post criteria",
+      "duration": 510,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post result to DLMS",
+      "fullTitle": "FVT - ISTANBUL COVERAGE PASS post result to DLMS",
+      "duration": 613,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA",
+      "fullTitle": "FVT - ISTANBUL COVERAGE PASS Get decision from DRA",
+      "duration": 725,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - ISTANBUL COVERAGE PASS remove criteria",
+      "duration": 481,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - ISTANBUL REGRESSION get token",
+      "duration": 818,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - ISTANBUL REGRESSION remove criteria",
+      "duration": 597,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - ISTANBUL REGRESSION post criteria",
+      "duration": 518,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post good result to DLMS",
+      "fullTitle": "FVT - ISTANBUL REGRESSION post good result to DLMS",
+      "duration": 571,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA for good",
+      "fullTitle": "FVT - ISTANBUL REGRESSION Get decision from DRA for good",
+      "duration": 1582,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post bad result to DLMS",
+      "fullTitle": "FVT - ISTANBUL REGRESSION post bad result to DLMS",
+      "duration": 627,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA for bad",
+      "fullTitle": "FVT - ISTANBUL REGRESSION Get decision from DRA for bad",
+      "duration": 1462,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - ISTANBUL REGRESSION remove criteria",
+      "duration": 505,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - JUNIT UT FAIL get token",
+      "duration": 823,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - JUNIT UT FAIL remove criteria",
+      "duration": 413,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - JUNIT UT FAIL post criteria",
+      "duration": 552,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post result to DLMS",
+      "fullTitle": "FVT - JUNIT UT FAIL post result to DLMS",
+      "duration": 1405,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA",
+      "fullTitle": "FVT - JUNIT UT FAIL Get decision from DRA",
+      "duration": 887,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - JUNIT UT FAIL remove criteria",
+      "duration": 510,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - JUNIT UT PASS get token",
+      "duration": 928,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - JUNIT UT PASS remove criteria",
+      "duration": 413,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - JUNIT UT PASS post criteria",
+      "duration": 528,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post result to DLMS",
+      "fullTitle": "FVT - JUNIT UT PASS post result to DLMS",
+      "duration": 758,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA",
+      "fullTitle": "FVT - JUNIT UT PASS Get decision from DRA",
+      "duration": 833,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - JUNIT UT PASS remove criteria",
+      "duration": 492,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - JUNIT UT REGRESSION get token",
+      "duration": 836,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - JUNIT UT REGRESSION remove criteria",
+      "duration": 552,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - JUNIT UT REGRESSION post criteria",
+      "duration": 528,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post good result to DLMS",
+      "fullTitle": "FVT - JUNIT UT REGRESSION post good result to DLMS",
+      "duration": 776,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA for good",
+      "fullTitle": "FVT - JUNIT UT REGRESSION Get decision from DRA for good",
+      "duration": 883,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post bad result to DLMS",
+      "fullTitle": "FVT - JUNIT UT REGRESSION post bad result to DLMS",
+      "duration": 941,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA for bad",
+      "fullTitle": "FVT - JUNIT UT REGRESSION Get decision from DRA for bad",
+      "duration": 1985,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - JUNIT UT REGRESSION remove criteria",
+      "duration": 495,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - KARMA UT FAIL get token",
+      "duration": 743,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - KARMA UT FAIL remove criteria",
+      "duration": 848,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - KARMA UT FAIL post criteria",
+      "duration": 526,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post result to DLMS",
+      "fullTitle": "FVT - KARMA UT FAIL post result to DLMS",
+      "duration": 726,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA",
+      "fullTitle": "FVT - KARMA UT FAIL Get decision from DRA",
+      "duration": 833,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - KARMA UT FAIL remove criteria",
+      "duration": 480,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - KARMA UT PASS get token",
+      "duration": 748,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - KARMA UT PASS remove criteria",
+      "duration": 391,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - KARMA UT PASS post criteria",
+      "duration": 529,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post result to DLMS",
+      "fullTitle": "FVT - KARMA UT PASS post result to DLMS",
+      "duration": 680,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA",
+      "fullTitle": "FVT - KARMA UT PASS Get decision from DRA",
+      "duration": 668,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - KARMA UT PASS remove criteria",
+      "duration": 391,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - KARMA UT REGRESSION get token",
+      "duration": 784,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - KARMA UT REGRESSION remove criteria",
+      "duration": 490,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - KARMA UT REGRESSION post criteria",
+      "duration": 443,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post good result to DLMS",
+      "fullTitle": "FVT - KARMA UT REGRESSION post good result to DLMS",
+      "duration": 621,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA for good",
+      "fullTitle": "FVT - KARMA UT REGRESSION Get decision from DRA for good",
+      "duration": 748,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post bad result to DLMS",
+      "fullTitle": "FVT - KARMA UT REGRESSION post bad result to DLMS",
+      "duration": 624,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA for bad",
+      "fullTitle": "FVT - KARMA UT REGRESSION Get decision from DRA for bad",
+      "duration": 1420,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - KARMA UT REGRESSION remove criteria",
+      "duration": 480,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - MOCHA UT BAD vs. GOOD get token",
+      "duration": 753,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - MOCHA UT BAD vs. GOOD remove criteria",
+      "duration": 512,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - MOCHA UT BAD vs. GOOD post criteria",
+      "duration": 518,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post bad result to DLMS",
+      "fullTitle": "FVT - MOCHA UT BAD vs. GOOD post bad result to DLMS",
+      "duration": 603,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post good result to DLMS",
+      "fullTitle": "FVT - MOCHA UT BAD vs. GOOD post good result to DLMS",
+      "duration": 2568,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA for good",
+      "fullTitle": "FVT - MOCHA UT BAD vs. GOOD Get decision from DRA for good",
+      "duration": 897,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - MOCHA UT BAD vs. GOOD remove criteria",
+      "duration": 485,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - MOCHA UT FAIL get token",
+      "duration": 758,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - MOCHA UT FAIL remove criteria",
+      "duration": 495,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - MOCHA UT FAIL post criteria",
+      "duration": 519,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post result to DLMS",
+      "fullTitle": "FVT - MOCHA UT FAIL post result to DLMS",
+      "duration": 523,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA",
+      "fullTitle": "FVT - MOCHA UT FAIL Get decision from DRA",
+      "duration": 870,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - MOCHA UT FAIL remove criteria",
+      "duration": 519,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - MOCHA UT PASS get token",
+      "duration": 817,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - MOCHA UT PASS remove criteria",
+      "duration": 520,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - MOCHA UT PASS post criteria",
+      "duration": 447,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post result to DLMS",
+      "fullTitle": "FVT - MOCHA UT PASS post result to DLMS",
+      "duration": 539,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA",
+      "fullTitle": "FVT - MOCHA UT PASS Get decision from DRA",
+      "duration": 813,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - MOCHA UT PASS remove criteria",
+      "duration": 497,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - MOCHA UT REGRESSION get token",
+      "duration": 834,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - MOCHA UT REGRESSION remove criteria",
+      "duration": 487,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - MOCHA UT REGRESSION post criteria",
+      "duration": 523,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post good result to DLMS",
+      "fullTitle": "FVT - MOCHA UT REGRESSION post good result to DLMS",
+      "duration": 534,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA for good",
+      "fullTitle": "FVT - MOCHA UT REGRESSION Get decision from DRA for good",
+      "duration": 776,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post bad result to DLMS",
+      "fullTitle": "FVT - MOCHA UT REGRESSION post bad result to DLMS",
+      "duration": 536,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA for bad",
+      "fullTitle": "FVT - MOCHA UT REGRESSION Get decision from DRA for bad",
+      "duration": 1554,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - MOCHA UT REGRESSION remove criteria",
+      "duration": 525,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - SAUCELABS UT FAIL get token",
+      "duration": 806,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - SAUCELABS UT FAIL remove criteria",
+      "duration": 515,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - SAUCELABS UT FAIL post criteria",
+      "duration": 522,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post result to DLMS",
+      "fullTitle": "FVT - SAUCELABS UT FAIL post result to DLMS",
+      "duration": 658,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA",
+      "fullTitle": "FVT - SAUCELABS UT FAIL Get decision from DRA",
+      "duration": 840,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - SAUCELABS UT FAIL remove criteria",
+      "duration": 497,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - SAUCELABS UT PASS get token",
+      "duration": 834,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - SAUCELABS UT PASS remove criteria",
+      "duration": 525,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - SAUCELABS UT PASS post criteria",
+      "duration": 512,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post result to DLMS",
+      "fullTitle": "FVT - SAUCELABS UT PASS post result to DLMS",
+      "duration": 589,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA",
+      "fullTitle": "FVT - SAUCELABS UT PASS Get decision from DRA",
+      "duration": 794,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - SAUCELABS UT PASS remove criteria",
+      "duration": 477,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - SAUCELABS UT REGRESSION get token",
+      "duration": 963,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - SAUCELABS UT REGRESSION remove criteria",
+      "duration": 487,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - SAUCELABS UT REGRESSION post criteria",
+      "duration": 685,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post good result to DLMS",
+      "fullTitle": "FVT - SAUCELABS UT REGRESSION post good result to DLMS",
+      "duration": 730,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA for good",
+      "fullTitle": "FVT - SAUCELABS UT REGRESSION Get decision from DRA for good",
+      "duration": 780,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post bad result to DLMS",
+      "fullTitle": "FVT - SAUCELABS UT REGRESSION post bad result to DLMS",
+      "duration": 681,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA for bad",
+      "fullTitle": "FVT - SAUCELABS UT REGRESSION Get decision from DRA for bad",
+      "duration": 1568,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - SAUCELABS UT REGRESSION remove criteria",
+      "duration": 483,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - TEST FOR NO DATA get token",
+      "duration": 953,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - TEST FOR NO DATA remove criteria",
+      "duration": 504,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - TEST FOR NO DATA post criteria",
+      "duration": 445,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA",
+      "fullTitle": "FVT - TEST FOR NO DATA Get decision from DRA",
+      "duration": 745,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - TEST FOR NO DATA remove criteria",
+      "duration": 524,
+      "currentRetry": 0,
+      "err": {}
+    }
+  ],
+  "pending": [],
+  "failures": [],
+  "passes": [
+    {
+      "title": "get token",
+      "fullTitle": "FVT - (bad parameter in criteria) get token",
+      "duration": 875,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - (bad parameter in criteria) remove criteria",
+      "duration": 508,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria - invalid parameter",
+      "fullTitle": "FVT - (bad parameter in criteria) post criteria - invalid parameter",
+      "duration": 456,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria - invalid % value for unittest format",
+      "fullTitle": "FVT - (bad parameter in criteria) post criteria - invalid % value for unittest format",
+      "duration": 355,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria - invalid % value for code format",
+      "fullTitle": "FVT - (bad parameter in criteria) post criteria - invalid % value for code format",
+      "duration": 368,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria - invalid regressionCheck",
+      "fullTitle": "FVT - (bad parameter in criteria) post criteria - invalid regressionCheck",
+      "duration": 462,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria - invalid parameter for code format",
+      "fullTitle": "FVT - (bad parameter in criteria) post criteria - invalid parameter for code format",
+      "duration": 522,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria - invalid parameter for unittest format",
+      "fullTitle": "FVT - (bad parameter in criteria) post criteria - invalid parameter for unittest format",
+      "duration": 463,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA",
+      "fullTitle": "FVT - (bad parameter in criteria) Get decision from DRA",
+      "duration": 425,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - (bad parameter in criteria) remove criteria",
+      "duration": 486,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - BLANKET COVERAGE FAIL get token",
+      "duration": 747,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - BLANKET COVERAGE FAIL remove criteria",
+      "duration": 480,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - BLANKET COVERAGE FAIL post criteria",
+      "duration": 531,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post result to DLMS",
+      "fullTitle": "FVT - BLANKET COVERAGE FAIL post result to DLMS",
+      "duration": 791,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA",
+      "fullTitle": "FVT - BLANKET COVERAGE FAIL Get decision from DRA",
+      "duration": 843,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - BLANKET COVERAGE FAIL remove criteria",
+      "duration": 398,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - BLANKET COVERAGE PASS get token",
+      "duration": 817,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - BLANKET COVERAGE PASS remove criteria",
+      "duration": 482,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - BLANKET COVERAGE PASS post criteria",
+      "duration": 527,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post result to DLMS",
+      "fullTitle": "FVT - BLANKET COVERAGE PASS post result to DLMS",
+      "duration": 687,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA",
+      "fullTitle": "FVT - BLANKET COVERAGE PASS Get decision from DRA",
+      "duration": 1363,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - BLANKET COVERAGE PASS remove criteria",
+      "duration": 494,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - BLANKET REGRESSION get token",
+      "duration": 832,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - BLANKET REGRESSION remove criteria",
+      "duration": 480,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - BLANKET REGRESSION post criteria",
+      "duration": 513,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post good result to DLMS",
+      "fullTitle": "FVT - BLANKET REGRESSION post good result to DLMS",
+      "duration": 604,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA for good",
+      "fullTitle": "FVT - BLANKET REGRESSION Get decision from DRA for good",
+      "duration": 1668,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post bad result to DLMS",
+      "fullTitle": "FVT - BLANKET REGRESSION post bad result to DLMS",
+      "duration": 608,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA for bad",
+      "fullTitle": "FVT - BLANKET REGRESSION Get decision from DRA for bad",
+      "duration": 1581,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - BLANKET REGRESSION remove criteria",
+      "duration": 485,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - ISTANBUL CC BAD vs. GOOD get token",
+      "duration": 851,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - ISTANBUL CC BAD vs. GOOD remove criteria",
+      "duration": 509,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - ISTANBUL CC BAD vs. GOOD post criteria",
+      "duration": 518,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post bad result to DLMS",
+      "fullTitle": "FVT - ISTANBUL CC BAD vs. GOOD post bad result to DLMS",
+      "duration": 608,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post good result to DLMS",
+      "fullTitle": "FVT - ISTANBUL CC BAD vs. GOOD post good result to DLMS",
+      "duration": 2585,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA for good",
+      "fullTitle": "FVT - ISTANBUL CC BAD vs. GOOD Get decision from DRA for good",
+      "duration": 825,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - ISTANBUL CC BAD vs. GOOD remove criteria",
+      "duration": 506,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - ISTANBUL COVERAGE FAIL get token",
+      "duration": 821,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - ISTANBUL COVERAGE FAIL remove criteria",
+      "duration": 544,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - ISTANBUL COVERAGE FAIL post criteria",
+      "duration": 521,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post result to DLMS",
+      "fullTitle": "FVT - ISTANBUL COVERAGE FAIL post result to DLMS",
+      "duration": 600,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA",
+      "fullTitle": "FVT - ISTANBUL COVERAGE FAIL Get decision from DRA",
+      "duration": 971,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - ISTANBUL COVERAGE FAIL remove criteria",
+      "duration": 479,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - ISTANBUL COVERAGE PASS get token",
+      "duration": 743,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - ISTANBUL COVERAGE PASS remove criteria",
+      "duration": 404,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - ISTANBUL COVERAGE PASS post criteria",
+      "duration": 510,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post result to DLMS",
+      "fullTitle": "FVT - ISTANBUL COVERAGE PASS post result to DLMS",
+      "duration": 613,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA",
+      "fullTitle": "FVT - ISTANBUL COVERAGE PASS Get decision from DRA",
+      "duration": 725,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - ISTANBUL COVERAGE PASS remove criteria",
+      "duration": 481,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - ISTANBUL REGRESSION get token",
+      "duration": 818,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - ISTANBUL REGRESSION remove criteria",
+      "duration": 597,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - ISTANBUL REGRESSION post criteria",
+      "duration": 518,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post good result to DLMS",
+      "fullTitle": "FVT - ISTANBUL REGRESSION post good result to DLMS",
+      "duration": 571,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA for good",
+      "fullTitle": "FVT - ISTANBUL REGRESSION Get decision from DRA for good",
+      "duration": 1582,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post bad result to DLMS",
+      "fullTitle": "FVT - ISTANBUL REGRESSION post bad result to DLMS",
+      "duration": 627,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA for bad",
+      "fullTitle": "FVT - ISTANBUL REGRESSION Get decision from DRA for bad",
+      "duration": 1462,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - ISTANBUL REGRESSION remove criteria",
+      "duration": 505,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - JUNIT UT FAIL get token",
+      "duration": 823,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - JUNIT UT FAIL remove criteria",
+      "duration": 413,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - JUNIT UT FAIL post criteria",
+      "duration": 552,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post result to DLMS",
+      "fullTitle": "FVT - JUNIT UT FAIL post result to DLMS",
+      "duration": 1405,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA",
+      "fullTitle": "FVT - JUNIT UT FAIL Get decision from DRA",
+      "duration": 887,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - JUNIT UT FAIL remove criteria",
+      "duration": 510,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - JUNIT UT PASS get token",
+      "duration": 928,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - JUNIT UT PASS remove criteria",
+      "duration": 413,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - JUNIT UT PASS post criteria",
+      "duration": 528,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post result to DLMS",
+      "fullTitle": "FVT - JUNIT UT PASS post result to DLMS",
+      "duration": 758,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA",
+      "fullTitle": "FVT - JUNIT UT PASS Get decision from DRA",
+      "duration": 833,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - JUNIT UT PASS remove criteria",
+      "duration": 492,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - JUNIT UT REGRESSION get token",
+      "duration": 836,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - JUNIT UT REGRESSION remove criteria",
+      "duration": 552,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - JUNIT UT REGRESSION post criteria",
+      "duration": 528,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post good result to DLMS",
+      "fullTitle": "FVT - JUNIT UT REGRESSION post good result to DLMS",
+      "duration": 776,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA for good",
+      "fullTitle": "FVT - JUNIT UT REGRESSION Get decision from DRA for good",
+      "duration": 883,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post bad result to DLMS",
+      "fullTitle": "FVT - JUNIT UT REGRESSION post bad result to DLMS",
+      "duration": 941,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA for bad",
+      "fullTitle": "FVT - JUNIT UT REGRESSION Get decision from DRA for bad",
+      "duration": 1985,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - JUNIT UT REGRESSION remove criteria",
+      "duration": 495,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - KARMA UT FAIL get token",
+      "duration": 743,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - KARMA UT FAIL remove criteria",
+      "duration": 848,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - KARMA UT FAIL post criteria",
+      "duration": 526,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post result to DLMS",
+      "fullTitle": "FVT - KARMA UT FAIL post result to DLMS",
+      "duration": 726,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA",
+      "fullTitle": "FVT - KARMA UT FAIL Get decision from DRA",
+      "duration": 833,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - KARMA UT FAIL remove criteria",
+      "duration": 480,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - KARMA UT PASS get token",
+      "duration": 748,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - KARMA UT PASS remove criteria",
+      "duration": 391,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - KARMA UT PASS post criteria",
+      "duration": 529,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post result to DLMS",
+      "fullTitle": "FVT - KARMA UT PASS post result to DLMS",
+      "duration": 680,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA",
+      "fullTitle": "FVT - KARMA UT PASS Get decision from DRA",
+      "duration": 668,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - KARMA UT PASS remove criteria",
+      "duration": 391,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - KARMA UT REGRESSION get token",
+      "duration": 784,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - KARMA UT REGRESSION remove criteria",
+      "duration": 490,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - KARMA UT REGRESSION post criteria",
+      "duration": 443,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post good result to DLMS",
+      "fullTitle": "FVT - KARMA UT REGRESSION post good result to DLMS",
+      "duration": 621,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA for good",
+      "fullTitle": "FVT - KARMA UT REGRESSION Get decision from DRA for good",
+      "duration": 748,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post bad result to DLMS",
+      "fullTitle": "FVT - KARMA UT REGRESSION post bad result to DLMS",
+      "duration": 624,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA for bad",
+      "fullTitle": "FVT - KARMA UT REGRESSION Get decision from DRA for bad",
+      "duration": 1420,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - KARMA UT REGRESSION remove criteria",
+      "duration": 480,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - MOCHA UT BAD vs. GOOD get token",
+      "duration": 753,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - MOCHA UT BAD vs. GOOD remove criteria",
+      "duration": 512,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - MOCHA UT BAD vs. GOOD post criteria",
+      "duration": 518,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post bad result to DLMS",
+      "fullTitle": "FVT - MOCHA UT BAD vs. GOOD post bad result to DLMS",
+      "duration": 603,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post good result to DLMS",
+      "fullTitle": "FVT - MOCHA UT BAD vs. GOOD post good result to DLMS",
+      "duration": 2568,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA for good",
+      "fullTitle": "FVT - MOCHA UT BAD vs. GOOD Get decision from DRA for good",
+      "duration": 897,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - MOCHA UT BAD vs. GOOD remove criteria",
+      "duration": 485,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - MOCHA UT FAIL get token",
+      "duration": 758,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - MOCHA UT FAIL remove criteria",
+      "duration": 495,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - MOCHA UT FAIL post criteria",
+      "duration": 519,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post result to DLMS",
+      "fullTitle": "FVT - MOCHA UT FAIL post result to DLMS",
+      "duration": 523,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA",
+      "fullTitle": "FVT - MOCHA UT FAIL Get decision from DRA",
+      "duration": 870,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - MOCHA UT FAIL remove criteria",
+      "duration": 519,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - MOCHA UT PASS get token",
+      "duration": 817,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - MOCHA UT PASS remove criteria",
+      "duration": 520,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - MOCHA UT PASS post criteria",
+      "duration": 447,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post result to DLMS",
+      "fullTitle": "FVT - MOCHA UT PASS post result to DLMS",
+      "duration": 539,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA",
+      "fullTitle": "FVT - MOCHA UT PASS Get decision from DRA",
+      "duration": 813,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - MOCHA UT PASS remove criteria",
+      "duration": 497,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - MOCHA UT REGRESSION get token",
+      "duration": 834,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - MOCHA UT REGRESSION remove criteria",
+      "duration": 487,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - MOCHA UT REGRESSION post criteria",
+      "duration": 523,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post good result to DLMS",
+      "fullTitle": "FVT - MOCHA UT REGRESSION post good result to DLMS",
+      "duration": 534,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA for good",
+      "fullTitle": "FVT - MOCHA UT REGRESSION Get decision from DRA for good",
+      "duration": 776,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post bad result to DLMS",
+      "fullTitle": "FVT - MOCHA UT REGRESSION post bad result to DLMS",
+      "duration": 536,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA for bad",
+      "fullTitle": "FVT - MOCHA UT REGRESSION Get decision from DRA for bad",
+      "duration": 1554,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - MOCHA UT REGRESSION remove criteria",
+      "duration": 525,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - SAUCELABS UT FAIL get token",
+      "duration": 806,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - SAUCELABS UT FAIL remove criteria",
+      "duration": 515,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - SAUCELABS UT FAIL post criteria",
+      "duration": 522,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post result to DLMS",
+      "fullTitle": "FVT - SAUCELABS UT FAIL post result to DLMS",
+      "duration": 658,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA",
+      "fullTitle": "FVT - SAUCELABS UT FAIL Get decision from DRA",
+      "duration": 840,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - SAUCELABS UT FAIL remove criteria",
+      "duration": 497,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - SAUCELABS UT PASS get token",
+      "duration": 834,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - SAUCELABS UT PASS remove criteria",
+      "duration": 525,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - SAUCELABS UT PASS post criteria",
+      "duration": 512,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post result to DLMS",
+      "fullTitle": "FVT - SAUCELABS UT PASS post result to DLMS",
+      "duration": 589,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA",
+      "fullTitle": "FVT - SAUCELABS UT PASS Get decision from DRA",
+      "duration": 794,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - SAUCELABS UT PASS remove criteria",
+      "duration": 477,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - SAUCELABS UT REGRESSION get token",
+      "duration": 963,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - SAUCELABS UT REGRESSION remove criteria",
+      "duration": 487,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - SAUCELABS UT REGRESSION post criteria",
+      "duration": 685,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post good result to DLMS",
+      "fullTitle": "FVT - SAUCELABS UT REGRESSION post good result to DLMS",
+      "duration": 730,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA for good",
+      "fullTitle": "FVT - SAUCELABS UT REGRESSION Get decision from DRA for good",
+      "duration": 780,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post bad result to DLMS",
+      "fullTitle": "FVT - SAUCELABS UT REGRESSION post bad result to DLMS",
+      "duration": 681,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA for bad",
+      "fullTitle": "FVT - SAUCELABS UT REGRESSION Get decision from DRA for bad",
+      "duration": 1568,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - SAUCELABS UT REGRESSION remove criteria",
+      "duration": 483,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "get token",
+      "fullTitle": "FVT - TEST FOR NO DATA get token",
+      "duration": 953,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - TEST FOR NO DATA remove criteria",
+      "duration": 504,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "post criteria",
+      "fullTitle": "FVT - TEST FOR NO DATA post criteria",
+      "duration": 445,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "Get decision from DRA",
+      "fullTitle": "FVT - TEST FOR NO DATA Get decision from DRA",
+      "duration": 745,
+      "currentRetry": 0,
+      "err": {}
+    },
+    {
+      "title": "remove criteria",
+      "fullTitle": "FVT - TEST FOR NO DATA remove criteria",
+      "duration": 524,
+      "currentRetry": 0,
+      "err": {}
+    }
+  ]
+}

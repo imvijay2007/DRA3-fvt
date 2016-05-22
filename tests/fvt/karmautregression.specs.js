@@ -15,11 +15,12 @@ var uuid = require('node-uuid');
 
 var criteria = readfile('data/criteria/karma_pass.json');
 criteria.rules[0].regressionCheck=true;
-var result_good = readfile('data/karmaResult_pass.json');
-var result_bad = readfile('data/karmaResult_fail.json');
 var uniq = uuid.v4();
+var result_good = readfile('data/karmaResult_pass.json');
+result_good.project_name = result_good.project_name + "_" + uniq;
+var result_bad = readfile('data/karmaResult_fail.json');
+result_bad.project_name = result_bad.project_name + "_" + uniq;
 criteria.name = "criteria_" + uniq;
-result_good.build_id = "dra_fvt_" + uniq;
 
 var token;
 var assert_response;
@@ -68,6 +69,7 @@ describe('FVT - KARMA UT REGRESSION', function() {
     it("post good result to DLMS", function(done) {
         this.timeout(20000);
         result_good.org_name = criteria.org_name;
+        result_good.build_id = "dra_fvt_" + uniq;
         postresult(dlms_server, result_good, function() {
             assert.equal(assert_response, 200);
             done();
