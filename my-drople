@@ -1,0 +1,4 @@
+FAILED
+Error creating request:
+Error performing request: Get https://dal05.objectstorage.service.networklayer.com:443/v1/AUTH_55e78039-6753-4e30-93f6-e3bcb33b893e/cc-droplets/71/0e/710e6520%!D(MISSING)118b%!D(MISSING)41a2%!D(MISSING)a819%!D(MISSING)2b3747fb057c/bc34e4cf65d28517d3a4aead78d766d0e5501803?temp_url_sig=7e14c0a951409f372df18d3af6caf3bee8ad6048&temp_url_expires=1464024388: dial tcp 10.1.129.11:443: i/o timeout
+TIP: If you are behind a firewall and require an HTTP proxy, verify the https_proxy environment variable is correctly set. Else, check your network connection.
