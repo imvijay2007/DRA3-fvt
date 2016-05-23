@@ -22,13 +22,13 @@ else
 fi
 
 rand=$(cat /proc/sys/kernel/random/uuid)
-proj=DemoDRAResults_$rand
+proj=ResultsDemoDRA_$rand
 
 while [[ $i -lt $INSTANCE_COUNT ]]
 do
 
 rm -rf dra3-fvt-download
-cf download dra3-fvt app -i $i --omit "app/node_modules; app/tests; app/lib; app/routes; app/vendor; app/.app-management; tmp; rin.pid; logs" --verbose
+cf download dra3-fvt app -i $i --omit "app/node_modules; app/tests; app/lib; app/routes; app/vendor; app/.app-management; tmp; rin.pid; logs"
 cd dra3-fvt-download/app
 #echo 'Contents of instance '$i:
 #x=$(cat fvttest.json)
