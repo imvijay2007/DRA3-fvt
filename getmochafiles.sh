@@ -14,6 +14,6 @@ cf download dra3-fvt app -i $i --omit "app/node_modules; app/tests; app/lib; app
 cd dra3-fvt-download/app
 echo '\nContents of instance'$i:
 cat fvttest.json > fvttest_$i.json
-i=$[$i+1]
+i=$((i+1))
 
 done
