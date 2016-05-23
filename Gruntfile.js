@@ -1,8 +1,5 @@
 module.exports = function(grunt) {
     
-    var uuid = require('node-uuid');
-    var uni = uuid.v4();
-    
     
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -23,7 +20,7 @@ module.exports = function(grunt) {
                     clearRequireCache: true,
                     colors: true,
                     quite: true,
-                    captureFile: 'fvttest_' + uni + '.json'
+                    captureFile: 'fvttest.json'
                 },
                 src: ['tests/fvt/*.specs.js']
             }
