@@ -4,8 +4,9 @@
 # This script downloads and posts fvt results to DLMS.
 
 i="0"
+INSTANCE_COUNT=$1
 
-while [ $i -lt $1 ]
+while [[ $i -lt $INSTANCE_COUNT ]]
 do
 
 rm -rf dra3-fvt-download
