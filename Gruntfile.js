@@ -22,7 +22,7 @@ module.exports = function(grunt) {
                     quite: true,
                     captureFile: 'fvttest.json'
                 },
-                src: ['tests/fvt/*.specs.js']
+                src: ['tests/fvtfile/*.specs.js']
             }
         }
         

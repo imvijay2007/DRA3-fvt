@@ -1,0 +1,13 @@
+{
+    "stage": "code",
+    "org_name": "vjegase@us.ibm.com",
+    "rules": [
+      {
+        "name": "testcoveragepercentage",
+        "format": "istanbul",
+        "stage": "code",
+        "percentPass": 100,
+        "criticalTests": ["'Get Weather with invalid zip code'"]
+      }
+    ]
+}

@@ -1,0 +1,11 @@
+{ 
+    "org_name": "vjegase@us.ibm.com",
+    "rules": [ 
+          { "name": "testsuccesspercentage",
+          "format": "junit",
+          "stage": "unittest",
+          "percentPass": 100,
+           "criticalTests": ["otc-github-broker GitHub Broker - Test Setup #3 Was authenticate test user with TIAM successful?"]
+        } 
+    ] 
+}

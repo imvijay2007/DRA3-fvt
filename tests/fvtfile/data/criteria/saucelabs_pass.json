@@ -1,0 +1,11 @@
+{ 
+    "org_name": "vjegase@us.ibm.com",
+    "rules": [ 
+          { "name": "testsuccesspercentage",
+          "format": "saucelabs",
+          "stage": "unittest",
+          "percentPass": 100,
+            "criticalTests": ["'Test App page'"]
+        } 
+    ] 
+}
