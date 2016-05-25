@@ -1,7 +1,7 @@
 applications:
 - path: .
-  memory: 128M
-  instances: 12
+  memory: 80M
+  instances: 20
   domain: stage1.mybluemix.net
   name: drafvt
   host: drafvt
