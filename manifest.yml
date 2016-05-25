@@ -6,3 +6,6 @@ applications:
   name: drafvt
   host: drafvt
   disk_quota: 1024M
+  env:
+    CF_USER: vjegase@us.ibm.com
+    CF_PASS: password-1
