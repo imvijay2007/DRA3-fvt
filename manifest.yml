@@ -9,3 +9,7 @@ applications:
   env:
     CF_USER: vjegase@us.ibm.com
     CF_PASS: password-1
+    CF_ORG: vjegase_org
+    DLMS_SERVER: https://dlms.ng.bluemix.net
+    DRA_SERVER: https://dra.ng.bluemix.net
+    AUTH_URL: https://login.ng.bluemix.net/UAALoginServerWAR/oauth/token

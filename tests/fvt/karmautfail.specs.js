@@ -6,14 +6,13 @@ var path = require('path');
 var REQUEST = require('request');
 
 var dra_server = (process.env.DRA_SERVER || 'https://dra.stage1.ng.bluemix.net');
-//var dra_server = 'https://9.24.2.137:3456';
-//var dra_server = 'https://localhost:3456';
 var dlms_server = (process.env.DLMS_SERVER || 'https://dlms.stage1.ng.bluemix.net');
-var auth_url = 'https://login.stage1.ng.bluemix.net/UAALoginServerWAR/oauth/token';
+var auth_url = (process.env.AUTH_URL || 'https://login.stage1.ng.bluemix.net/UAALoginServerWAR/oauth/token');
 var o_name = (process.env.CF_ORG || 'vjegase@us.ibm.com');
 var uuid = require('node-uuid');
 
 var criteria = readfile('data/criteria/karma_pass.json');
+criteria.org_name = o_name;
 var result = readfile('data/karmaResult_fail.json');
 var uniq = uuid.v4();
 result.build_id = "dra_fvt_" + uniq;

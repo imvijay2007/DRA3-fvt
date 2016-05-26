@@ -6,14 +6,13 @@ var path = require('path');
 var REQUEST = require('request');
 
 var dra_server = (process.env.DRA_SERVER || 'https://dra.stage1.ng.bluemix.net');
-//var dra_server = 'https://9.24.2.137:3456';
-//var dra_server = 'https://localhost:3456';
 var dlms_server = (process.env.DLMS_SERVER || 'https://dlms.stage1.ng.bluemix.net');
-var auth_url = 'https://login.stage1.ng.bluemix.net/UAALoginServerWAR/oauth/token';
+var auth_url = (process.env.AUTH_URL || 'https://login.stage1.ng.bluemix.net/UAALoginServerWAR/oauth/token');
 var o_name = (process.env.CF_ORG || 'vjegase@us.ibm.com');
 var uuid = require('node-uuid');
 
 var criteria = readfile('data/criteria/mocha_pass.json');
+criteria.org_name = o_name;
 var result = readfile('data/mochaResult_pass.json');
 var uniq = uuid.v4();
 result.build_id = "dra_fvt_" + uniq;
@@ -21,6 +20,7 @@ criteria.name = "criteria_" + uniq;
 
 var token;
 var assert_response;
+var assert_body;
 var assert_proceed;
 var assert_score;
 var decision_rules;
@@ -75,6 +75,7 @@ describe('FVT - TEST FOR NO DATA', function() {
         query.org_name = criteria.org_name;
         getdecision(dra_server, query, function() {
             assert.equal(assert_response,1);
+            assert.equal(assert_body,"No test results were found for the parameters specified");
             done();
         });
     });
@@ -223,6 +224,7 @@ function getdecision(server, query, callback) {
             } else {
                 console.log("Get decision failed:", body);
                 assert_response = 1; // Just to flag the response anything else than success (200)
+                assert_body=body;
             }
         }
         callback();
