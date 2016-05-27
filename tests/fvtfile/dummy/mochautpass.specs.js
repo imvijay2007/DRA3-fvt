@@ -6,15 +6,14 @@ var path = require('path');
 var REQUEST = require('request');
 
 var dra_server = (process.env.DRA_SERVER || 'https://dra.stage1.ng.bluemix.net');
-//var dra_server = 'https://9.24.2.137:3456';
-//var dra_server = 'https://localhost:3456';
 var dlms_server = (process.env.DLMS_SERVER || 'https://dlms.stage1.ng.bluemix.net');
-var auth_url = 'https://login.stage1.ng.bluemix.net/UAALoginServerWAR/oauth/token';
+var auth_url = (process.env.AUTH_URL || 'https://login.stage1.ng.bluemix.net/UAALoginServerWAR/oauth/token');
 var o_name = (process.env.CF_ORG || 'vjegase@us.ibm.com');
 var uuid = require('node-uuid');
 
-var criteria = readfile('data/criteria/istanbul_pass.json');
-var result = readfile('data/istanbulResult_pass.json');
+var criteria = readfile('data/criteria/mocha_pass.json');
+criteria.org_name = o_name;
+var result = readfile('data/mochaResult_pass.json');
 var uniq = uuid.v4();
 result.build_id = "dra_fvt_" + uniq;
 criteria.name = "criteria_" + uniq;
@@ -29,7 +28,7 @@ var request = REQUEST.defaults({
     strictSSL: false
 });
 
-describe('FVT - ISTANBUL COVERAGE PASS', function() {
+describe('FVT - MOCHA UT PASS', function() {
     it("get token", function(done) {
         this.timeout(20000);
         var options = { method: 'POST',
@@ -87,13 +86,20 @@ describe('FVT - ISTANBUL COVERAGE PASS', function() {
             assert.equal(assert_score,100);
             for(i=0; i<decision_rules.length; i++)
                 {
-                    assert.equal(decision_rules[i].stage,"code");
-                    assert.equal(decision_rules[i].format,"istanbul");
-                    if (decision_rules[i].name.indexOf("codeCoverage") > 0){
-                        assert.equal(decision_rules[i].parameter_name,"codeCoverage");
-                        assert.equal(decision_rules[i].expected_value,80);
+                    assert.equal(decision_rules[i].stage,"unittest");
+                    assert.equal(decision_rules[i].format,"mocha");
+                    if (decision_rules[i].name.indexOf("percentPass") > 0){
+                       assert.equal(decision_rules[i].parameter_name,"percentPass");
+                        assert.equal(decision_rules[i].expected_value,100);
                         assert.equal(decision_rules[i].proceed,true);
-                        assert.isAbove(decision_rules[i].functionResponse.actual_value,decision_rules[i].expected_value);
+                        assert.equal(decision_rules[i].expected_value,decision_rules[i].functionResponse.actual_value);
+                    }
+                    if (decision_rules[i].name.indexOf("criticalTests") > 0){
+                        assert.equal(decision_rules[i].parameter_name,"criticalTests");
+                        assert.equal(decision_rules[i].expected_value.length,decision_rules[i].functionResponse.failed_tests.length);
+                        assert.equal(decision_rules[i].proceed,true);
+                        assert.notEqual(decision_rules[i].expected_value[0].indexOf(decision_rules[i].functionResponse.failed_tests[0].test),-1);
+                        assert.equal(decision_rules[i].functionResponse.failed_tests[0].status,"success");
                     }
                 }
             done();

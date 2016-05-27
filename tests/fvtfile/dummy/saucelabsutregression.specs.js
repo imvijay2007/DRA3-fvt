@@ -6,30 +6,19 @@ var path = require('path');
 var REQUEST = require('request');
 
 var dra_server = (process.env.DRA_SERVER || 'https://dra.stage1.ng.bluemix.net');
-//var dra_server = 'https://9.24.2.137:3456';
-//var dra_server = 'https://localhost:3456';
 var dlms_server = (process.env.DLMS_SERVER || 'https://dlms.stage1.ng.bluemix.net');
-var auth_url = 'https://login.stage1.ng.bluemix.net/UAALoginServerWAR/oauth/token';
+var auth_url = (process.env.AUTH_URL || 'https://login.stage1.ng.bluemix.net/UAALoginServerWAR/oauth/token');
 var o_name = (process.env.CF_ORG || 'vjegase@us.ibm.com');
 var uuid = require('node-uuid');
 
-var criteria = readfile('data/criteria/mocha_pass.json');
+var criteria = readfile('data/criteria/saucelabs_pass.json');
+criteria.org_name = o_name;
 criteria.rules[0].regressionCheck=true;
 var uniq = uuid.v4();
-var mocha_pass = readfile('data/mochaResult_pass.json');
-mocha_pass.project_name = mocha_pass.project_name + "_" + uniq;
-var mocha_fail = readfile('data/mochaResult_fail.json');
-mocha_fail.project_name = mocha_fail.project_name + "_" + uniq;
-var istanbul_pass = readfile('data/istanbulResult_pass.json');
-istanbul_pass.project_name = istanbul_pass.project_name + "_" + uniq;
-var junit_pass = readfile('data/junitResult_pass.json');
-junit_pass.project_name = junit_pass.project_name + "_" + uniq;
-var blanket_pass = readfile('data/blanketResult_pass.json');
-blanket_pass.project_name = blanket_pass.project_name + "_" + uniq;
-var karma_pass = readfile('data/karmaResult_pass.json');
-karma_pass.project_name = karma_pass.project_name + "_" + uniq;
-var saucelabs_pass = readfile('data/saucelabsResult_pass.json');
-saucelabs_pass.project_name = saucelabs_pass.project_name + "_" + uniq;
+var result_good = readfile('data/saucelabsResult_pass.json');
+result_good.project_name = result_good.project_name + "_" + uniq;
+var result_bad = readfile('data/saucelabsResult_fail.json');
+result_bad.project_name = result_bad.project_name + "_" + uniq;
 criteria.name = "criteria_" + uniq;
 
 var token;
@@ -42,7 +31,7 @@ var request = REQUEST.defaults({
     strictSSL: false
 });
 
-describe('FVT - MULTIPLE ARTIFACTS', function() {
+describe('FVT - SAUCELABS UT REGRESSION', function() {
     it("get token", function(done) {
         this.timeout(20000);
         var options = { method: 'POST',
@@ -76,61 +65,11 @@ describe('FVT - MULTIPLE ARTIFACTS', function() {
             done();
         });
     });
-    it("post good result to DLMS - mocha", function(done) {
+    it("post good result to DLMS", function(done) {
         this.timeout(20000);
-        mocha_pass.org_name = criteria.org_name;
-        mocha_pass.build_id = "dra_fvt_" + uniq;
-        postresult(dlms_server, mocha_pass, function() {
-            assert.equal(assert_response, 200);
-            done();
-        });
-    });
-    
-    it("post good result to DLMS - istanbul", function(done) {
-        this.timeout(20000);
-        istanbul_pass.org_name = criteria.org_name;
-        istanbul_pass.build_id = "dra_fvt_" + uniq;
-        postresult(dlms_server, istanbul_pass, function() {
-            assert.equal(assert_response, 200);
-            done();
-        });
-    });
-    
-    it("post good result to DLMS - junit", function(done) {
-        this.timeout(20000);
-        junit_pass.org_name = criteria.org_name;
-        junit_pass.build_id = "dra_fvt_" + uniq;
-        postresult(dlms_server, junit_pass, function() {
-            assert.equal(assert_response, 200);
-            done();
-        });
-    });
-    
-    it("post good result to DLMS - karma", function(done) {
-        this.timeout(20000);
-        karma_pass.org_name = criteria.org_name;
-        karma_pass.build_id = "dra_fvt_" + uniq;
-        postresult(dlms_server, karma_pass, function() {
-            assert.equal(assert_response, 200);
-            done();
-        });
-    });
-    
-    it("post good result to DLMS - blanket", function(done) {
-        this.timeout(20000);
-        blanket_pass.org_name = criteria.org_name;
-        blanket_pass.build_id = "dra_fvt_" + uniq;
-        postresult(dlms_server, blanket_pass, function() {
-            assert.equal(assert_response, 200);
-            done();
-        });
-    });
-    
-    it("post good result to DLMS - saucelabs", function(done) {
-        this.timeout(20000);
-        saucelabs_pass.org_name = criteria.org_name;
-        saucelabs_pass.build_id = "dra_fvt_" + uniq;
-        postresult(dlms_server, saucelabs_pass, function() {
+        result_good.org_name = criteria.org_name;
+        result_good.build_id = "dra_fvt_" + uniq;
+        postresult(dlms_server, result_good, function() {
             assert.equal(assert_response, 200);
             done();
         });
@@ -139,10 +78,10 @@ describe('FVT - MULTIPLE ARTIFACTS', function() {
     it("Get decision from DRA for good", function(done) {
         this.timeout(20000);
         var query = {};
-        query.project_name = mocha_pass.project_name;
-        query.runtime_name = mocha_pass.runtime_name;
-        query.build_id = mocha_pass.build_id;
-        query.module_name = mocha_pass.module_name;
+        query.project_name = result_good.project_name;
+        query.runtime_name = result_good.runtime_name;
+        query.build_id = result_good.build_id;
+        query.module_name = result_good.module_name;
         query.criteria_name = criteria.name;
         query.org_name = criteria.org_name;
         getdecision(dra_server, query, function() {
@@ -155,9 +94,9 @@ describe('FVT - MULTIPLE ARTIFACTS', function() {
     
     it("post bad result to DLMS", function(done) {
         this.timeout(20000);
-        mocha_fail.org_name = criteria.org_name;
-        mocha_fail.build_id = "dra_fvt_" + uuid.v4(); // Assign new build ID
-        postresult(dlms_server, mocha_fail, function() {
+        result_bad.org_name = criteria.org_name;
+        result_bad.build_id = "dra_fvt_" + uuid.v4(); // Assign new build ID
+        postresult(dlms_server, result_bad, function() {
             assert.equal(assert_response, 200);
             done();
         });
@@ -166,10 +105,10 @@ describe('FVT - MULTIPLE ARTIFACTS', function() {
     it("Get decision from DRA for bad", function(done) {
         this.timeout(20000);
         var query = {};
-        query.project_name = mocha_fail.project_name;
-        query.runtime_name = mocha_fail.runtime_name;
-        query.build_id = mocha_fail.build_id;
-        query.module_name = mocha_fail.module_name;
+        query.project_name = result_bad.project_name;
+        query.runtime_name = result_bad.runtime_name;
+        query.build_id = result_bad.build_id;
+        query.module_name = result_bad.module_name;
         query.criteria_name = criteria.name;
         query.org_name = criteria.org_name;
         getdecision(dra_server, query, function() {
@@ -179,7 +118,7 @@ describe('FVT - MULTIPLE ARTIFACTS', function() {
             for(i=0; i<decision_rules.length; i++)
                 {
                     assert.equal(decision_rules[i].stage,"unittest");
-                    assert.equal(decision_rules[i].format,"mocha");
+                    assert.equal(decision_rules[i].format,"saucelabs");
                     if (decision_rules[i].name.indexOf("percentPass") > 0){
                         assert.equal(decision_rules[i].parameter_name,"percentPass");
                         assert.equal(decision_rules[i].expected_value,100);
@@ -197,8 +136,7 @@ describe('FVT - MULTIPLE ARTIFACTS', function() {
                         assert.equal(decision_rules[i].parameter_name,"regressionCheck");
                         assert.equal(decision_rules[i].expected_value,true);
                         assert.equal(decision_rules[i].proceed,false);
-                        assert.equal(decision_rules[i].functionResponse.last_good_build.build_id,mocha_pass.build_id);
-                        assert.notEqual(criteria.rules[0].criticalTests[0].indexOf(decision_rules[i].functionResponse.testcases_regressed[0]),-1);
+                        assert.equal(decision_rules[i].functionResponse.last_good_build.build_id,result_good.build_id); assert.notEqual(criteria.rules[0].criticalTests[0].indexOf(decision_rules[i].functionResponse.testcases_regressed[0]),-1);
                     }
                 }
             done();
