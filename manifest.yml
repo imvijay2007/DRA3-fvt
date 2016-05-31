@@ -1,13 +1,13 @@
 applications:
 - path: .
   memory: 128M
-  instances: 1
+  instances: 6
   domain: stage1.mybluemix.net
   name: drafvt
   host: drafvt
   disk_quota: 1024M
   env:
-    CF_USER: vjegase@us.ibm.coms
+    CF_USER: vjegase@us.ibm.com
     CF_PASS: password-1
     CF_ORG: vjegase_org
     DLMS_SERVER: https://dlms.ng.bluemix.net
