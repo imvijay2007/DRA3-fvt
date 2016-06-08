@@ -155,13 +155,16 @@ function removecriteria(server, criteria, callback) {
         }
     }, function(err, resp, body) {
         if (err) {
+            if((typeof(process.env.FVT_DEBUG) !== 'undefined') && (process.env.FVT_DEBUG === "true"))
             console.log("Aborted- ", err);
             assert_response = 1; // Just to flag the response anything else than success (200)
         } else {
             if (resp.statusCode === 200) {
                 assert_response = resp.statusCode;
+                if((typeof(process.env.FVT_DEBUG) !== 'undefined') && (process.env.FVT_DEBUG === "true"))
                 console.log(body);
             } else {
+                if((typeof(process.env.FVT_DEBUG) !== 'undefined') && (process.env.FVT_DEBUG === "true"))
                 console.log("Delete criteria failed:", body);
                 assert_response = 1; // Just to flag the response anything else than success (200)
             }
@@ -182,13 +185,16 @@ function postcriteria(server, criteria, callback) {
         }
     }, function(err, resp, body) {
         if (err) {
+            if((typeof(process.env.FVT_DEBUG) !== 'undefined') && (process.env.FVT_DEBUG === "true"))
             console.log("Aborted- ", err);
             assert_response = 1; // Just to flag the response anything else than success (200)
         } else {
             if (resp.statusCode === 201) {
                 assert_response = resp.statusCode;
+                if((typeof(process.env.FVT_DEBUG) !== 'undefined') && (process.env.FVT_DEBUG === "true"))
                 console.log(body);
             } else {
+                if((typeof(process.env.FVT_DEBUG) !== 'undefined') && (process.env.FVT_DEBUG === "true"))
                 console.log("Post criteria failed:", body);
                 assert_response = 1; // Just to flag the response anything else than success (200)
             }
@@ -209,13 +215,16 @@ function postresult(server, result, callback) {
         }
     }, function(err, resp, body) {
         if (err) {
+            if((typeof(process.env.FVT_DEBUG) !== 'undefined') && (process.env.FVT_DEBUG === "true"))
             console.log("Aborted- ", err);
             assert_response = 1; // Just to flag the response anything else than success (200)
         } else {
             if (resp.statusCode === 200) {
                 assert_response = resp.statusCode;
+                if((typeof(process.env.FVT_DEBUG) !== 'undefined') && (process.env.FVT_DEBUG === "true"))
                 console.log(body);
             } else {
+                if((typeof(process.env.FVT_DEBUG) !== 'undefined') && (process.env.FVT_DEBUG === "true"))
                 console.log("Post result failed:", body);
                 assert_response = 1; // Just to flag the response anything else than success (200)
             }
@@ -236,6 +245,7 @@ function getdecision(server, query, callback) {
         }
     }, function(err, resp, body) {
         if (err) {
+            if((typeof(process.env.FVT_DEBUG) !== 'undefined') && (process.env.FVT_DEBUG === "true"))
             console.log("Aborted- ", err);
             assert_response = 1; // Just to flag the response anything else than success (200)
         } else {
@@ -244,8 +254,10 @@ function getdecision(server, query, callback) {
                 assert_proceed = body.contents.proceed;
                 assert_score = body.contents.score;
                 decision_rules = body.contents.rules;
+                if((typeof(process.env.FVT_DEBUG) !== 'undefined') && (process.env.FVT_DEBUG === "true"))
                 console.log(JSON.stringify(body));
             } else {
+                if((typeof(process.env.FVT_DEBUG) !== 'undefined') && (process.env.FVT_DEBUG === "true"))
                 console.log("Get decision failed:", body);
                 assert_response = 1; // Just to flag the response anything else than success (200)
             }

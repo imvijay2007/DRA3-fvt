@@ -57,11 +57,13 @@ function getFilename(filename) {
 function gettoken(options, callback) {
     request(options, function (err, resp, body) {
       if (err) {
+          if((typeof(process.env.FVT_DEBUG) !== 'undefined') && (process.env.FVT_DEBUG === "true"))
             console.log("Aborted- ", err);
             assert_response = 1; // Just to flag the response anything else than success (200)
         } 
         else {
             var tok = JSON.parse(body);
+            if((typeof(process.env.FVT_DEBUG) !== 'undefined') && (process.env.FVT_DEBUG === "true"))
             console.log("User: %s |Token type:%s | Expires in:%s",process.env.CF_USER,tok.token_type,tok.expires_in);
             bmtoken = tok.access_token;
             assert_response = resp.statusCode;
