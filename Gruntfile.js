@@ -31,7 +31,7 @@ module.exports = function(grunt) {
                     quite: true,
                     captureFile: 'fvttest.json'
                 },
-                src: ['tests/fvtfile/*.specs.js']
+                src: ['tests/fvt/*.specs.js']
             }
         }
         
@@ -40,6 +40,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-mocha-test');
     
     grunt.registerTask('dev-fvttest', ['mochaTest:bm-token','mochaTest:fvt-spec']);
-    grunt.registerTask('dev-fvttestfile', ['mochaTest:fvt-spec-file']);
+    grunt.registerTask('dev-fvttestfile', ['mochaTest:bm-token','mochaTest:fvt-spec-file']);
 
 };
