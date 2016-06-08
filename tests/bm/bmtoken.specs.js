@@ -18,8 +18,7 @@ var request = REQUEST.defaults({
     strictSSL: false
 });
 
-describe('TEST PREREQUISITES', function() {
-    
+describe('TEST PREREQUISITES', function() { 
     it("Get bluemix token", function(done) {
         this.timeout(20000);
         //checktoken(function(body) {
@@ -40,7 +39,6 @@ describe('TEST PREREQUISITES', function() {
                 });
         //});
     }); 
-
 });
 
 function readfile(file) {
