@@ -7,7 +7,6 @@ var REQUEST = require('request');
 
 var dra_server = (process.env.DRA_SERVER || 'https://dra.stage1.ng.bluemix.net');
 var dlms_server = (process.env.DLMS_SERVER || 'https://dlms.stage1.ng.bluemix.net');
-var auth_url = (process.env.AUTH_URL || 'https://login.stage1.ng.bluemix.net/UAALoginServerWAR/oauth/token');
 var o_name = (process.env.CF_ORG || 'vjegase@us.ibm.com');
 var uuid = require('node-uuid');
 
@@ -18,7 +17,6 @@ var uniq = uuid.v4();
 result.build_id = "dra_fvt_" + uniq;
 criteria.name = "criteria_" + uniq;
 
-var token;
 var assert_response;
 var assert_proceed;
 var assert_score;
@@ -29,25 +27,6 @@ var request = REQUEST.defaults({
 });
 
 describe('FVT - BLANKET COVERAGE FAIL', function() {
-    it("get token", function(done) {
-        this.timeout(20000);
-        var options = { method: 'POST',
-          url: auth_url,
-          headers: 
-           { 'content-type': 'application/x-www-form-urlencoded',
-             authorization: 'Basic Y2Y6' },
-          form: 
-           { username: process.env.CF_USER,
-             password: process.env.CF_PASS,
-             grant_type: 'password',
-             response_type: 'token' } 
-            };
-        gettoken(options, function() {
-            assert.equal(assert_response, 200);
-            done();
-        });
-        // Remove
-    });
     it("remove criteria", function(done) {
         this.timeout(20000);
         removecriteria(dra_server, criteria, function() {
@@ -119,22 +98,6 @@ function getFilename(filename) {
     return file;
 }
 
-function gettoken(options, callback) {
-    request(options, function (err, resp, body) {
-      if (err) {
-            console.log("Aborted- ", err);
-            assert_response = 1; // Just to flag the response anything else than success (200)
-        } 
-        else {
-            var tok = JSON.parse(body);
-            console.log("User: %s |Token type:%s | Expires in:%s",process.env.CF_USER,tok.token_type,tok.expires_in);
-            token = tok.access_token;
-            assert_response = resp.statusCode;
-        }
-    callback();
-    });
-}
-
 function removecriteria(server, criteria, callback) {
     //console.log("server:",server);console.log("criteria:",criteria.name);
     request({
@@ -145,7 +108,7 @@ function removecriteria(server, criteria, callback) {
             org_name: criteria.org_name
         },
         headers: {
-            Authorization: 'bearer ' + token
+            Authorization: 'bearer ' + bmtoken
         }
     }, function(err, resp, body) {
         if (err) {
@@ -172,7 +135,7 @@ function postcriteria(server, criteria, callback) {
         json: true,
         body: criteria,
         headers: {
-            Authorization: 'bearer ' + token
+            Authorization: 'bearer ' + bmtoken
         }
     }, function(err, resp, body) {
         if (err) {
@@ -199,7 +162,7 @@ function postresult(server, result, callback) {
         json: true,
         body: result,
         headers: {
-            Authorization: 'bearer ' + token
+            Authorization: 'bearer ' + bmtoken
         }
     }, function(err, resp, body) {
         if (err) {
@@ -226,7 +189,7 @@ function getdecision(server, query, callback) {
         json: true,
         body: query,
         headers: {
-            Authorization: 'bearer ' + token
+            Authorization: 'bearer ' + bmtoken
         }
     }, function(err, resp, body) {
         if (err) {
