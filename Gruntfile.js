@@ -12,7 +12,7 @@ module.exports = function(grunt) {
                     colors: true,
                     quite: true
                 },
-                src: ['tests/bm/*.specs.js']
+                src: ['tests/bm/bmtoken.specs.js']
             },
             'fvt-spec': {
                 options: {
