@@ -1,0 +1,45 @@
+<testsuite name="Mocha Tests" tests="41" failures="1" errors="1" skipped="0" timestamp="Thu, 07 Jul 2016 21:20:42 GMT" time="0.045">
+<testcase classname="Default.js Publish tests" name="Test - Readme" time="0.002"><failure>Unexpected Response:devops-datastore
+AssertionError: Unexpected Response:devops-datastore
+    at Context.&lt;anonymous&gt; (test/default.spec.js:64:17)</failure></testcase>
+<testcase classname="Default.js Post tests" name="Post_results - no project_name" time="0.001"/>
+<testcase classname="Default.js Post tests" name="Post_results - invalid timestamp" time="0"/>
+<testcase classname="Default.js Post tests" name="Post_results - no contents-mime" time="0"/>
+<testcase classname="Default.js Post tests" name="Post_results - no reports-mime" time="0"/>
+<testcase classname="Default.js Post tests" name="Post_results - blank timestamp" time="0.001"/>
+<testcase classname="Default.js Post tests" name="Post_results - no timestamp" time="0"/>
+<testcase classname="Default.js Post tests - multipart" name="results_multipart - no project_name" time="0"/>
+<testcase classname="Default.js Post tests - multipart" name="results_multipart - invalid timestamp" time="0"/>
+<testcase classname="Default.js Post tests - multipart" name="results_multipart - invalid JSON for custom_metadata" time="0"/>
+<testcase classname="Default.js Post tests - multipart" name="results_multipart - no contents-mime" time="0"/>
+<testcase classname="Default.js Post tests - multipart" name="results_multipart - invalid contents-mime" time="0.001"/>
+<testcase classname="Default.js Post tests - multipart" name="results_multipart - invalid reports-mime" time="0"/>
+<testcase classname="Default.js Post tests - multipart" name="results_multipart - no reports-mime" time="0"/>
+<testcase classname="Default.js Get Message" name="get_results function" time="0"/>
+<testcase classname="Default.js Get Message" name="get_projects function - no org_name in query" time="0"/>
+<testcase classname="Default.js Get Message" name="get_projects function - success" time="0"/>
+<testcase classname="Default.js Get Message" name="get_runtimes function - no org_name" time="0.001"/>
+<testcase classname="Default.js Get Message" name="get_runtimes function - no project_name" time="0"/>
+<testcase classname="Default.js Get Message" name="get_runtimes function - success" time="0"/>
+<testcase classname="Default.js Get Message" name="get_modules function - no org_name" time="0"/>
+<testcase classname="Default.js Get Message" name="get_modules function - no project_name" time="0"/>
+<testcase classname="Default.js Get Message" name="get_modules function - success" time="0"/>
+<testcase classname="Default.js Get Message" name="get_environments function - no org_name" time="0.001"/>
+<testcase classname="Default.js Get Message" name="get_environments function - no project_name" time="0"/>
+<testcase classname="Default.js Get Message" name="get_environments function - success" time="0"/>
+<testcase classname="results.js Post results" name="Post - error" time="0.002"/>
+<testcase classname="results.js Post results" name="Post - no error" time="0.001"/>
+<testcase classname="results.js Get results" name="Get - error" time="0.001"/>
+<testcase classname="results.js Get results" name="Get - no error (empty body)" time="0"/>
+<testcase classname="results.js Get results" name="Get - no error (body with no _attachments)" time="0.001"/>
+<testcase classname="results.js Get results" name="Get - no error (body with _attachments)" time="0"/>
+<testcase classname="results.js Control-Center APIs" name="Get projects - error" time="0.001"/>
+<testcase classname="results.js Control-Center APIs" name="Get projects - no error" time="0"/>
+<testcase classname="results.js Control-Center APIs" name="Get modules - error" time="0"/>
+<testcase classname="results.js Control-Center APIs" name="Get modules - no error" time="0"/>
+<testcase classname="results.js Control-Center APIs" name="Get environments - error" time="0"/>
+<testcase classname="results.js Control-Center APIs" name="Get environments - no error" time="0"/>
+<testcase classname="results.js Control-Center APIs" name="Get runtimes - error" time="0.001"/>
+<testcase classname="results.js Control-Center APIs" name="Get runtimes - no error (without environment in query)" time="0"/>
+<testcase classname="results.js Control-Center APIs" name="Get runtimes - no error (with environment in query)" time="0.001"/>
+</testsuite>
