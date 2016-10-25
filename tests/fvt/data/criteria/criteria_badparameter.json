@@ -1,7 +1,0 @@
-{ 
-    "org_name": "vjegase@us.ibm.com",
-    "rules": [ 
-          { "name": "testsuccesspercentage"
-        }
-    ] 
-}

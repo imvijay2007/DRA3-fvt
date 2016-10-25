@@ -1,9 +1,16 @@
 module.exports = function(grunt) {
     
+    var now = new Date();
+    capture_file_name = 'fvttest_' + 
+        now.getMonth() + '_' + 
+        now.getDate() + '_' + 
+        now.getFullYear() + '_' + 
+        now.getHours() + '_' + 
+        now.getMinutes() + '_' + 
+        now.getSeconds() + '.json';
     
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-
         mochaTest: {
             'bm-token': {
                 options: {
@@ -29,12 +36,14 @@ module.exports = function(grunt) {
                     clearRequireCache: true,
                     colors: true,
                     quite: true,
-                    captureFile: 'fvttest.json'
+                    captureFile: capture_file_name
                 },
                 src: ['tests/fvt/*.specs.js']
+            },
+            'post-result': {
+                src: ['tests/postscript/*.js']
             }
         }
-        
     });
 
     grunt.loadNpmTasks('grunt-mocha-test');

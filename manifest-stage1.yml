@@ -10,6 +10,6 @@ applications:
     CF_USER: vjegase@us.ibm.com
     CF_PASS: password-1
     CF_ORG: vjegase@us.ibm.com
-    DLMS_SERVER: https://dlms.stage1.ng.bluemix.net
-    DRA_SERVER: https://dra.stage1.ng.bluemix.net
+    DLMS_SERVER: https://dev-dlms.stage1.ng.bluemix.net
+    DRA_SERVER: https://dev-dra.stage1.ng.bluemix.net
     AUTH_URL: https://login.stage1.ng.bluemix.net/UAALoginServerWAR/oauth/token
