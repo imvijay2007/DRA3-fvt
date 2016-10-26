@@ -1,13 +1,14 @@
 module.exports = function(grunt) {
     
     var now = new Date();
-    capture_file_name = 'fvttest_' + 
+    var capture_file_name = 'DLMSFvt_' + 
         now.getMonth() + '_' + 
         now.getDate() + '_' + 
         now.getFullYear() + '_' + 
         now.getHours() + '_' + 
         now.getMinutes() + '_' + 
-        now.getSeconds() + '.json';
+        now.getSeconds() + '_' +
+        now.getMilliseconds() + '.json';
     
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -48,7 +49,6 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-mocha-test');
     
-    grunt.registerTask('dev-fvttest', ['mochaTest:bm-token','mochaTest:fvt-spec']);
-    grunt.registerTask('dev-fvttestfile', ['mochaTest:bm-token','mochaTest:fvt-spec-file']);
+    grunt.registerTask('dev-fvttestfile', ['mochaTest:fvt-spec-file']);
 
 };

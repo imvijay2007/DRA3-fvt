@@ -18,6 +18,7 @@ U.S. Government Users Restricted Rights:  Use, duplication or disclosure restric
     var post_results_fvt = fs.readFileSync(getFilename('post_results_fvt.json'), 'utf8');
     var data = JSON.parse(post_results_fvt);
     var server = (process.env.DLMS_SERVER || 'https://dlms-test.stage1.ng.bluemix.net');
+    var auth_url = (process.env.AUTH_URL || 'https://login.stage1.ng.bluemix.net/UAALoginServerWAR/oauth/token');
     var org_name = (process.env.CF_ORG || 'vjegase@us.ibm.com');
 
     var draBasicAuth = 'Basic ' + new Buffer("draservicebroker:MjY5...").toString('base64');
@@ -28,6 +29,7 @@ U.S. Government Users Restricted Rights:  Use, duplication or disclosure restric
     data.build_id = random_guid;
     data.environment_name = 'DLMSFvtEnvironment_' + random_guid;
     var u_name = random_guid + '@us.ibm.com';
+    var bmtoken;
 
     var request = REQUEST.defaults({
         strictSSL: false
@@ -37,6 +39,37 @@ U.S. Government Users Restricted Rights:  Use, duplication or disclosure restric
         var file = path.join(__dirname, "data", filename);
         return file;
     }
+    
+    function login(cb) {
+    if (bmtoken) {
+        cb(bmtoken);
+    } else {
+        var options = {
+            method: 'POST',
+            url: auth_url,
+            headers: {
+                'content-type': 'application/x-www-form-urlencoded',
+                authorization: 'Basic Y2Y6'
+            },
+            form: {
+                username: process.env.CF_USER,
+                password: process.env.CF_PASS,
+                grant_type: 'password',
+                response_type: 'token'
+            }
+        };
+        request(options, function(err, resp, body) {
+            if (err) {
+                cb(null);
+            } else {
+                var tok = JSON.parse(body);
+                bmtoken = tok.access_token;
+                cb(bmtoken);
+            }
+        });
+
+    }
+}
 
     function arestcall(options, callback) {
         request(options, function(err, resp, body) {
@@ -51,6 +84,7 @@ U.S. Government Users Restricted Rights:  Use, duplication or disclosure restric
     describe('Test DLMS APIs', function() {
         it('RESULTS - post a build record', function(done) {
             this.timeout(60000);
+            login(function(bmtoken) {
                 var build_data = {
                     build_id: random_guid,
                     repository: {
@@ -77,9 +111,11 @@ U.S. Government Users Restricted Rights:  Use, duplication or disclosure restric
                     assert.equal(JSON.stringify(body), '{"status":"Accepted"}');
                     done();
                 });
+            });
         });
         it('RESULTS - post a message', function(done) {
             this.timeout(60000);
+            login(function(bmtoken) {
                 data.org_name = org_name;
                 var options = {
                     method: 'POST',
@@ -98,9 +134,11 @@ U.S. Government Users Restricted Rights:  Use, duplication or disclosure restric
                     assert.equal(JSON.stringify(body), '{"status":"Accepted"}');
                     done();
                 });
+            });
         });
         it('RESULTS - post a message with basicauth token', function(done) {
             this.timeout(60000);
+            login(function(bmtoken) {
                 data.org_name = org_name;
                 var options = {
                     method: 'POST',
@@ -118,9 +156,11 @@ U.S. Government Users Restricted Rights:  Use, duplication or disclosure restric
                     assert.equal(resp.statusCode, 403);
                     done();
                 });
+            });
         });
         it('RESULTS - post a deployment record', function(done) {
             this.timeout(60000);
+            login(function(bmtoken) {
                 var deploy_data = {
                     app_url: 'https://catalog-api.stage1.ng.bluemix.net',
                     job_url: 'http://www.defined.com/3234234',
@@ -143,9 +183,11 @@ U.S. Government Users Restricted Rights:  Use, duplication or disclosure restric
                     assert.equal(JSON.stringify(body), '{"status":"Accepted"}');
                     done();
                 });
+            });
         });
         it('RESULTS - get posted message', function(done) {
             this.timeout(60000);
+            login(function(bmtoken) {
                 var options = {
                     method: 'GET',
                     url: server + '/v1/results?org_name=' + org_name + '&project_name=' + data.project_name,
@@ -164,9 +206,11 @@ U.S. Government Users Restricted Rights:  Use, duplication or disclosure restric
                     assert.equal(body[0].project_name, data.project_name);
                     done();
                 });
+            });
         });
         it('RESULTS - update userinfo of retrieved message', function(done) {
             this.timeout(60000);
+            login(function(bmtoken) {
                 var updatedata = {
                     org_name: org_name,
                     runtime_name: data.runtime_name,
@@ -189,9 +233,11 @@ U.S. Government Users Restricted Rights:  Use, duplication or disclosure restric
                     assert.equal(JSON.stringify(body), '{"status":"User information updated successfully."}');
                     done();
                 });
+            });
         });
         it('RESULTS - get latestBuildResults of posted message', function(done) {
             this.timeout(60000);
+            login(function(bmtoken) {
             var option2 = {
                 method: 'GET',
                 url: server + '/v1/getLatestBuildResults?org_name=' + org_name,
@@ -219,9 +265,11 @@ U.S. Government Users Restricted Rights:  Use, duplication or disclosure restric
                     }
                 }
             });
+            });
         });
         it('RESULTS - get latestTestResults of posted message', function(done) {
             this.timeout(60000);
+            login(function(bmtoken) {
             var option2 = {
                 method: 'GET',
                 url: server + '/v1/getLatestTestResults?org_name=' + org_name,
@@ -267,9 +315,11 @@ U.S. Government Users Restricted Rights:  Use, duplication or disclosure restric
                 assert.equal(latest_deploy_exist, true);
                 done();
             });
+            });
         });
         it('CONTROL CENTER - get projects', function(done) {
             this.timeout(60000);
+            login(function(bmtoken) {
                 var options = {
                     method: 'GET',
                     url: server + '/v1/projects?org_name=' + org_name,
@@ -286,9 +336,11 @@ U.S. Government Users Restricted Rights:  Use, duplication or disclosure restric
                     assert.notEqual(body.indexOf(data.project_name), -1);
                     done();
                 });
+            });
         });
         it('CONTROL CENTER - get modules', function(done) {
             this.timeout(60000);
+            login(function(bmtoken) {
                 var options = {
                     method: 'GET',
                     url: server + '/v1/modules?org_name=' + org_name,
@@ -305,9 +357,11 @@ U.S. Government Users Restricted Rights:  Use, duplication or disclosure restric
                     assert.notEqual(body.indexOf(data.module_name), -1);
                     done();
                 });
+            });
         });
         it('CONTROL CENTER - get environments', function(done) {
             this.timeout(60000);
+            login(function(bmtoken) {
                 var options = {
                     method: 'GET',
                     url: server + '/v1/environments?org_name=' + org_name,
@@ -324,9 +378,11 @@ U.S. Government Users Restricted Rights:  Use, duplication or disclosure restric
                     assert.notEqual(body.indexOf(data.environment_name), -1);
                     done();
                 });
+            });
         });
         it('CONTROL CENTER - get runtimes', function(done) {
             this.timeout(60000);
+            login(function(bmtoken) {
                 var options = {
                     method: 'GET',
                     url: server + '/v1/runtimes?org_name=' + org_name + '&environmennt_name=' + data.environment_name,
@@ -343,6 +399,7 @@ U.S. Government Users Restricted Rights:  Use, duplication or disclosure restric
                     assert.notEqual(body.indexOf(data.runtime_name), -1);
                     done();
                 });
+            });
         });
     });
 }());
