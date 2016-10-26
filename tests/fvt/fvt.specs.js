@@ -39,37 +39,37 @@ U.S. Government Users Restricted Rights:  Use, duplication or disclosure restric
         var file = path.join(__dirname, "data", filename);
         return file;
     }
-    
-    function login(cb) {
-    if (bmtoken) {
-        cb(bmtoken);
-    } else {
-        var options = {
-            method: 'POST',
-            url: auth_url,
-            headers: {
-                'content-type': 'application/x-www-form-urlencoded',
-                authorization: 'Basic Y2Y6'
-            },
-            form: {
-                username: process.env.CF_USER,
-                password: process.env.CF_PASS,
-                grant_type: 'password',
-                response_type: 'token'
-            }
-        };
-        request(options, function(err, resp, body) {
-            if (err) {
-                cb(null);
-            } else {
-                var tok = JSON.parse(body);
-                bmtoken = tok.access_token;
-                cb(bmtoken);
-            }
-        });
 
+    function login(cb) {
+        if (bmtoken) {
+            cb(bmtoken);
+        } else {
+            var options = {
+                method: 'POST',
+                url: auth_url,
+                headers: {
+                    'content-type': 'application/x-www-form-urlencoded',
+                    authorization: 'Basic Y2Y6'
+                },
+                form: {
+                    username: process.env.CF_USER,
+                    password: process.env.CF_PASS,
+                    grant_type: 'password',
+                    response_type: 'token'
+                }
+            };
+            request(options, function(err, resp, body) {
+                if (err) {
+                    cb(null);
+                } else {
+                    var tok = JSON.parse(body);
+                    bmtoken = tok.access_token;
+                    cb(bmtoken);
+                }
+            });
+
+        }
     }
-}
 
     function arestcall(options, callback) {
         request(options, function(err, resp, body) {
@@ -238,83 +238,83 @@ U.S. Government Users Restricted Rights:  Use, duplication or disclosure restric
         it('RESULTS - get latestBuildResults of posted message', function(done) {
             this.timeout(60000);
             login(function(bmtoken) {
-            var option2 = {
-                method: 'GET',
-                url: server + '/v1/getLatestBuildResults?org_name=' + org_name,
-                headers: {
-                    Authorization: 'bearer ' + bmtoken
-                },
-                json: true
-            };
-            arestcall(option2, function(err, resp, body) {
-                for (var i = 0; i < body.results.length; i++) {
-                    if (body.results[i].runtime_name === data.runtime_name) {
-                        if (process.env.FVT_DEBUG === 'true') {
-                            console.log("GET /getLatestBuildResults response:", body.results[i]);
+                var option2 = {
+                    method: 'GET',
+                    url: server + '/v1/getLatestBuildResults?org_name=' + org_name,
+                    headers: {
+                        Authorization: 'bearer ' + bmtoken
+                    },
+                    json: true
+                };
+                arestcall(option2, function(err, resp, body) {
+                    for (var i = 0; i < body.results.length; i++) {
+                        if (body.results[i].runtime_name === data.runtime_name) {
+                            if (process.env.FVT_DEBUG === 'true') {
+                                console.log("GET /getLatestBuildResults response:", body.results[i]);
+                            }
+                            assert.equal(body.results[i].build_id, data.build_id);
+                            assert.equal(body.results[i].user_name, u_name);
+                            assert.equal(body.results[i].environments.length, 1);
+                            assert.equal(body.results[i].environments[0].environment_name, data.environment_name);
+                            assert.equal(body.results[i].environments[0].environment_results.length, 1);
+                            assert.equal(body.results[i].environments[0].environment_results[0].lifecycle_stage, 'unittest');
+                            assert.equal(body.results[i].environments[0].environment_results[0].tool, 'mocha');
+                            assert.equal(body.results[i].environments[0].environment_results[0].artifact_name, 'FVTArtifact');
+                            assert.equal(body.results[i].environments[0].environment_results[0].summaryResults.passed, 56);
+                            done();
                         }
-                        assert.equal(body.results[i].build_id, data.build_id);
-                        assert.equal(body.results[i].user_name, u_name);
-                        assert.equal(body.results[i].environments.length, 1);
-                        assert.equal(body.results[i].environments[0].environment_name, data.environment_name);
-                        assert.equal(body.results[i].environments[0].environment_results.length, 1);
-                        assert.equal(body.results[i].environments[0].environment_results[0].lifecycle_stage, 'unittest');
-                        assert.equal(body.results[i].environments[0].environment_results[0].tool, 'mocha');
-                        assert.equal(body.results[i].environments[0].environment_results[0].artifact_name, 'FVTArtifact');
-                        assert.equal(body.results[i].environments[0].environment_results[0].summaryResults.passed, 56);
-                        done();
                     }
-                }
-            });
+                });
             });
         });
         it('RESULTS - get latestTestResults of posted message', function(done) {
             this.timeout(60000);
             login(function(bmtoken) {
-            var option2 = {
-                method: 'GET',
-                url: server + '/v1/getLatestTestResults?org_name=' + org_name,
-                headers: {
-                    Authorization: 'bearer ' + bmtoken
-                },
-                json: true
-            };
-            arestcall(option2, function(err, resp, body) {
-                assert.isAbove(body.branches.length, 0);
-                var branch_and_environment_exist = false;
-                for (var i = 0; i < body.branches.length; i++) {
-                    if (body.branches[i].branch === 'dlmsfvt' && body.branches[i].build_environment_name === data.environment_name) {
-                        branch_and_environment_exist = true;
+                var option2 = {
+                    method: 'GET',
+                    url: server + '/v1/getLatestTestResults?org_name=' + org_name,
+                    headers: {
+                        Authorization: 'bearer ' + bmtoken
+                    },
+                    json: true
+                };
+                arestcall(option2, function(err, resp, body) {
+                    assert.isAbove(body.branches.length, 0);
+                    var branch_and_environment_exist = false;
+                    for (var i = 0; i < body.branches.length; i++) {
+                        if (body.branches[i].branch === 'dlmsfvt' && body.branches[i].build_environment_name === data.environment_name) {
+                            branch_and_environment_exist = true;
+                        }
                     }
-                }
-                assert.equal(branch_and_environment_exist, true);
-                assert.isAbove(body.test_results.length, 0);
-                for (var i = 0; i < body.test_results.length; i++) {
-                    if (body.test_results[i].runtime_name === data.runtime_name) {
-                        assert.equal(body.test_results[i].environments.length, 1);
-                        assert.equal(body.test_results[i].environments[0].environment_name, data.environment_name);
-                        assert.equal(body.test_results[i].environments[0].environment_results[0].lifecycle_stage, 'unittest');
-                        assert.equal(body.test_results[i].environments[0].environment_results[0].tool, 'mocha');
-                        assert.equal(body.test_results[i].environments[0].environment_results[0].artifact_name, 'FVTArtifact');
-                        assert.equal(body.test_results[i].environments[0].environment_results[0].summaryResults.passed, 56);
+                    assert.equal(branch_and_environment_exist, true);
+                    assert.isAbove(body.test_results.length, 0);
+                    for (var i = 0; i < body.test_results.length; i++) {
+                        if (body.test_results[i].runtime_name === data.runtime_name) {
+                            assert.equal(body.test_results[i].environments.length, 1);
+                            assert.equal(body.test_results[i].environments[0].environment_name, data.environment_name);
+                            assert.equal(body.test_results[i].environments[0].environment_results[0].lifecycle_stage, 'unittest');
+                            assert.equal(body.test_results[i].environments[0].environment_results[0].tool, 'mocha');
+                            assert.equal(body.test_results[i].environments[0].environment_results[0].artifact_name, 'FVTArtifact');
+                            assert.equal(body.test_results[i].environments[0].environment_results[0].summaryResults.passed, 56);
+                        }
                     }
-                }
-                assert.isAbove(body.latest_builds.length, 0);
-                var latest_build_exist = false;
-                for (var i = 0; i < body.latest_builds.length; i++) {
-                    if (body.latest_builds[i].branch === 'dlmsfvt' && body.latest_builds[i].environment_name === data.environment_name) {
-                        latest_build_exist = true;
+                    assert.isAbove(body.latest_builds.length, 0);
+                    var latest_build_exist = false;
+                    for (var i = 0; i < body.latest_builds.length; i++) {
+                        if (body.latest_builds[i].branch === 'dlmsfvt' && body.latest_builds[i].environment_name === data.environment_name) {
+                            latest_build_exist = true;
+                        }
                     }
-                }
-                assert.equal(latest_build_exist, true);
-                var latest_deploy_exist = false;
-                for (var i = 0; i < body.latest_deployments.length; i++) {
-                    if (body.latest_deployments[i].app_url === 'https://catalog-api.stage1.ng.bluemix.net' && body.latest_deployments[i].environment_name === data.environment_name) {
-                        latest_deploy_exist = true;
+                    assert.equal(latest_build_exist, true);
+                    var latest_deploy_exist = false;
+                    for (var i = 0; i < body.latest_deployments.length; i++) {
+                        if (body.latest_deployments[i].app_url === 'https://catalog-api.stage1.ng.bluemix.net' && body.latest_deployments[i].environment_name === data.environment_name) {
+                            latest_deploy_exist = true;
+                        }
                     }
-                }
-                assert.equal(latest_deploy_exist, true);
-                done();
-            });
+                    assert.equal(latest_deploy_exist, true);
+                    done();
+                });
             });
         });
         it('CONTROL CENTER - get projects', function(done) {
