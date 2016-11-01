@@ -1,7 +1,7 @@
 applications:
 - path: .
   memory: 128M
-  instances: 1
+  instances: 25
   domain: stage1.mybluemix.net
   name: drafvtstage1
   host: drafvtstage1
@@ -12,4 +12,4 @@ applications:
     CF_ORG: '["DLMS_LOADTEST_1","DLMS_LOADTEST_2","DLMS_LOADTEST_3","DLMS_LOADTEST_4","DLMS_LOADTEST_5"]'
     DLMS_SERVER: https://dev-dlms.stage1.ng.bluemix.net
     AUTH_URL: https://login.stage1.ng.bluemix.net/UAALoginServerWAR/oauth/token
-    RUN_INTERVAL: 5
+    RUN_INTERVAL: 2
