@@ -20,7 +20,8 @@ U.S. Government Users Restricted Rights:  Use, duplication or disclosure restric
     var server = (process.env.DLMS_SERVER || 'https://dlms-test.stage1.ng.bluemix.net');
     var auth_url = (process.env.AUTH_URL || 'https://login.stage1.ng.bluemix.net/UAALoginServerWAR/oauth/token');
     var orglist = process.env.CF_ORG;
-    var org_name = orglist[Math.floor(Math.random() * orglist.length)];
+    var orglistarray = JSON.parse(orglist);
+    var org_name = orglistarray[Math.floor(Math.random() * orglistarray.length)];
     //var org_name = (process.env.CF_ORG || 'vjegase@us.ibm.com');
 
     var draBasicAuth = 'Basic ' + new Buffer("draservicebroker:MjY5...").toString('base64');

@@ -9,12 +9,7 @@ applications:
   env:
     CF_USER: vjegase@us.ibm.com
     CF_PASS: password-1
-    CF_ORG: 
-    - DLMS_LOADTEST_1
-    - DLMS_LOADTEST_2
-    - DLMS_LOADTEST_3
-    - DLMS_LOADTEST_4
-    - DLMS_LOADTEST_5 
+    CF_ORG: '["DLMS_LOADTEST_1","DLMS_LOADTEST_2","DLMS_LOADTEST_3","DLMS_LOADTEST_4","DLMS_LOADTEST_5"]'
     DLMS_SERVER: https://dev-dlms.stage1.ng.bluemix.net
     AUTH_URL: https://login.stage1.ng.bluemix.net/UAALoginServerWAR/oauth/token
     RUN_INTERVAL: 5
